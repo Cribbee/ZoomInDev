@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import sys
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, BASE_DIR)
@@ -51,6 +52,8 @@ INSTALLED_APPS = [
     'guardian',
     'DjangoUeditor',
     'users',
+    'tasks',
+
 ]
 
 MIDDLEWARE = [
@@ -100,6 +103,8 @@ DATABASES = {
 }
 
 
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
@@ -141,3 +146,8 @@ STATIC_URL = '/static/'
 #  使django能够找到media文件夹，存取图片,setting.py中设置完后，还要到url.py进行设置
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#  使django能够找到upload文件夹，存取图片,setting.py中设置完后，还要到url.py进行设置
+UPLOAD_URL = '/upload/'
+UPLOAD_ROOT = os.path.join(BASE_DIR, "upload")
+

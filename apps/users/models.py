@@ -16,6 +16,8 @@ class UserProfile(AbstractUser):
     mobile = models.CharField(max_length=11, verbose_name="电话")
     gender = models.CharField(max_length=6, choices=(("male", "男"), ("female", "女")), default="female", verbose_name="性别")
     email = models.CharField(max_length=100, null=True, blank=True, verbose_name="邮箱")
+    task_num = models.IntegerField(max_length=10, null=True, default=0,verbose_name="任务数量")
+
 
     class Meta:
         verbose_name = "用户"
