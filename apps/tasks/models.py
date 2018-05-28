@@ -35,3 +35,10 @@ class TaskInfo(models.Model):
         return self.task_name
 
 
+class DataSet(models.Model):
+    """
+    数据集信息
+    """
+    task = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务信息")
+
+
