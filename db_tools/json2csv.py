@@ -11,9 +11,11 @@ def trans():
 
     fr = codecs.open("/Users/cribbee/Downloads/raw.2.json", 'r', 'utf-8')
     ls = json.load(fr)
+    print(fr)
+    print(ls)
     data = [list(ls[0].keys())]
     for item in ls:
-        print(item)
+        #print(item)
         data.append(list(item.values()))
     fr.close()
 
