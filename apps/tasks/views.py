@@ -25,15 +25,9 @@ def jsonUpload(request):
 @api_view(['GET', 'POST'])
 def DataProcessing(request):
     if request.method == 'POST':
-        fw = open("/Users/cribbee/Downloads/csv2json.json", 'r')
-
-        ls = json.dumps([{"t": "2017-12-20T10:53:51.582000+08:00", "h": "1"}])
-
-        # data = [list(ls[0].keys())]
-        # for item in ls:
-        #
-        #     data.append(list(item.values()))
-        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
+        fw = codecs.open("/Users/cribbee/Downloads/csv2json.json", 'r', 'utf-8')
+        ls = json.load(fw)
+        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": ls})
 
     return Response({"message": "Please Use POST-method"})
 
