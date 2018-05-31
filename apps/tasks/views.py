@@ -27,9 +27,18 @@ def DataProcessing(request):
     if request.method == 'POST':
         fw = codecs.open("/Users/cribbee/Downloads/csv2json.json", 'r', 'utf-8')
         ls = json.load(fw)
-        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": ls})
+        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
     return Response({"message": "Please Use POST-method"})
+
+
+@api_view(['GET'])
+def scoreAnalysis(request):
+    fw = codecs.open("/Downloads/csv2json2222.json", 'r', 'utf-8')
+    ls = json.load(fw)
+    return Response({"message": "获取成绩单JSON数据", "data": ls})
+
+
 
 
 

@@ -8,6 +8,8 @@ from . import views
 urlpatterns = [
     url(r'^/getJsonFile$', views.jsonUpload),
     url(r'^/dataProcessing$', views.DataProcessing),
+    url(r'^/scoreAnalysis$', views.scoreAnalysis),
+
 
 
 ]
