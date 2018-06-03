@@ -34,9 +34,9 @@ def DataProcessing(request):
 
 @api_view(['GET'])
 def scoreAnalysis(request):
-    fw = codecs.open("/Downloads/csv2json2222.json", 'r', 'utf-8')
+    fw = codecs.open("/home/ZoomInDev/csv2json2222.json", 'r', 'utf-8')
     ls = json.load(fw)
-    return Response({"message": "获取成绩单JSON数据", "data": ls})
+    return Response({"message": "展示成绩单JSON数据", "data": ls})
 
 
 
