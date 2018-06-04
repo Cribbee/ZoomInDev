@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import sys
+from django.core.files.storage import FileSystemStorage
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -130,7 +131,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "zoomIn",
         'USER': "root",
-        'PASSWORD': "BNU123>0808",
+        'PASSWORD': "dengdaiwushi",
         'HOST': "127.0.0.1",
         'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
@@ -181,13 +182,10 @@ AUTHENTICATION_BACKENDS = (
 
 STATIC_URL = '/static/'
 
-#  使django能够找到media文件夹，存取图片,setting.py中设置完后，还要到url.py进行设置
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+#  使django能够找到upload文件夹，存取文件,setting.py中设置完后，还要到url.py进行设置
+MEDIA_URL = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "upload")
 
-#  使django能够找到upload文件夹，存取图片,setting.py中设置完后，还要到url.py进行设置
-UPLOAD_URL = '/upload/'
-UPLOAD_ROOT = os.path.join(BASE_DIR, "upload")
 
 
 REST_FRAMEWORK = {

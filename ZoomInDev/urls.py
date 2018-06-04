@@ -22,7 +22,6 @@ from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
 
 from ZoomInDev.settings import MEDIA_ROOT
-from ZoomInDev.settings import UPLOAD_ROOT
 from django.views.static import serve
 
 from users.views import UserViewset
@@ -34,8 +33,7 @@ router.register(r'users', UserViewset, base_name="users")
 
 
 urlpatterns = [
-    url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-    url(r'^upload/(?P<path>.*)$', serve, {"document_root": UPLOAD_ROOT}),
+    url(r'^upload/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^task', include(tasks)),
 
