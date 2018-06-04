@@ -29,3 +29,17 @@ class trans():
         for item in data:
             writer.writerow(item)
         fw.close()
+
+    def csv2json(self):
+        fr = codecs.open(self.csvpath, 'r', 'utf-8')
+        ls = []
+        for line in fr:
+            line = line.replace("\n", "")
+            ls.append(line.split(','))
+        fr.close()
+
+        fw = codecs.open(self.jsonpath, 'w', 'utf-8')
+        for i in range(1, len(ls)):
+            ls[i] = dict(zip(ls[0], ls[i]))
+        json.dump(ls[1:], fw, sort_keys=True, indent=4, ensure_ascii=False)
+        fw.close()
