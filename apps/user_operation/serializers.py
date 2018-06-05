@@ -3,8 +3,10 @@ __author__ = 'Cribbee'
 __create_at__ = 2018 / 6 / 5
 
 from rest_framework import serializers
-from user_operation.models import UserTask
 from rest_framework.validators import UniqueTogetherValidator
+
+from user_operation.models import UserTask
+
 
 
 class UserTaskSerializer(serializers.ModelSerializer):
@@ -26,3 +28,10 @@ class UserTaskSerializer(serializers.ModelSerializer):
         model = UserTask
         # 收藏的时候需要返回任务的id，因为取消收藏的时候必须知道任务的id是多少
         fields = ("user", "tasks", 'id')
+
+# class UserFavDetailSerializer(serializers.ModelSerializer):
+#     tasks = TakSerializer()
+#
+#     class Meta:
+#         model = UserFav
+#         fields = ("goods", "id")

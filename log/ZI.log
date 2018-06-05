@@ -1129,3 +1129,1396 @@ Traceback (most recent call last):
 django.template.base.VariableDoesNotExist: Failed lookup for key [allow_blank] in <BoundField value= errors=None>
 (0.008) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time` FROM `tasks_taskinfo` LIMIT 1000; args=()
 "GET /usertask/ HTTP/1.1" 200 8605
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.011) SHOW FULL TABLES; args=None
+(0.004) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5356
+"GET /usertask/ HTTP/1.1" 401 5221
+"GET /usertask/ HTTP/1.1" 401 5221
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d47e940>}
+"GET /login/ HTTP/1.1" 405 7693
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'lxy' OR `users_userprofile`.`mobile` = 'lxy'); args=('lxy', 'lxy')
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d3fbd30>}
+"POST /login/ HTTP/1.1" 400 7734
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d45d3c8>}
+"POST /login/ HTTP/1.1" 400 7733
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d4b4e10>}
+"POST /login/ HTTP/1.1" 400 7733
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d457a20>}
+"POST /login/ HTTP/1.1" 400 7733
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x10d44b550>}
+"POST /login/ HTTP/1.1" 400 7733
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.014) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5356
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a2b1d0>}
+"GET /users/ HTTP/1.1" 405 7634
+(0.003) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.002) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.005) SELECT (1) AS `a` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12' LIMIT 1; args=('test12',)
+(0.005) INSERT INTO `users_userprofile` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `is_staff`, `is_active`, `date_joined`, `name`, `birthday`, `mobile`, `gender`, `email`, `task_num`) VALUES ('test', NULL, 0, 'test12', '', '', 0, 1, '2018-06-05 14:00:12.226136', NULL, NULL, '', 'female', NULL, 0); args=['test', None, False, 'test12', '', '', False, True, '2018-06-05 14:00:12.226136', None, None, '', 'female', None, 0]
+(0.002) UPDATE `users_userprofile` SET `password` = 'pbkdf2_sha256$100000$jy9zvvmc90v0$nLYAXEhuePyGTvlmnmeMKvhpis2SARFyaKVt85x8zc8=', `last_login` = NULL, `is_superuser` = 0, `username` = 'test12', `first_name` = '', `last_name` = '', `is_staff` = 0, `is_active` = 1, `date_joined` = '2018-06-05 14:00:12.226136', `name` = NULL, `birthday` = NULL, `mobile` = '', `gender` = 'female', `email` = NULL, `task_num` = 0 WHERE `users_userprofile`.`id` = 5; args=('pbkdf2_sha256$100000$jy9zvvmc90v0$nLYAXEhuePyGTvlmnmeMKvhpis2SARFyaKVt85x8zc8=', False, 'test12', '', '', False, True, '2018-06-05 14:00:12.226136', '', 'female', 0, 5)
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'text', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+Exception while resolving variable 'hide_label' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'hide_label'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [hide_label] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+Exception while resolving variable 'placeholder' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'placeholder'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [placeholder] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+Exception while resolving variable 'autofocus' in template 'rest_framework/horizontal/input.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+KeyError: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'dict' object has no attribute 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'autofocus'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [autofocus] in {'base_template': 'input.html', 'input_type': 'password', 'template_pack': 'rest_framework/horizontal', 'renderer': <rest_framework.renderers.HTMLFormRenderer object at 0x113a9deb8>}
+"POST /users/ HTTP/1.1" 201 7803
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 37
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+Internal Server Error: /usertask/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/mixins.py", line 47, in list
+    serializer = self.get_serializer(queryset, many=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/generics.py", line 112, in get_serializer
+    return serializer_class(*args, **kwargs)
+TypeError: 'str' object is not callable
+(0.001) SELECT `user_operation_usertask`.`id`, `user_operation_usertask`.`user_id`, `user_operation_usertask`.`tasks_id`, `user_operation_usertask`.`add_time` FROM `user_operation_usertask` WHERE `user_operation_usertask`.`user_id` = 5 LIMIT 21; args=(5,)
+(0.000) SELECT `user_operation_usertask`.`id`, `user_operation_usertask`.`user_id`, `user_operation_usertask`.`tasks_id`, `user_operation_usertask`.`add_time` FROM `user_operation_usertask` WHERE `user_operation_usertask`.`user_id` = 5 LIMIT 21; args=(5,)
+"GET /usertask/ HTTP/1.1" 500 16520
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 37
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 37
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 62
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 62
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 62
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+"POST /usertask/ HTTP/1.1" 400 37
+11111111111111111111
+
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.009) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`id` = 1; args=(1,)
+(0.000) SELECT (1) AS `a` FROM `user_operation_usertask` WHERE (`user_operation_usertask`.`tasks_id` = 1 AND `user_operation_usertask`.`user_id` = 5) LIMIT 1; args=(1, 5)
+"POST /usertask/ HTTP/1.1" 400 49
