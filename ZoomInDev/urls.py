@@ -25,12 +25,13 @@ from ZoomInDev.settings import MEDIA_ROOT
 from django.views.static import serve
 
 from users.views import UserViewset
+from user_operation.views import UserTaskViewset
 from tasks import urls as tasks
 
 router = DefaultRouter()
 
 router.register(r'users', UserViewset, base_name="users")
-
+router.register(r'usertask', UserTaskViewset, base_name="usertask")
 
 urlpatterns = [
     url(r'^upload/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),

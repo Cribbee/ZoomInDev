@@ -27,7 +27,7 @@ class UserRegSerializer(serializers.ModelSerializer):
         style={'input_type': 'password'}, help_text="密码", label="密码", write_only=True, max_length=16, min_length=4,
         error_messages={
             "max_length": "密码不能多于16位",
-            "min_length": "密码不能少于16位",
+            "min_length": "密码不能少于4位",
         }
     )
 

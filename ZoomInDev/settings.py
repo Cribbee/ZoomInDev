@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import sys
-from django.core.files.storage import FileSystemStorage
+import logging
+import django.utils.log
+import logging.handlers
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -56,25 +58,26 @@ INSTALLED_APPS = [
     'DjangoUeditor',
     'users.apps.UsersConfig',
     'tasks',
+    'user_operation.apps.UserOperationConfig',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = (
-    '*',
-)
+CORS_ORIGIN_WHITELIST = ('*',)
+
 
 
 CORS_ALLOW_METHODS = (
@@ -121,6 +124,26 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'ZoomInDev.wsgi.application'
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'log/ZI.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
 
 
 # Database
@@ -198,6 +221,7 @@ REST_FRAMEWORK = {
 
 
 }
+
 
 #JWT的一些设置参考git上官方文档：
 import datetime
