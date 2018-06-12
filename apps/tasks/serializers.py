@@ -24,3 +24,10 @@ class TaskSerializer(serializers.ModelSerializer):
         ]
 
         fields = ("user", "task_name", "task_desc")
+
+
+class TaskDetailSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = TaskInfo
+        fields = ("user", "task_name", "task_desc", "status_type", "add_time", "data_num")

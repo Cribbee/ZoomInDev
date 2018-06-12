@@ -4908,3 +4908,489 @@ AssertionError: The field 'user' was declared on serializer TaskSerializer, but 
 "GET /docs/ HTTP/1.1" 200 88845
 "GET /docs/schema.js HTTP/1.1" 200 5944
 "GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/urls/resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern '^upload/(?P<path>.*)$'>], [<URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users/$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users\.(?P<format>[a-z0-9]+)/?$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask\.(?P<format>[a-z0-9]+)/?$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)/$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo\.(?P<format>[a-z0-9]+)/?$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)/$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^$' [name='api-root']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^\.(?P<format>[a-z0-9]+)/?$' [name='api-root']>], [<URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>], [<URLPattern '^api-token-auth/'>], [<URLPattern '^login/'>]], 'path': 'Task/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/urls/resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern '^upload/(?P<path>.*)$'>], [<URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users/$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users\.(?P<format>[a-z0-9]+)/?$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask\.(?P<format>[a-z0-9]+)/?$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)/$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo\.(?P<format>[a-z0-9]+)/?$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)/$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^$' [name='api-root']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^\.(?P<format>[a-z0-9]+)/?$' [name='api-root']>], [<URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>], [<URLPattern '^api-token-auth/'>], [<URLPattern '^login/'>]], 'path': 'Task/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/urls/resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern '^upload/(?P<path>.*)$'>], [<URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users/$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users\.(?P<format>[a-z0-9]+)/?$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask\.(?P<format>[a-z0-9]+)/?$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)/$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo\.(?P<format>[a-z0-9]+)/?$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)/$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^$' [name='api-root']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^\.(?P<format>[a-z0-9]+)/?$' [name='api-root']>], [<URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>], [<URLPattern '^api-token-auth/'>], [<URLPattern '^login/'>]], 'path': 'Task/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>
+Not Found: /Task/
+"GET /Task/ HTTP/1.1" 404 4922
+"GET / HTTP/1.1" 200 5488
+"GET /taskinfo/ HTTP/1.1" 401 5191
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'wdmzjlxy123' OR `users_userprofile`.`mobile` = 'wdmzjlxy123'); args=('wdmzjlxy123', 'wdmzjlxy123')
+"POST /login/ HTTP/1.1" 200 184
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+Internal Server Error: /taskinfo/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'task_desc' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/mixins.py", line 21, in create
+    self.perform_create(serializer)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/mixins.py", line 26, in perform_create
+    serializer.save()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 214, in save
+    self.instance = self.create(validated_data)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 940, in create
+    instance = ModelClass.objects.create(**validated_data)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 417, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/base.py", line 729, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/base.py", line 759, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/base.py", line 842, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/base.py", line 880, in _do_insert
+    using=using, raw=raw)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 1125, in _insert
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1284, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'task_desc' in 'field list'")
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+"POST /taskinfo/ HTTP/1.1" 500 21827
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.004) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_desc` varchar(120) DEFAULT %s NULL; (params [''])
+(0.055) ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_desc` varchar(120) DEFAULT '' NULL; args=['']
+ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_desc` DROP DEFAULT; (params [])
+(0.011) ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_desc` DROP DEFAULT; args=[]
+(0.008) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_taskinfo'; args=['tasks_taskinfo']
+(0.001) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('tasks', '0003_taskinfo_task_desc', '2018-06-12 13:58:57.960739'); args=['tasks', '0003_taskinfo_task_desc', '2018-06-12 13:58:57.960739']
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(3,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'corsheaders'; args=('corsheaders',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'rest_framework'; args=('rest_framework',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'authtoken' AND `django_content_type`.`model` = 'token'); args=('authtoken', 'token')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(11,)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'authtoken'; args=('authtoken',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'django_filters'; args=('django_filters',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'groupobjectpermission'); args=('guardian', 'groupobjectpermission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'userobjectpermission'); args=('guardian', 'userobjectpermission')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 7)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'guardian'; args=('guardian',)
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'AnonymousUser'; args=('AnonymousUser',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'DjangoUeditor'; args=('DjangoUeditor',)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userprofile'); args=('users', 'userprofile')
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'verifycode'); args=('users', 'verifycode')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4, 5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4, 5)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'users'; args=('users',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'dataset'); args=('tasks', 'dataset')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'taskinfo'); args=('tasks', 'taskinfo')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (9, 10) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'tasks'; args=('tasks',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user_operation' AND `django_content_type`.`model` = 'usertask'); args=('user_operation', 'usertask')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user_operation'; args=('user_operation',)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+"POST /taskinfo/ HTTP/1.1" 201 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.004) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 2); args=(4, 2)
+"GET /taskinfo/2/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.022) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.000) SELECT VERSION(); args=None
+(0.017) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.003) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(3,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'corsheaders'; args=('corsheaders',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'rest_framework'; args=('rest_framework',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'authtoken' AND `django_content_type`.`model` = 'token'); args=('authtoken', 'token')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(11,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'authtoken'; args=('authtoken',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'django_filters'; args=('django_filters',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'groupobjectpermission'); args=('guardian', 'groupobjectpermission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'userobjectpermission'); args=('guardian', 'userobjectpermission')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 7)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'guardian'; args=('guardian',)
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'AnonymousUser'; args=('AnonymousUser',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'DjangoUeditor'; args=('DjangoUeditor',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userprofile'); args=('users', 'userprofile')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'verifycode'); args=('users', 'verifycode')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4, 5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4, 5)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'users'; args=('users',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'dataset'); args=('tasks', 'dataset')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'taskinfo'); args=('tasks', 'taskinfo')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (9, 10) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'tasks'; args=('tasks',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user_operation' AND `django_content_type`.`model` = 'usertask'); args=('user_operation', 'usertask')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user_operation'; args=('user_operation',)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.000) SELECT VERSION(); args=None
+(0.011) SHOW FULL TABLES; args=None
+(0.004) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.002) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+ALTER TABLE `tasks_taskinfo` CHANGE `state_type` `status_type` integer NOT NULL; (params ())
+(0.020) ALTER TABLE `tasks_taskinfo` CHANGE `state_type` `status_type` integer NOT NULL; args=()
+(0.001) SHOW FULL TABLES; args=None
+(0.001) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('tasks', '0004_auto_20180612_1419', '2018-06-12 14:19:42.000379'); args=['tasks', '0004_auto_20180612_1419', '2018-06-12 14:19:42.000379']
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(3,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'corsheaders'; args=('corsheaders',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'rest_framework'; args=('rest_framework',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'authtoken' AND `django_content_type`.`model` = 'token'); args=('authtoken', 'token')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(11,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'authtoken'; args=('authtoken',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'django_filters'; args=('django_filters',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'groupobjectpermission'); args=('guardian', 'groupobjectpermission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'userobjectpermission'); args=('guardian', 'userobjectpermission')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 7)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'guardian'; args=('guardian',)
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'AnonymousUser'; args=('AnonymousUser',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'DjangoUeditor'; args=('DjangoUeditor',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userprofile'); args=('users', 'userprofile')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'verifycode'); args=('users', 'verifycode')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4, 5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4, 5)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'users'; args=('users',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'dataset'); args=('tasks', 'dataset')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'taskinfo'); args=('tasks', 'taskinfo')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (9, 10) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'tasks'; args=('tasks',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user_operation' AND `django_content_type`.`model` = 'usertask'); args=('user_operation', 'usertask')
+(0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user_operation'; args=('user_operation',)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.011) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 88845
+"GET /docs/schema.js HTTP/1.1" 200 5944
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.005) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'wdmzjlxy123' OR `users_userprofile`.`mobile` = 'wdmzjlxy123'); args=('wdmzjlxy123', 'wdmzjlxy123')
+"POST /login/ HTTP/1.1" 200 184
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+"POST /taskinfo/ HTTP/1.1" 201 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4; args=(4,)
+"GET /taskinfo/ HTTP/1.1" 200 137
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.003) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()

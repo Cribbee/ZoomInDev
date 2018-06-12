@@ -13,7 +13,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from utils.permissions import IsOwnerOrReadOnly
 from .models import TaskInfo,DataSet
-from .serializers import TaskSerializer
+from .serializers import TaskSerializer, TaskDetailSerializer
 from db_tools import json2csv
 
 import codecs
@@ -61,6 +61,14 @@ class TaskViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
     serializer_class = TaskSerializer
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return TaskDetailSerializer
+        elif self.action == "create":
+            return TaskSerializer
+
+        return TaskSerializer
 
     def get_queryset(self):
         return TaskInfo.objects.filter(user=self.request.user)
