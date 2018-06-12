@@ -4070,3 +4070,841 @@ TypeError: 'str' object is not callable
 (0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'test12'; args=('test12',)
 (0.001) SELECT `user_operation_usertask`.`id`, `user_operation_usertask`.`user_id`, `user_operation_usertask`.`tasks_id`, `user_operation_usertask`.`add_time` FROM `user_operation_usertask` WHERE `user_operation_usertask`.`user_id` = 5; args=(5,)
 "GET /usertask/ HTTP/1.1" 200 20
+(0.029) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.006) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.053) SHOW FULL TABLES; args=None
+(0.016) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5356
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+"GET /usertask/ HTTP/1.1" 401 5221
+(0.005) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.022) SHOW FULL TABLES; args=None
+(0.009) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5356
+"GET /docs HTTP/1.1" 301 0
+"GET /docs/ HTTP/1.1" 200 60432
+"GET /static/rest_framework/docs/css/jquery.json-view.min.css HTTP/1.1" 200 1307
+"GET /static/rest_framework/docs/css/base.css HTTP/1.1" 200 5942
+"GET /static/rest_framework/js/coreapi-0.1.1.js HTTP/1.1" 200 157600
+"GET /static/rest_framework/css/bootstrap-theme.min.css HTTP/1.1" 200 124939
+"GET /static/rest_framework/css/font-awesome-4.0.3.css HTTP/1.1" 200 21658
+"GET /static/rest_framework/docs/js/jquery.json-view.min.js HTTP/1.1" 200 2700
+"GET /static/rest_framework/docs/js/api.js HTTP/1.1" 200 10539
+"GET /docs/schema.js HTTP/1.1" 200 3620
+"GET /static/rest_framework/fonts/fontawesome-webfont.woff?v=4.0.3 HTTP/1.1" 200 44432
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.011) SHOW FULL TABLES; args=None
+(0.007) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.016) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.007) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.000) SELECT VERSION(); args=None
+(0.002) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SHOW FULL TABLES; args=None
+ALTER TABLE `tasks_dataset` ADD COLUMN `add_time` datetime(6) DEFAULT %s NOT NULL; (params ['2018-06-12 12:25:35.107125'])
+(0.100) ALTER TABLE `tasks_dataset` ADD COLUMN `add_time` datetime(6) DEFAULT '2018-06-12 12:25:35.107125' NOT NULL; args=['2018-06-12 12:25:35.107125']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `add_time` DROP DEFAULT; (params [])
+(0.007) ALTER TABLE `tasks_dataset` ALTER COLUMN `add_time` DROP DEFAULT; args=[]
+(0.006) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_dataset` ADD COLUMN `step1` varchar(100) DEFAULT %s NOT NULL; (params [''])
+(0.038) ALTER TABLE `tasks_dataset` ADD COLUMN `step1` varchar(100) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `step1` DROP DEFAULT; (params [])
+(0.007) ALTER TABLE `tasks_dataset` ALTER COLUMN `step1` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_dataset` ADD COLUMN `step2` varchar(100) DEFAULT %s NOT NULL; (params [''])
+(0.016) ALTER TABLE `tasks_dataset` ADD COLUMN `step2` varchar(100) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `step2` DROP DEFAULT; (params [])
+(0.006) ALTER TABLE `tasks_dataset` ALTER COLUMN `step2` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_dataset` ADD COLUMN `step3` varchar(100) DEFAULT %s NOT NULL; (params [''])
+(0.014) ALTER TABLE `tasks_dataset` ADD COLUMN `step3` varchar(100) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `step3` DROP DEFAULT; (params [])
+(0.007) ALTER TABLE `tasks_dataset` ALTER COLUMN `step3` DROP DEFAULT; args=[]
+(0.000) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_dataset` ADD COLUMN `step4` varchar(100) DEFAULT %s NOT NULL; (params [''])
+(0.017) ALTER TABLE `tasks_dataset` ADD COLUMN `step4` varchar(100) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `step4` DROP DEFAULT; (params [])
+(0.008) ALTER TABLE `tasks_dataset` ALTER COLUMN `step4` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_dataset` ADD COLUMN `step5` varchar(100) DEFAULT %s NOT NULL; (params [''])
+(0.013) ALTER TABLE `tasks_dataset` ADD COLUMN `step5` varchar(100) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_dataset` ALTER COLUMN `step5` DROP DEFAULT; (params [])
+(0.006) ALTER TABLE `tasks_dataset` ALTER COLUMN `step5` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_dataset'; args=['tasks_dataset']
+ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_folder` varchar(50) DEFAULT %s NOT NULL; (params [''])
+(0.030) ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_folder` varchar(50) DEFAULT '' NOT NULL; args=['']
+ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_folder` DROP DEFAULT; (params [])
+(0.011) ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_folder` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_taskinfo'; args=['tasks_taskinfo']
+ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_home` varchar(2) DEFAULT %s NOT NULL; (params ['D'])
+(0.016) ALTER TABLE `tasks_taskinfo` ADD COLUMN `task_home` varchar(2) DEFAULT 'D' NOT NULL; args=['D']
+ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_home` DROP DEFAULT; (params [])
+(0.007) ALTER TABLE `tasks_taskinfo` ALTER COLUMN `task_home` DROP DEFAULT; args=[]
+(0.001) SELECT engine FROM information_schema.tables WHERE table_name = 'tasks_taskinfo'; args=['tasks_taskinfo']
+(0.001) SHOW FULL TABLES; args=None
+(0.003) INSERT INTO `django_migrations` (`app`, `name`, `applied`) VALUES ('tasks', '0002_auto_20180612_1225', '2018-06-12 12:25:35.497648'); args=['tasks', '0002_auto_20180612_1225', '2018-06-12 12:25:35.497648']
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'permission'); args=('auth', 'permission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'auth' AND `django_content_type`.`model` = 'group'); args=('auth', 'group')
+(0.011) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (1, 2) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1, 2)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'; args=('auth',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'contenttypes' AND `django_content_type`.`model` = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(3,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'; args=('contenttypes',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'sessions' AND `django_content_type`.`model` = 'session'); args=('sessions', 'session')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'; args=('sessions',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'corsheaders'; args=('corsheaders',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'rest_framework'; args=('rest_framework',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'authtoken' AND `django_content_type`.`model` = 'token'); args=('authtoken', 'token')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(11,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'authtoken'; args=('authtoken',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'django_filters'; args=('django_filters',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'groupobjectpermission'); args=('guardian', 'groupobjectpermission')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'guardian' AND `django_content_type`.`model` = 'userobjectpermission'); args=('guardian', 'userobjectpermission')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (8, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 7)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'guardian'; args=('guardian',)
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'AnonymousUser'; args=('AnonymousUser',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'DjangoUeditor'; args=('DjangoUeditor',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'userprofile'); args=('users', 'userprofile')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'users' AND `django_content_type`.`model` = 'verifycode'); args=('users', 'verifycode')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (4, 5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4, 5)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'users'; args=('users',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'dataset'); args=('tasks', 'dataset')
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'tasks' AND `django_content_type`.`model` = 'taskinfo'); args=('tasks', 'taskinfo')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (9, 10) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'tasks'; args=('tasks',)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`app_label` = 'user_operation' AND `django_content_type`.`model` = 'usertask'); args=('user_operation', 'usertask')
+(0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON (`auth_permission`.`content_type_id` = `django_content_type`.`id`) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+(0.000) SELECT `django_content_type`.`id`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'user_operation'; args=('user_operation',)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT @@sql_mode; args=None
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.009) SHOW FULL TABLES; args=None
+(0.004) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5476
+"GET /Task/ HTTP/1.1" 401 5167
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x110015510>>, 'request': <WSGIRequest: GET '/api-auth/login/?next=/Task/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10fe5c730>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11003b438>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110066be0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=False, valid=Unknown, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110066ba8>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x110066e80>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006feb8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006fe80>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110069048>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x1100690f0>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x110015510>>, 'request': <WSGIRequest: GET '/api-auth/login/?next=/Task/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10fe5c730>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11003b438>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110066be0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=False, valid=Unknown, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110066ba8>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x110066e80>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006feb8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006fe80>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110069048>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x1100690f0>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006feb8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006fe80>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110069048>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x1100690f0>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"GET /api-auth/login/?next=/Task/ HTTP/1.1" 200 2708
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'lxy' OR `users_userprofile`.`mobile` = 'lxy'); args=('lxy', 'lxy')
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x110082f28>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10fff3268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x1100417b8>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110029d30>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110029668>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10cb3abe0>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110032d30>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x110032fd0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110032978>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110032b70>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x110082f28>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10fff3268>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x1100417b8>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110029d30>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110029668>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10cb3abe0>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110032d30>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x110032fd0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110032978>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110032b70>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110032d30>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x110032fd0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110032978>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110032b70>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"POST /api-auth/login/ HTTP/1.1" 200 2944
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4598>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10ffebf28>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11007bb70>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x11007b2b0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x11007b160>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x11007b630>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110079128>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x1100791d0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110079240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110079278>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4598>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x10ffebf28>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11007bb70>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x11007b2b0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x11007b160>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x11007b630>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110079128>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x1100791d0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110079240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110079278>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x110079128>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x1100791d0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x110079240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x110079278>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"POST /api-auth/login/ HTTP/1.1" 200 2947
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4ae8>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1100a4620>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11003b898>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x11003b9b0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x11003b908>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10ff2aac8>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006f2b0>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006f080>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11006f240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11006fb38>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4ae8>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1100a4620>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x11003b898>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x11003b9b0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x11003b908>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10ff2aac8>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006f2b0>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006f080>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11006f240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11006fb38>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11006f2b0>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11006f080>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11006f240>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11006fb38>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"POST /api-auth/login/ HTTP/1.1" 200 2947
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'admin2' OR `users_userprofile`.`mobile` = 'admin2'); args=('admin2', 'admin2')
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4f28>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1100a4b70>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x110032748>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110041128>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110041160>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x1100418d0>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x10ffe99e8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x10ffe99b0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x10ffe9ef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x10ffe9e48>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1100a4f28>>, 'request': <WSGIRequest: POST '/api-auth/login/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1100a4b70>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x110032748>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x110041128>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=True, valid=False, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x110041160>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x1100418d0>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x10ffe99e8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x10ffe99b0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x10ffe9ef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x10ffe9e48>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x10ffe99e8>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x10ffe99b0>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x10ffe9ef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x10ffe9e48>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"POST /api-auth/login/ HTTP/1.1" 200 2947
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'wdmzjlxy123' OR `users_userprofile`.`mobile` = 'wdmzjlxy123'); args=('wdmzjlxy123', 'wdmzjlxy123')
+(0.015) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw' LIMIT 1; args=('9bliz4cm4782rkk1wez6c82rqzkgpsrw',)
+(0.002) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('9bliz4cm4782rkk1wez6c82rqzkgpsrw', 'NTFhNWZlNTcwZjQwZjJkMzhkMTMwMzdmODBkYzRkZWNhNzE1MWIxYzp7fQ==', '2018-06-26 13:44:33.557030'); args=('9bliz4cm4782rkk1wez6c82rqzkgpsrw', 'NTFhNWZlNTcwZjQwZjJkMzhkMTMwMzdmODBkYzRkZWNhNzE1MWIxYzp7fQ==', '2018-06-26 13:44:33.557030')
+(0.002) UPDATE `users_userprofile` SET `last_login` = '2018-06-12 13:44:33.561414' WHERE `users_userprofile`.`id` = 4; args=('2018-06-12 13:44:33.561414', 4)
+(0.000) UPDATE `django_session` SET `session_data` = 'NWRhMTM4MGNhMGM1NWMxOGQ1YmYwMWI1N2ZmNTQxY2QyZDcxMGU0OTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoidXNlcnMudmlld3MuQ3VzdG9tQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjkzZWI0MDE5ODMyYjQ1MmE3MTVlMjE0NWY3YTNhMWQyMmFjMDVkNDcifQ==', `expire_date` = '2018-06-26 13:44:33.564907' WHERE `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'; args=('NWRhMTM4MGNhMGM1NWMxOGQ1YmYwMWI1N2ZmNTQxY2QyZDcxMGU0OTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoidXNlcnMudmlld3MuQ3VzdG9tQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6IjkzZWI0MDE5ODMyYjQ1MmE3MTVlMjE0NWY3YTNhMWQyMmFjMDVkNDcifQ==', '2018-06-26 13:44:33.564907', '9bliz4cm4782rkk1wez6c82rqzkgpsrw')
+"POST /api-auth/login/ HTTP/1.1" 302 0
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2018-06-12 13:44:33.574080' AND `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'); args=('2018-06-12 13:44:33.574080', '9bliz4cm4782rkk1wez6c82rqzkgpsrw')
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`id` = 4; args=(4,)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4; args=(4,)
+Internal Server Error: /Task/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'tasks_taskinfo.task_desc' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/mixins.py", line 48, in list
+    return Response(serializer.data)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'tasks_taskinfo.task_desc' in 'field list'")
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+"GET /Task/ HTTP/1.1" 500 213343
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2018-06-12 13:44:43.756130' AND `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'); args=('2018-06-12 13:44:43.756130', '9bliz4cm4782rkk1wez6c82rqzkgpsrw')
+(0.004) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`id` = 4; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4; args=(4,)
+Internal Server Error: /Task/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+_mysql_exceptions.OperationalError: (1054, "Unknown column 'tasks_taskinfo.task_desc' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/mixins.py", line 48, in list
+    return Response(serializer.data)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 765, in data
+    ret = super(ListSerializer, self).data
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 683, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/sql/compiler.py", line 1067, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 250, in execute
+    self.errorhandler(self, exc, value)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 50, in defaulterrorhandler
+    raise errorvalue
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 247, in execute
+    res = self._query(query)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 411, in _query
+    rowcount = self._do_query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/cursors.py", line 374, in _do_query
+    db.query(q)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/MySQLdb/connections.py", line 277, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'tasks_taskinfo.task_desc' in 'field list'")
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE `tasks_taskinfo`.`user_id` = 4 LIMIT 21; args=(4,)
+"GET /Task/ HTTP/1.1" 500 213186
+Exception while resolving variable 'name' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1101c77b8>>, 'request': <WSGIRequest: GET '/api-auth/login/?next=/Task/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1101519d8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x10d7b0470>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x10fff7fd0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=False, valid=Unknown, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x10fff7f60>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10fff73c8>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11002e240>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11002eb00>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11002eef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11002e588>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>}]
+Exception while resolving variable 'code_style' in template 'rest_framework/login.html'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 841, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(type(current), bit):
+AttributeError: type object 'RequestContext' has no attribute 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'code_style'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [code_style] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x1101c77b8>>, 'request': <WSGIRequest: GET '/api-auth/login/?next=/Task/'>, 'user': <SimpleLazyObject: <function AuthenticationMiddleware.process_request.<locals>.<lambda> at 0x1101519d8>>, 'perms': <django.contrib.auth.context_processors.PermWrapper object at 0x10d7b0470>, 'messages': <django.contrib.messages.storage.fallback.FallbackStorage object at 0x10fff7fd0>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'form': <AuthenticationForm bound=False, valid=Unknown, fields=(username;password)>, 'view': <django.contrib.auth.views.LoginView object at 0x10fff7f60>, 'next': '/Task/', 'site': <django.contrib.sites.requests.RequestSite object at 0x10fff73c8>, 'site_name': '127.0.0.1:8000'}, {'block': <Block Node: head. Contents: [<TextNode: '\n\n      '>, <Block Node: meta. Contents: [<TextNode: '\n        <meta http-equiv'>]>, <TextNode: '\n\n      <title>'>, <Block Node: title. Contents: [<IfNode>, <TextNode: 'Django REST framework'>]>, <TextNode: '</title>\n\n      '>, <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11002e240>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11002eb00>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11002eef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11002e588>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>, <TextNode: '\n\n    '>]>}, {'block': <Block Node: style. Contents: [<TextNode: '\n        '>, <Block Node: bootstrap_theme. Contents: [<TextNode: '\n          <link rel="sty'>, <django.templatetags.static.StaticNode object at 0x11002e240>, <TextNode: '"/>\n          <link rel="'>, <django.templatetags.static.StaticNode object at 0x11002eb00>, <TextNode: '"/>\n        '>]>, <TextNode: '\n\n        <link rel="styl'>, <django.templatetags.static.StaticNode object at 0x11002eef0>, <TextNode: '"/>\n        <link rel="st'>, <django.templatetags.static.StaticNode object at 0x11002e588>, <TextNode: '"/>\n        '>, <IfNode>, <TextNode: '\n      '>]>}]
+"GET /api-auth/login/?next=/Task/ HTTP/1.1" 200 2708
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2018-06-12 13:44:50.771969' AND `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'); args=('2018-06-12 13:44:50.771969', '9bliz4cm4782rkk1wez6c82rqzkgpsrw')
+(0.002) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`id` = 4; args=(4,)
+"GET / HTTP/1.1" 200 5710
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.004) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2018-06-12 13:44:55.499919' AND `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'); args=('2018-06-12 13:44:55.499919', '9bliz4cm4782rkk1wez6c82rqzkgpsrw')
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`id` = 4; args=(4,)
+(0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = '9bliz4cm4782rkk1wez6c82rqzkgpsrw'; args=('9bliz4cm4782rkk1wez6c82rqzkgpsrw',)
+(0.001) DELETE FROM `django_session` WHERE `django_session`.`session_key` IN ('9bliz4cm4782rkk1wez6c82rqzkgpsrw'); args=('9bliz4cm4782rkk1wez6c82rqzkgpsrw',)
+"GET /api-auth/logout/?next=/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 5476
+"GET /Task/ HTTP/1.1" 401 5167
+"GET /docs/ HTTP/1.1" 200 91479
+"GET /docs/ HTTP/1.1" 200 91479
+"GET /docs/ HTTP/1.1" 200 91479
+"GET /docs/ HTTP/1.1" 200 91479
+"GET /docs/schema.js HTTP/1.1" 200 6860
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 91479
+"GET /docs/schema.js HTTP/1.1" 200 6860
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.020) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 91743
+"GET /docs/schema.js HTTP/1.1" 200 6900
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.012) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 88845
+"GET /docs/schema.js HTTP/1.1" 200 5944
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+Internal Server Error: /docs/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/schemas/views.py", line 31, in get
+    schema = self.schema_generator.get_schema(request, self.public)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/schemas/generators.py", line 286, in get_schema
+    links = self.get_links(None if public else request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/schemas/generators.py", line 324, in get_links
+    link = view.schema.get_link(path, method, base_url=self.url)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/schemas/inspectors.py", line 195, in get_link
+    fields += self.get_serializer_fields(path, method)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/schemas/inspectors.py", line 337, in get_serializer_fields
+    for field in serializer.fields.values():
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 363, in fields
+    for key, value in self.get_fields().items():
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 1020, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 1121, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: The field 'user' was declared on serializer TaskSerializer, but has not been included in the 'fields' option.
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`state_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+"GET /docs/ HTTP/1.1" 500 128634
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 88845
+"GET /docs/schema.js HTTP/1.1" 200 5944
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430

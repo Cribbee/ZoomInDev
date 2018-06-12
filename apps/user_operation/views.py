@@ -43,3 +43,4 @@ class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Ret
             return UserTaskSerializer
 
         return UserTaskSerializer
+

@@ -35,3 +35,4 @@ class UserTaskSerializer(serializers.ModelSerializer):
 #     class Meta:
 #         model = UserFav
 #         fields = ("goods", "id")
+

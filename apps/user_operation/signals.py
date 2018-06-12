@@ -14,7 +14,7 @@ from user_operation.models import UserTask
 @receiver(post_save, sender=UserTask)
 def create_usertask(sender, instance=None, created=False, **kwargs):
     if created:
-        tasks = instance.goods
+        tasks = instance.tasks
         tasks.create_num += 1
         tasks.save()
 
