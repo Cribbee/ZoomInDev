@@ -19,6 +19,7 @@ class UserTask(models.Model):
     class Meta:
         verbose_name = '用户'
         verbose_name_plural = verbose_name
+        #联合字段构成唯一集合，避免重复收藏
         unique_together = ("user", "tasks")
 
     def __str__(self):

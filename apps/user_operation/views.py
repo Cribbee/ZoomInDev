@@ -9,6 +9,8 @@ from .models import UserTask
 from .serializers import UserTaskSerializer
 
 
+
+
 class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
                      mixins.DestroyModelMixin, viewsets.GenericViewSet):
     """
@@ -21,8 +23,10 @@ class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Ret
     """
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    #  根据 tasks_id 去查找信息
     lookup_field = "tasks_id"
 
+    #  重载 get_queryset 方法，使得增加验证request 中的user是否正确
     def get_queryset(self):
         return UserTask.objects.filter(user=self.request.user)
 

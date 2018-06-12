@@ -10,7 +10,7 @@ from user_operation.models import UserTask
 
 
 class UserTaskSerializer(serializers.ModelSerializer):
-    #获取当前登录的用户
+    #获取当前登录的用户 使用serializers.HiddenField
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
@@ -21,7 +21,7 @@ class UserTaskSerializer(serializers.ModelSerializer):
             UniqueTogetherValidator(
                 queryset=UserTask.objects.all(),
                 fields=('user', 'tasks'),
-                #message的信息可以自定义
+                #  message的信息可以自定义
                 message="已经创建过该项目"
             )
         ]

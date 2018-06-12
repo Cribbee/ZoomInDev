@@ -5,9 +5,10 @@ __create_at__ = 2018 / 6 / 4
 import codecs
 import csv
 import json
+
 import pandas as pd
 import numpy as np
-
+from numpy import nan as NaN
 
 
 class process():
@@ -28,6 +29,14 @@ class process():
         self.trim_whitespace = kwargs.pop('trim_whitespace', True)
         self.max_length = kwargs.pop('max_length', None)
         self.min_length = kwargs.pop('min_length', None)
+
+
+
+
+
+
+
+
 
     # @staticmethod
     # def ():
