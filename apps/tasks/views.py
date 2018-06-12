@@ -65,6 +65,8 @@ class TaskViewset(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == "list":
             return TaskDetailSerializer
+        elif self.action == "retrieve":
+            return TaskDetailSerializer
         elif self.action == "create":
             return TaskSerializer
 

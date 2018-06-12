@@ -5394,3 +5394,48 @@ ALTER TABLE `tasks_taskinfo` CHANGE `state_type` `status_type` integer NOT NULL;
 (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
 (0.008) SHOW FULL TABLES; args=None
 (0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.021) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET /docs/ HTTP/1.1" 200 89211
+"GET /docs/schema.js HTTP/1.1" 200 6028
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+"GET / HTTP/1.1" 200 5488
+"GET /docs/ HTTP/1.1" 200 89211
+"GET /docs/schema.js HTTP/1.1" 200 6028
+"GET /taskinfo/3/ HTTP/1.1" 401 58
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.026) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.004) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'wdmzjlxy123' OR `users_userprofile`.`mobile` = 'wdmzjlxy123'); args=('wdmzjlxy123', 'wdmzjlxy123')
+"POST /login/ HTTP/1.1" 200 184
+(0.002) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.001) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 56
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.005) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`user_id` = 4 AND `tasks_taskinfo`.`id` = 3); args=(4, 3)
+"GET /taskinfo/3/ HTTP/1.1" 200 135
