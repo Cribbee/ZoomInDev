@@ -23,7 +23,7 @@ class TaskSerializer(serializers.ModelSerializer):
             )
         ]
 
-        fields = ("user", "task_name", "task_desc")
+        fields = ("user", "id", "task_name", "task_desc")
 
 
 class TaskDetailSerializer(serializers.ModelSerializer):

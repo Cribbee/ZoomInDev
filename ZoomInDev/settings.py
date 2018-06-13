@@ -216,7 +216,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',不要在全局进行token设置，要具体到接口
+        # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
 
 

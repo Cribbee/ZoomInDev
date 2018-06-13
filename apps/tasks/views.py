@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework import mixins
+from rest_framework import generics
 from rest_framework import filters
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -74,6 +75,13 @@ class TaskViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return TaskInfo.objects.filter(user=self.request.user)
+
+# class UploadFile(generics.GenericAPIView):
+#
+#     @api_view(['GET', 'POST'])
+#     def upload(self):
+#         self.request.data =
+
 
 
 
