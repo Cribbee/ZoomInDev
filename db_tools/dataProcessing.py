@@ -5,6 +5,7 @@ __create_at__ = 2018 / 6 / 4
 import codecs
 import csv
 import json
+import os
 
 import pandas as pd
 import numpy as np
@@ -17,7 +18,16 @@ class process():
         self.open_path = open_path
         #self.save_path = save_path
 
-    def first_save(self, row_num):
+    def mkdir(self,floder):
+        os.mkdir(floder)
+        os.mkdir(floder + "\\Data")
+        os.mkdir(floder + "\\Publish")
+        os.mkdir(floder + "\\Log")
+
+
+    # def upload(self):
+
+    def orginal_save(self, row_num):
 
         data = codecs.open(self.open_path, 'r', 'utf-8').readlines()
         data[row_num] = ''

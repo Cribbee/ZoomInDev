@@ -25,7 +25,7 @@ class TaskInfo(models.Model):
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     task_desc = models.CharField(max_length=120, default="", null=True, blank=True, verbose_name="任务描述", help_text="任务描述")
     task_home = models.CharField(max_length=2, verbose_name="任务存放盘", default="D")
-    task_folder = models.CharField(max_length=50, verbose_name="任务存放文件夹路径名", default="")  # userid + taskid
+    task_folder = models.CharField(max_length=50, verbose_name="任务存放文件夹路径", default="")  # userid + taskid
 
     class Meta:
         verbose_name = "任务信息"
@@ -43,6 +43,11 @@ class DataSet(models.Model):
     """
 
     task = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务信息")
+    title = models.CharField(max_length=20, verbose_name="图表标题", default="",help_text="图表标题")
+    desc = models.CharField(max_length=20, verbose_name="图表描述", default="",help_text="图表描述")
+    x_axis = models.CharField(max_length=100, verbose_name="维度", default="", help_text="维度")
+    y_axis = models.CharField(max_length=100, verbose_name="数值", default="", help_text="数值")
+    chart_type = models.IntegerField(max_length=10, verbose_name="表格类别总览", default=000000, help_text="表格类别总览")
     step1 = models.CharField(max_length=100, verbose_name="json源文件", default="")
     step2 = models.CharField(max_length=100, verbose_name="csv源文件", default="")
     step3 = models.CharField(max_length=100, verbose_name="预处理源文件", default="")

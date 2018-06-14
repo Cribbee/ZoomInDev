@@ -26,7 +26,7 @@ from ZoomInDev.settings import MEDIA_ROOT
 from django.views.static import serve
 
 from users.views import UserViewset
-from tasks.views import TaskViewset
+from tasks.views import TaskViewset, DataSetViewset
 from user_operation.views import UserTaskViewset
 from tasks import urls as tasks
 
@@ -35,6 +35,8 @@ router = DefaultRouter()
 router.register(r'users', UserViewset, base_name="users")
 router.register(r'usertask', UserTaskViewset, base_name="usertask")
 router.register(r'taskinfo', TaskViewset, base_name="task")
+router.register(r'dataSet', DataSetViewset, base_name="dataSet")
+
 
 
 urlpatterns = [

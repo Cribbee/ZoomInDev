@@ -9,8 +9,6 @@ from .models import UserTask
 from .serializers import UserTaskSerializer
 
 
-
-
 class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
                      mixins.DestroyModelMixin, viewsets.GenericViewSet):
     """
