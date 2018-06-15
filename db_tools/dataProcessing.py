@@ -16,7 +16,7 @@ class process():
 
     def __init__(self, open_path):
         self.open_path = open_path
-        #self.save_path = save_path
+
 
     def mkdir(self,floder):
         os.mkdir(floder)
@@ -27,7 +27,12 @@ class process():
 
     # def upload(self):
 
-    def orginal_save(self, row_num):
+    def orginal_save(self, jsondata):
+
+        with codecs.open(self.open_path, 'w', 'utf-8') as f:
+            f.writelines(json.dumps(jsondata, sort_keys=True, indent=4, ensure_ascii=False))
+
+    def step2_save(self, row_num):
 
         data = codecs.open(self.open_path, 'r', 'utf-8').readlines()
         data[row_num] = ''

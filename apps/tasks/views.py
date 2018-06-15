@@ -17,7 +17,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.permissions import IsOwnerOrReadOnly
 from .models import TaskInfo,DataSet
 from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer
-from db_tools import json2csv
+from db_tools.dataProcessing import process
 
 import codecs
 import json
@@ -97,6 +97,7 @@ class DataSetViewset(viewsets.ModelViewSet):
     serializer_class = DataSetSerializer
 
     def create(self, request, *args, **kwargs):
+
         logger = logging.getLogger('django')
         logger.debug("data_set is " + request.data['data_set'])
         data_set = request.data['data_set']
@@ -114,10 +115,12 @@ class DataSetViewset(viewsets.ModelViewSet):
         logger.debug("data_set is " + req_data['step1'])
 
         serializer = self.get_serializer(data=req_data)
-
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        #  对data_set做json2csv转换
+
+
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
