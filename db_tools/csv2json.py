@@ -21,6 +21,7 @@ def trans():
     json.dump(ls[1:], fw, sort_keys=True, indent=4, ensure_ascii=False)
     fw.close()
 
+
 def test():
     jsondata = [
     {
@@ -44,12 +45,10 @@ def test():
         "﻿": "1"
     }]
 
-
     with codecs.open("~/Downloads/chuci.json", 'w', 'utf-8') as f:
-        f.writelines(json.dumps(jsondata,))
-
+        f.writelines(json.dumps(jsondata, sort_keys=True, indent=4, ensure_ascii=False))
 
 
 if __name__ == '__main__':
     trans()
-    
+

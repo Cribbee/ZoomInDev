@@ -25,7 +25,7 @@ class TaskInfo(models.Model):
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     task_desc = models.CharField(max_length=120, default="", null=True, blank=True, verbose_name="任务描述", help_text="任务描述")
     task_home = models.CharField(max_length=2, verbose_name="任务存放盘", default="D")
-    task_folder = models.CharField(max_length=50, verbose_name="任务存放文件夹路径", default="")  # userid + taskid
+    task_folder = models.CharField(max_length=50, verbose_name="任务存放文件夹路径", null=True, blank=True,default="")  # userid + taskid
 
     class Meta:
         verbose_name = "任务信息"

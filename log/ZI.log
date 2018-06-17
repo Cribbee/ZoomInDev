@@ -2386,3 +2386,125 @@ data_set is 31
 (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
 (0.009) SHOW FULL TABLES; args=None
 (0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.011) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.173) SHOW FULL TABLES; args=None
+(0.032) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"GET / HTTP/1.1" 200 5617
+"GET /taskinfo/ HTTP/1.1" 401 5191
+"GET /docs/ HTTP/1.1" 200 118778
+"GET /docs/schema.js HTTP/1.1" 200 8744
+"GET /static/rest_framework/docs/img/favicon.ico HTTP/1.1" 200 5430
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.020) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE (`users_userprofile`.`username` = 'wdmzjlxy123' OR `users_userprofile`.`mobile` = 'wdmzjlxy123'); args=('wdmzjlxy123', 'wdmzjlxy123')
+"POST /login/ HTTP/1.1" 200 184
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.007) SELECT (1) AS `a` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`task_name` = '123213' AND `tasks_taskinfo`.`user_id` = 4) LIMIT 1; args=('123213', 4)
+(0.010) INSERT INTO `tasks_taskinfo` (`user_id`, `task_name`, `data_num`, `status_type`, `add_time`, `task_desc`, `task_home`, `task_folder`) VALUES (4, '123213', 1, 2, '2018-06-15 07:54:21.361408', '123123', 'D', ''); args=[4, '123213', 1, 2, '2018-06-15 07:54:21.361408', '123123', 'D', '']
+Internal Server Error: /taskinfo/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 78, in create
+    logger.debug("8888888888 is " + serializer.data["id"])
+TypeError: must be str, not int
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+"POST /taskinfo/ HTTP/1.1" 500 16050
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.003) SELECT (1) AS `a` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`task_name` = '123213' AND `tasks_taskinfo`.`user_id` = 4) LIMIT 1; args=('123213', 4)
+"POST /taskinfo/ HTTP/1.1" 400 46
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.041) SHOW FULL TABLES; args=None
+(0.003) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+Internal Server Error: /taskinfo/
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/viewsets.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 74, in create
+    logger.debug("8888888888 is " + str(serializer.data["id"]))
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 560, in data
+    ret = super(Serializer, self).data
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/serializers.py", line 258, in data
+    raise AssertionError(msg)
+AssertionError: When a serializer is passed a `data` keyword argument you must call `.is_valid()` before attempting to access the serialized `.data` representation.
+You should either call `.is_valid()` first, or access `.initial_data` instead.
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+(0.000) SELECT `tasks_taskinfo`.`id`, `tasks_taskinfo`.`user_id`, `tasks_taskinfo`.`task_name`, `tasks_taskinfo`.`data_num`, `tasks_taskinfo`.`status_type`, `tasks_taskinfo`.`add_time`, `tasks_taskinfo`.`task_desc`, `tasks_taskinfo`.`task_home`, `tasks_taskinfo`.`task_folder` FROM `tasks_taskinfo` LIMIT 21; args=()
+"POST /taskinfo/ HTTP/1.1" 500 16792
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `users_userprofile`.`id`, `users_userprofile`.`password`, `users_userprofile`.`last_login`, `users_userprofile`.`is_superuser`, `users_userprofile`.`username`, `users_userprofile`.`first_name`, `users_userprofile`.`last_name`, `users_userprofile`.`is_staff`, `users_userprofile`.`is_active`, `users_userprofile`.`date_joined`, `users_userprofile`.`name`, `users_userprofile`.`birthday`, `users_userprofile`.`mobile`, `users_userprofile`.`gender`, `users_userprofile`.`email`, `users_userprofile`.`task_num` FROM `users_userprofile` WHERE `users_userprofile`.`username` = 'wdmzjlxy123'; args=('wdmzjlxy123',)
+(0.002) SELECT (1) AS `a` FROM `tasks_taskinfo` WHERE (`tasks_taskinfo`.`task_name` = '1232132' AND `tasks_taskinfo`.`user_id` = 4) LIMIT 1; args=('1232132', 4)
+(0.002) INSERT INTO `tasks_taskinfo` (`user_id`, `task_name`, `data_num`, `status_type`, `add_time`, `task_desc`, `task_home`, `task_folder`) VALUES (4, '1232132', 1, 2, '2018-06-15 07:56:50.602380', '123122', 'D', ''); args=[4, '1232132', 1, 2, '2018-06-15 07:56:50.602380', '123122', 'D', '']
+8888888888 is 6
+"POST /taskinfo/ HTTP/1.1" 201 51
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.012) SHOW FULL TABLES; args=None
+(0.002) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()

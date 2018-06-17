@@ -17,15 +17,12 @@ class process():
     def __init__(self, open_path):
         self.open_path = open_path
 
-
-    def mkdir(self,floder):
+    @staticmethod
+    def mkdir(floder):
         os.mkdir(floder)
-        os.mkdir(floder + "\\Data")
-        os.mkdir(floder + "\\Publish")
-        os.mkdir(floder + "\\Log")
-
-
-    # def upload(self):
+        os.mkdir(floder + "Data")
+        os.mkdir(floder + "Publish")
+        os.mkdir(floder + "Log")
 
     def orginal_save(self, jsondata):
 

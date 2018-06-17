@@ -25,6 +25,7 @@ import os
 import logging
 
 from db_tools import dataProcessing
+from db_tools import dirProcessing
 
 
 @api_view(['GET', 'POST'])
@@ -67,6 +68,20 @@ class TaskViewset(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
     serializer_class = TaskSerializer
+
+    def create(self, request, *args, **kwargs):
+        logger = logging.getLogger('django')
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+
+        logger.debug("task_id is " + str(serializer.data["id"]))
+        taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
+        taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
+        dirProcessing.pipe()
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_serializer_class(self):
         if self.action == "list":
