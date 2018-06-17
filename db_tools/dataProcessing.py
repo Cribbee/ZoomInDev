@@ -20,9 +20,9 @@ class process():
     @staticmethod
     def mkdir(floder):
         os.mkdir(floder)
-        os.mkdir(floder + "Data")
-        os.mkdir(floder + "Publish")
-        os.mkdir(floder + "Log")
+        os.mkdir(floder + "/Data")
+        os.mkdir(floder + "/Publish")
+        os.mkdir(floder + "/Log")
 
     def orginal_save(self, jsondata):
 

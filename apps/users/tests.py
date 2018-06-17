@@ -14,9 +14,8 @@ def test():
 #     data = dataProcessing.process(b)
 #     data.orginal_save(1)
 #     print("ok")
-    dataProcessing.process.mkdir(floder="/Users/cribbee/Downloads/hahah/")
+    dataProcessing.process.mkdir(floder="/Users/cribbee/Downloads/hahah")
 
-#
 
 if __name__ == '__main__':
     test()

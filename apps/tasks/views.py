@@ -10,12 +10,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.authentication import SessionAuthentication
 
-
 from django.http import HttpResponse, JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
 
 from utils.permissions import IsOwnerOrReadOnly
-from .models import TaskInfo,DataSet
+from users.models import UserProfile
+from .models import TaskInfo, DataSet
 from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer
 from db_tools.dataProcessing import process
 
@@ -26,6 +26,7 @@ import logging
 
 from db_tools import dataProcessing
 from db_tools import dirProcessing
+
 
 
 @api_view(['GET', 'POST'])
@@ -78,8 +79,13 @@ class TaskViewset(viewsets.ModelViewSet):
 
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
+        logger.debug("user_id is " + str(taskinfo.user))
         taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
-        dirProcessing.pipe()
+        dataProcessing.process.mkdir(floder=taskinfo.task_folder)
+        user = UserProfile.objects.get(username=taskinfo.user)
+        user.task_num += 1
+        taskinfo.save()
+        user.save()
 
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
