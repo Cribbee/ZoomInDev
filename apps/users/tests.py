@@ -11,10 +11,10 @@ def test():
 #     # data = transformer.trans(d, c)
 #     # #data.json2csv()
 #     # data.csv2json()
-#     data = dataProcessing.process(b)
-#     data.orginal_save(1)
-#     print("ok")
-    dataProcessing.process.mkdir(floder="/Users/cribbee/Downloads/hahah")
+    data = dataProcessing.process(b)
+    data.step2_save(1)
+    print("ok")
+#     dataProcessing.process.mkdir(floder="/Users/cribbee/Downloads/hahah")
 
 
 if __name__ == '__main__':

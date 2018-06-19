@@ -20,7 +20,7 @@ class TaskInfo(models.Model):
 
     user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
     task_name = models.CharField(max_length=30, null=True, blank=True, verbose_name="任务名", help_text="任务名")
-    data_num = models.IntegerField(max_length=10, default=1, verbose_name="数据文件数量")
+    data_num = models.IntegerField(max_length=10, default=0, verbose_name="数据文件数量")
     status_type = models.IntegerField(choices=STATUS_TYPE, default=2, verbose_name="任务状态", help_text="任务状态")
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     task_desc = models.CharField(max_length=120, default="", null=True, blank=True, verbose_name="任务描述", help_text="任务描述")

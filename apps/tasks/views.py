@@ -17,7 +17,6 @@ from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet
 from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer
-from db_tools.dataProcessing import process
 
 import codecs
 import json
@@ -26,7 +25,7 @@ import logging
 
 from db_tools import dataProcessing
 from db_tools import dirProcessing
-
+from db_tools import transformer
 
 
 @api_view(['GET', 'POST'])
@@ -82,7 +81,7 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("user_id is " + str(taskinfo.user))
         taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
-        user = UserProfile.objects.get(username=taskinfo.user)
+        user = UserProfile.objects.get(id=taskinfo.user_id)
         user.task_num += 1
         taskinfo.save()
         user.save()
@@ -120,34 +119,35 @@ class DataSetViewset(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
 
         logger = logging.getLogger('django')
-        logger.debug("data_set is " + request.data['data_set'])
+        #logger.debug("data_set is " + str(request.data['data_set']))
         data_set = request.data['data_set']
         row_num = request.data['row_num']
         req_data = {}
         req_data.__setitem__('task', request.data['task'])
         req_data.__setitem__('step1', request.data['step1'])
+        req_data.__setitem__('step2', request.data['step2'])
         taskinfo = TaskInfo.objects.get(id=req_data['task'])
 
         #  每增加一个数据集，TaskInfo.data_num +1
         taskinfo.data_num += 1
         taskinfo.save()
-        #  step1是存储的文件名
-        req_data['step1'] = (req_data['task'] + taskinfo.user + taskinfo.data_num + "1.json")
-        logger.debug("data_set is " + req_data['step1'])
+        #  step1、2分别是存储的json文件名与最初始的csv文件名
+        req_data['step1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.json")
+        req_data['step2'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.csv")
+        logger.debug("data_set_name is " + str(req_data['step1']))
 
         serializer = self.get_serializer(data=req_data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        #  初始json文件保存
+        dataProcessing.process(open_path=req_data['step1']).orginal_save(data_set)
         #  对data_set做json2csv转换
-
+        transformer.trans(json_path=req_data['step1'], csv_path=req_data['step2']).json2csv()
+        #  对data_set进行csv文件格式下的祛除表头操作
+        dataProcessing.process(open_path=req_data['step2']).step2_save(int(row_num))
 
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-
-    # def upload(self):
-    #     row_num = self.request.row_num
-    #     self.request.data_set = dataProcessing.process("path").orginal_save(row_num)
 
     def get_queryset(self):
         return DataSet.objects.filter(user=self.request.user)
