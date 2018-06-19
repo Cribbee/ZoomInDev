@@ -34,14 +34,17 @@ class TaskDetailSerializer(serializers.ModelSerializer):
 
 
 class DataSetSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
 
     class Meta:
         model = DataSet
-        fields = ("task", "step1", "step2")
+        fields = ("user", "task", "step1", "step2")
 
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DataSet
-        fields = ("id", "task", "title", "desc", "chart_type", "x_axis", "y_axis", "add_time")
+        fields = ("id", "task", "user", "title", "desc", "chart_type", "x_axis", "y_axis", "add_time")

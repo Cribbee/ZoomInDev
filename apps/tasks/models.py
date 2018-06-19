@@ -42,14 +42,15 @@ class DataSet(models.Model):
     数据集信息
     """
 
-    task = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务信息")
-    title = models.CharField(max_length=20, verbose_name="图表标题", default="",help_text="图表标题")
-    desc = models.CharField(max_length=20, verbose_name="图表描述", default="",help_text="图表描述")
+    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
+    task = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务ID")
+    title = models.CharField(max_length=20, verbose_name="图表标题", default="", help_text="图表标题")
+    desc = models.CharField(max_length=20, verbose_name="图表描述", default="", help_text="图表描述")
     x_axis = models.CharField(max_length=100, verbose_name="维度", default="", help_text="维度")
     y_axis = models.CharField(max_length=100, verbose_name="数值", default="", help_text="数值")
     chart_type = models.IntegerField(max_length=10, verbose_name="表格类别总览", default=000000, help_text="表格类别总览")
-    step1 = models.CharField(max_length=100, verbose_name="json源文件", default="")
-    step2 = models.CharField(max_length=100, verbose_name="csv源文件", default="")
+    step1 = models.CharField(max_length=100, verbose_name="json源文件名", default="")
+    step2 = models.CharField(max_length=100, verbose_name="csv源文件名", default="")
     step3 = models.CharField(max_length=100, verbose_name="预处理源文件", default="")
     step4 = models.CharField(max_length=100, verbose_name="数据挖掘源文件", default="")
     step5 = models.CharField(max_length=100, verbose_name="发布任务源文件", default="")

@@ -16,7 +16,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet
-from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer
+from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer
 
 import codecs
 import json
@@ -114,7 +114,6 @@ class DataSetViewset(viewsets.ModelViewSet):
 
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
-    serializer_class = DataSetSerializer
 
     def create(self, request, *args, **kwargs):
 
@@ -148,6 +147,15 @@ class DataSetViewset(viewsets.ModelViewSet):
         dataProcessing.process(open_path=req_data['step2']).step2_save(int(row_num))
 
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return DataSetDetailSerializer
+        elif self.action == "partial_update":
+            return DataSetDetailSerializer
+        elif self.action == "create":
+            return DataSetSerializer
+        return DataSetDetailSerializer
 
     def get_queryset(self):
         return DataSet.objects.filter(user=self.request.user)
