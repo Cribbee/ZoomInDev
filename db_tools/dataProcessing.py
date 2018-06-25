@@ -36,11 +36,24 @@ class process():
         with codecs.open(self.open_path, 'w', 'utf-8') as f:
             f.writelines(data)
 
-    def missing_data(self,**kwargs):
-        self.allow_blan = kwargs.pop('allow_blank', False)
-        self.trim_whitespace = kwargs.pop('trim_whitespace', True)
-        self.max_length = kwargs.pop('max_length', None)
-        self.min_length = kwargs.pop('min_length', None)
+    def step3_save(self, write_path):
+
+        data = codecs.open(self.open_path, 'r', 'utf-8').readlines()
+        with codecs.open(write_path, 'w', 'utf-8') as f:
+            f.writelines(data)
+
+    # def missing_data(self,**kwargs):
+    #     self.allow_blan = kwargs.pop('allow_blank', False)
+    #     self.trim_whitespace = kwargs.pop('trim_whitespace', True)
+    #     self.max_length = kwargs.pop('max_length', None)
+    #     self.min_length = kwargs.pop('min_length', None)
+
+    def missing_value(self, axis, how, thresh):
+        df = pd.read_csv(self.open_path)
+        dfd = df.dropna(axis=axis, how=how, thresh=thresh)
+        dfd.to_csv("m"+self.open_path)
+
+
 
 
 

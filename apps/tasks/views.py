@@ -125,14 +125,17 @@ class DataSetViewset(viewsets.ModelViewSet):
         req_data.__setitem__('task', request.data['task'])
         req_data.__setitem__('step1', request.data['step1'])
         req_data.__setitem__('step2', request.data['step2'])
+        req_data.__setitem__('step2', request.data['step3'])
         taskinfo = TaskInfo.objects.get(id=req_data['task'])
 
         #  每增加一个数据集，TaskInfo.data_num +1
         taskinfo.data_num += 1
         taskinfo.save()
-        #  step1、2分别是存储的json文件名与最初始的csv文件名
+        #  step1、2分别是存储的json文件名与最初始的csv文件名,并存储step3以备数据预处理使用
         req_data['step1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.json")
-        req_data['step2'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.csv")
+        req_data['step2'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "2.csv")
+        req_data['step3'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "3.csv")
+
         logger.debug("data_set_name is " + str(req_data['step1']))
 
         serializer = self.get_serializer(data=req_data)
@@ -145,7 +148,8 @@ class DataSetViewset(viewsets.ModelViewSet):
         transformer.trans(json_path=req_data['step1'], csv_path=req_data['step2']).json2csv()
         #  对data_set进行csv文件格式下的祛除表头操作
         dataProcessing.process(open_path=req_data['step2']).step2_save(int(row_num))
-
+        #  对保存后的文件复制保存以备数据处理使用
+        dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['step3'])
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_serializer_class(self):
@@ -161,7 +165,21 @@ class DataSetViewset(viewsets.ModelViewSet):
         return DataSet.objects.filter(user=self.request.user)
 
 
+#  数据预处理方法
+class Data(APIView):
 
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+
+    @api_view(['POST'])
+    def missing_value(self):
+
+        request = self.request
+        data_set = DataSet.objects.get(id=request['id'])
+        dataProcessing.process(open_path=data_set.step2).missing_value(axis=request['axis'],
+                                                                      how=request['how'], thresh=request['thresh'])
+        data_set.step3 = "m" + data_set.step2
+        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
 
 
