@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'^/getJsonFile$', views.jsonUpload),
     url(r'^/dataProcessing$', views.DataProcessing),
     url(r'^/scoreAnalysis$', views.scoreAnalysis),
+    url(r'^/dataProcessing/missingValue$', views.missing_value),
+    url(r'^/dataProcessing/filters$', views.filters),
 
 
 

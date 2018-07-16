@@ -48,23 +48,58 @@ class process():
     #     self.max_length = kwargs.pop('max_length', None)
     #     self.min_length = kwargs.pop('min_length', None)
 
-    def missing_value(self, axis, how, thresh):
+    def missing_value(self, axis, how):
         df = pd.read_csv(self.open_path)
-        dfd = df.dropna(axis=axis, how=how, thresh=thresh)
-        dfd.to_csv("m"+self.open_path)
+        dfd = df.dropna(axis=axis, how=how)
+        path = self.open_path.replace(".csv", "m.csv")
+        dfd.to_csv(path)
+
+    # 可优化为单步一次性处理
+    def filter_processing(self, logical_type, filter):
+        df = pd.read_csv(self.open_path)
+        # "与"的判断逻辑
+        if logical_type == "&":
+            for f in filter:
+                if f['field_type'] == "0":
+                    df = df[eval((str(df[f['field_name']]) + f['filter_method'] + f['filter_obj']))]
+                elif f['field_type'] == "1" and f['filter_method'] == "contains":
+                    df = df[df[f['field_name']].str.contains(f['filter_obj'])]
+                elif f['field_type'] == "1" and f['filter_method'] == "notContains":
+                    df = df[~df[f['field_name']].str.contains(f['filter_obj'])]
+                elif f['field_type'] == "1" and f['filter_method'] == "isNull":
+                    df = df[df[f['field_name']].notnull]
+                elif f['field_type'] == "1" and f['filter_method'] == "notNull":
+                    df = df[df[f['field_name']].isnull]
+        # "或"的判断逻辑
+        elif logical_type == "|":
+            df_merger = []
+            count = 0
+            for f in filter:
+                if f['field_type'] == "0":
+                    df_merger[count] = df[eval((str(df[f['field_name']]) + f['filter_method'] + f['filter_obj']))]
+                    count += 1
+                elif f['field_type'] == "1" and f['filter_method'] == "contains":
+                    df_merger[count] = df[df[f['field_name']].str.contains(f['filter_obj'])]
+                    count += 1
+                elif f['field_type'] == "1" and f['filter_method'] == "notContains":
+                    df_merger[count] = df[~df[f['field_name']].str.contains(f['filter_obj'])]
+                    count += 1
+                elif f['field_type'] == "1" and f['filter_method'] == "isNull":
+                    df_merger[count] = df[df[f['field_name']].notnull]
+                    count += 1
+                elif f['field_type'] == "1" and f['filter_method'] == "notNull":
+                    df_merger[count] = df[df[f['field_name']].isnull]
+                    count += 1
+            # accumulate,then remove replicated
+            i = 0
+            while i < count:
+
+                df = pd.concat([df_merger[i], df_merger[i+1]], join='outer', axis=0,ignore_index=True,)
+                i += 1
+            path = self.open_path.replace(".csv", "f.csv")
+            df.to_csv(path)
 
 
 
-
-
-
-
-
-
-
-
-    # @staticmethod
-    # def ():
-    #     fr = codecs.open(self.save_path, 'r', 'utf-8')
 
 

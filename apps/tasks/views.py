@@ -79,6 +79,7 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
+        # 服务器路径
         taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
@@ -166,21 +167,27 @@ class DataSetViewset(viewsets.ModelViewSet):
 
 
 #  数据预处理方法
-class Data(APIView):
 
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
-    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+@api_view(['POST'])
+def missing_value(request):
 
-    @api_view(['POST'])
-    def missing_value(self):
+    data_set = DataSet.objects.get(id=request.data['id'])
+    dataProcessing.process(open_path=data_set.step3).missing_value(axis=request.data['axis'], how=request.data['how'])
+    data_set.step3 = data_set.step3.replace(".csv", "m.csv")
+    data_set.save()
+    return Response({"message": "缺失值处理已完成"})
 
-        request = self.request
-        data_set = DataSet.objects.get(id=request['id'])
-        dataProcessing.process(open_path=data_set.step2).missing_value(axis=request['axis'],
-                                                                      how=request['how'], thresh=request['thresh'])
-        data_set.step3 = "m" + data_set.step2
-        return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
+@api_view(['POST'])
+def filters(request):
+
+    data_set = DataSet.objects.get(id=request.data['id'])
+    dataProcessing.process(open_path=data_set.step3).filter_processing(request.data['logical_type'],
+                                                                       request.data['filter'])
+
+    data_set.step3 = data_set.step3.replace(".csv", "f.csv")
+    data_set.save()
+    return Response({"message": "过滤处理已完成"})
 
 
 
