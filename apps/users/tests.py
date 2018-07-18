@@ -54,29 +54,52 @@ def test():
     # for i in words:
     #     p=p+1
 
-    # df1 = pd.DataFrame({'语文': ['100', 'A5', 'A6', 'A7'],
-    #                     '数学': ['99', 'B1', 'B2', 'B3'],
-    #                     '英语': ['100', 'C1', 'C2', 'C3'],
-    #                     '化学': ['100', 'D1', 'D2', 'D3']},)
-    #
-    # df2 = pd.DataFrame({'语文': ['100', 'A5', 'A6', 'A7'],
-    #                     '数学': ['99', 'B5', 'B6', 'B7'],
-    #                     '英语': ['100', 'C5', 'C6', 'C7'],
-    #                     '化学': ['100', 'D5', 'D6', 'D7']},)
-    # df3 = pd.DataFrame(data=None)
-    # print(df1)
+    df1 = pd.DataFrame({'语文': [100, 'A5', 'A6', 'A7'],
+                        '数学': ['99', 'B1', 'B2', 'B3'],
+                        '英语': ['100', 'C1', 'C2', 'C3'],
+                        '化学': ['100', 'D1', 'D2', 'D3']},)
+
+    df2 = pd.DataFrame({'语文': [100, 95, 96, 97],
+                        '数学': [99, 95, 96, 97],
+                        '姓名': ["xx", "闫雨", "vv", "sb"],
+                        '化学': [100, 95, 96, 97]},)
+    df3 ={"filter": [
+        {
+            "field_type": 0,
+            "field_name": "语文",
+            "filter_method": ">",
+            "filter_obj": "95"
+        },
+        {
+            "field_type": 1,
+            "field_name": "姓名",
+            "filter_method": "contains",
+            "filter_obj": "sb"
+        }
+
+    ]}
+
+    print(df2)
+    for f in df3['filter']:
+        if f['field_type'] == 0:
+            print(f['filter_method'])
+            print(f['filter_method'], type(f['filter_method']))
+            str_expression = "df2['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
+            df2 = df2[eval(str_expression)]
+            print(df2)
+        elif f['field_type'] == 1 and f['filter_method'] == "contains":
+            df2 = df2[df2[f['field_name']].str.contains(f['filter_obj'])]
+            print(df2)
     # print(df2)
+    # df2 = df2[df2.eval('语文 < 数学')]
+    # print(df2)
+
+
+
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)
     # print(re)
 
 
-    i = 0
-    dc = ["x","y","z"]
-    for p in dc:
-        print(p)
-        i +=1
-        print(i)
-    print(i)
 
 
 

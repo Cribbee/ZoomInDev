@@ -180,8 +180,10 @@ def missing_value(request):
 
 @api_view(['POST'])
 def filters(request):
+    logger = logging.getLogger('django')
+    logger.debug("req_data is " + str(request.data['filter']))
 
-    data_set = DataSet.objects.get(id=request.data['id'])
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dataProcessing.process(open_path=data_set.step3).filter_processing(request.data['logical_type'],
                                                                        request.data['filter'])
 
