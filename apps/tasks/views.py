@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.authentication import SessionAuthentication
+from rest_framework import status
 
 from django.http import HttpResponse, JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
@@ -119,7 +120,6 @@ class DataSetViewset(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
 
         logger = logging.getLogger('django')
-        #logger.debug("data_set is " + str(request.data['data_set']))
         data_set = request.data['data_set']
         row_num = request.data['row_num']
         req_data = {}
@@ -166,8 +166,9 @@ class DataSetViewset(viewsets.ModelViewSet):
         return DataSet.objects.filter(user=self.request.user)
 
 
-#  数据预处理方法
+#  <数据预处理方法>
 
+#  处理缺失值
 @api_view(['POST'])
 def missing_value(request):
 
@@ -178,6 +179,7 @@ def missing_value(request):
     return Response({"message": "缺失值处理已完成"})
 
 
+#  条件过滤
 @api_view(['POST'])
 def filters(request):
     logger = logging.getLogger('django')
@@ -190,6 +192,18 @@ def filters(request):
     data_set.step3 = data_set.step3.replace(".csv", "f.csv")
     data_set.save()
     return Response({"message": "过滤处理已完成"})
+
+
+# 添加序号列"Ordinal"
+@api_view(['POST'])
+def set_index(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).set_index()
+
+    data_set.step3 = data_set.step3.replace(".csv", "i.csv")
+    data_set.save()
+    return Response({"message": "序号列添加已完成"})
+
 
 
 

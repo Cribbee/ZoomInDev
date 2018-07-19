@@ -112,7 +112,14 @@ class process():
             path = self.open_path.replace(".csv", "f.csv")
             dfs.to_csv(path)
 
-
+    # 在指定位置增加序号列
+    def set_index(self):
+        df = pd.read_csv(self.open_path)
+        df = df.set_index(np.arange(0, df[0].count(), 1))
+        # df['index'] = df.index + 1
+        # df.rename(columns={'index': col_name}, inplace=True)
+        path = self.open_path.replace(".csv", "i.csv")
+        df.to_csv(path)
 
 
 

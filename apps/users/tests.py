@@ -79,21 +79,30 @@ def test():
 
     ]}
 
+    # print(df2)
+    # for f in df3['filter']:
+    #     if f['field_type'] == 0:
+    #         print(f['filter_method'])
+    #         print(f['filter_method'], type(f['filter_method']))
+    #         str_expression = "df2['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
+    #         df2 = df2[eval(str_expression)]
+    #         print(df2)
+    #     elif f['field_type'] == 1 and f['filter_method'] == "contains":
+    #         df2 = df2[df2[f['field_name']].str.contains(f['filter_obj'])]
+    #         print(df2)
+    # # print(df2)
+    # # df2 = df2[df2.eval('语文 < 数学')]
+    # print(df2)
+    # col_name = df2.columns.tolist()
+    # print(col_name)
+    # df2.insert(0,'Ordinal',np.arange(0, df2[col_name[0]].count(), 1))
     print(df2)
-    for f in df3['filter']:
-        if f['field_type'] == 0:
-            print(f['filter_method'])
-            print(f['filter_method'], type(f['filter_method']))
-            str_expression = "df2['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
-            df2 = df2[eval(str_expression)]
-            print(df2)
-        elif f['field_type'] == 1 and f['filter_method'] == "contains":
-            df2 = df2[df2[f['field_name']].str.contains(f['filter_obj'])]
-            print(df2)
-    # print(df2)
-    # df2 = df2[df2.eval('语文 < 数学')]
-    # print(df2)
-
+    col_name = df2.columns.tolist()
+    df2 = df2.set_index(np.arange(1, df2[col_name[0]].count()+1, 1))
+    # df2 = df2.reset_index()
+    # df2['index'] = df2.index+1
+    # df2.rename(columns={'index':'or'},inplace=True)
+    print(df2)
 
 
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)
