@@ -121,5 +121,10 @@ class process():
         path = self.open_path.replace(".csv", "i.csv")
         df.to_csv(path)
 
+    def sum(self, a, b, col_new):
+        df = pd.read_csv(self.open_path)
+        df.eval(col_new + "=" + a + "+" + b, inplace=True)
+        df.to_csv(self.open_path)
+
 
 

@@ -205,6 +205,15 @@ def set_index(request):
     return Response({"message": "序号列添加已完成"})
 
 
+# 求和函数sum，操作两列，并在末尾生成新一列
+@api_view(['POST'])
+def sum(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request.data['col_new'])
+    data_set.save()
+    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+
+
 
 
 

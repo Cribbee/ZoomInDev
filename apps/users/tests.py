@@ -96,12 +96,19 @@ def test():
     # col_name = df2.columns.tolist()
     # print(col_name)
     # df2.insert(0,'Ordinal',np.arange(0, df2[col_name[0]].count(), 1))
+    # print(df2)
+    # col_name = df2.columns.tolist()
+    # df2 = df2.set_index(np.arange(1, df2[col_name[0]].count()+1, 1))
+    # # df2 = df2.reset_index()
+    # # df2['index'] = df2.index+1
+    # # df2.rename(columns={'index':'or'},inplace=True)
+    # print(df2)
+    col_new = "sum"
+    a = "语文"
+    b = "数学"
     print(df2)
-    col_name = df2.columns.tolist()
-    df2 = df2.set_index(np.arange(1, df2[col_name[0]].count()+1, 1))
-    # df2 = df2.reset_index()
-    # df2['index'] = df2.index+1
-    # df2.rename(columns={'index':'or'},inplace=True)
+
+    df2.eval(col_new + "=" + a + "+" + b, inplace=True)
     print(df2)
 
 

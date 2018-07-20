@@ -5899,3 +5899,1446 @@ KeyError: 'data_set_id'
 (0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
 (0.017) SHOW FULL TABLES; args=None
 (0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.007) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.023) SHOW FULL TABLES; args=None
+(0.019) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.063) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 212, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 16494
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/urls/resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern '^upload/(?P<path>.*)$'>], [<URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/getJsonFile$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/scoreAnalysis$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/missingValue$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/filters$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/setIndex$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/sum$'>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users/$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users\.(?P<format>[a-z0-9]+)/?$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask\.(?P<format>[a-z0-9]+)/?$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)/$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo\.(?P<format>[a-z0-9]+)/?$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)/$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/$' [name='dataSet-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet\.(?P<format>[a-z0-9]+)/?$' [name='dataSet-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/(?P<pk>[^/.]+)/$' [name='dataSet-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='dataSet-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^$' [name='api-root']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^\.(?P<format>[a-z0-9]+)/?$' [name='api-root']>], [<URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>], [<URLPattern '^api-token-auth/'>], [<URLPattern '^login/'>]], 'path': 'task/dataProcessing/sum/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/urls/resolvers.py", line 523, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLPattern '^upload/(?P<path>.*)$'>], [<URLResolver <module 'rest_framework.urls' from '/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/urls.py'> (rest_framework:rest_framework) '^api-auth/'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/getJsonFile$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/scoreAnalysis$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/missingValue$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/filters$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/setIndex$'>], [<URLResolver <module 'tasks.urls' from '/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/urls.py'> (None:None) '^task'>, <URLPattern '^/dataProcessing/sum$'>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users/$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^users\.(?P<format>[a-z0-9]+)/?$' [name='users-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask\.(?P<format>[a-z0-9]+)/?$' [name='usertask-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)/$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^usertask/(?P<tasks_id>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='usertask-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo\.(?P<format>[a-z0-9]+)/?$' [name='task-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)/$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^taskinfo/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='task-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/$' [name='dataSet-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet\.(?P<format>[a-z0-9]+)/?$' [name='dataSet-list']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/(?P<pk>[^/.]+)/$' [name='dataSet-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^dataSet/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$' [name='dataSet-detail']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^$' [name='api-root']>], [<URLResolver <URLPattern list> (None:None) '^'>, <URLPattern '^\.(?P<format>[a-z0-9]+)/?$' [name='api-root']>], [<URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>], [<URLPattern '^api-token-auth/'>], [<URLPattern '^login/'>]], 'path': 'task/dataProcessing/sum/'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 835, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 843, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 849, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/template/base.py", line 856, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>
+Not Found: /task/dataProcessing/sum/
+"POST /task/dataProcessing/sum/ HTTP/1.1" 404 6910
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 212, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 16494
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 212, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 16494
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 212, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 16494
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.012) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.023) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.012) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_A'], request.data['col_B'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.015) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 77
+"POST /task/dataProcessing/sum HTTP/1.1" 415 62
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17845
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.018) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in all_sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17848
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in all_sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17848
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.012) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/all_sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in all_sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/all_sum HTTP/1.1" 500 17864
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/all_sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in all_sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/all_sum HTTP/1.1" 500 17864
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.006) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.009) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 214, in sum
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request['col_new'])
+TypeError: 'Request' object is not subscriptable
+"POST /task/dataProcessing/sum HTTP/1.1" 500 17844
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.007) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.005) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 127, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19121
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.003) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 127, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19121
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 127, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19121
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 127, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19121
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 127, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19121
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.004) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.013) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19122
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19122
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to operator
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19122
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to function call
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19133
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to function call
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19133
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to function call
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19133
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.011) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.002) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+Internal Server Error: /task/dataProcessing/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 213, in sum
+    request.data['col_new'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataProcessing.py", line 129, in sum
+    df.eval(col_new + "=" + a + "+" + b, inplace=True)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/frame.py", line 2959, in eval
+    return _eval(expr, inplace=inplace, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/eval.py", line 291, in eval
+    truediv=truediv)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 739, in __init__
+    self.terms = self.parse()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 756, in parse
+    return self._visitor.visit(self.expr)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 317, in visit
+    raise e
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/computation/expr.py", line 311, in visit
+    node = ast.fix_missing_locations(ast.parse(clean))
+  File "/usr/local/Cellar/python3/3.6.4_2/Frameworks/Python.framework/Versions/3.6/lib/python3.6/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+SyntaxError: can't assign to function call
+"POST /task/dataProcessing/sum HTTP/1.1" 500 19132
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.016) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273is.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273is.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 38
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.005) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.002) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273iss.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273iss.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 45
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.002) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273isss.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273isss.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 45
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.001) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.001) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.000) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273issss.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273issss.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 45
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.008) SHOW FULL TABLES; args=None
+(0.001) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.002) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273i.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273i.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 45
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None
+(0.000) SELECT `tasks_dataset`.`id`, `tasks_dataset`.`user_id`, `tasks_dataset`.`task_id`, `tasks_dataset`.`title`, `tasks_dataset`.`desc`, `tasks_dataset`.`x_axis`, `tasks_dataset`.`y_axis`, `tasks_dataset`.`chart_type`, `tasks_dataset`.`step1`, `tasks_dataset`.`step2`, `tasks_dataset`.`step3`, `tasks_dataset`.`step4`, `tasks_dataset`.`step5`, `tasks_dataset`.`add_time` FROM `tasks_dataset` WHERE `tasks_dataset`.`id` = 5; args=(5,)
+(0.001) UPDATE `tasks_dataset` SET `user_id` = 2, `task_id` = 1, `title` = '', `desc` = '', `x_axis` = '', `y_axis` = '', `chart_type` = 0, `step1` = '/Users/cribbee/Downloads/1/Data/1271.json', `step2` = '/Users/cribbee/Downloads/1/Data/1272.csv', `step3` = '/Users/cribbee/Downloads/1/Data/1273i.csv', `step4` = '', `step5` = '', `add_time` = '2018-07-16 07:48:18.283471' WHERE `tasks_dataset`.`id` = 5; args=(2, 1, '', '', '', '', 0, '/Users/cribbee/Downloads/1/Data/1271.json', '/Users/cribbee/Downloads/1/Data/1272.csv', '/Users/cribbee/Downloads/1/Data/1273i.csv', '', '', '2018-07-16 07:48:18.283471', 5)
+"POST /task/dataProcessing/sum HTTP/1.1" 200 45
