@@ -5,6 +5,7 @@ import csv
 import json
 import sys
 import codecs
+import os
 
 
 class trans():

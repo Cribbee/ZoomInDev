@@ -38,7 +38,9 @@ ALLOWED_HOSTS = ['*']
 # 把设置重载的model引入，这样就会替换系统用户，利用django.contrib.auth
 AUTH_USER_MODEL = 'users.UserProfile'
 
-AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend', 'guardian.backends.ObjectPermissionBackend')
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',
+                           'guardian.backends.ObjectPermissionBackend',
+                           "users.views.CustomBackend")
 
 
 # Application definition
@@ -77,7 +79,6 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = ('*',)
-
 
 
 CORS_ALLOW_METHODS = (
@@ -196,9 +197,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-AUTHENTICATION_BACKENDS = (
-    'users.views.CustomBackend',
-)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/

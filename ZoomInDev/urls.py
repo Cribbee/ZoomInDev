@@ -26,7 +26,7 @@ from ZoomInDev.settings import MEDIA_ROOT
 from django.views.static import serve
 
 from users.views import UserViewset
-from tasks.views import TaskViewset, DataSetViewset
+from tasks.views import TaskViewset, DataSetViewset, DelValue
 from user_operation.views import UserTaskViewset
 from tasks import urls as tasks
 
@@ -48,6 +48,8 @@ urlpatterns = [
 
     #这里有坑，$符号不能出现
     url(r'docs/', include_docs_urls(title="ZoomIn文档系统")),
+
+    url(r'^task/dataProcessing/drop/', DelValue.as_view(), name="drop"),
 
     #drf自带的token认证模式
     url(r'^api-token-auth/', views.obtain_auth_token),

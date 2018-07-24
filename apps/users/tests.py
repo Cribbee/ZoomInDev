@@ -103,12 +103,7 @@ def test():
     # # df2['index'] = df2.index+1
     # # df2.rename(columns={'index':'or'},inplace=True)
     # print(df2)
-    col_new = "sum"
-    a = "语文"
-    b = "数学"
-    print(df2)
-
-    df2.eval(col_new + "=" + a + "+" + b, inplace=True)
+    df2.drop({'语文', '数学'}, axis=1, inplace=True)
     print(df2)
 
 
