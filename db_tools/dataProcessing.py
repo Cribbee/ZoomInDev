@@ -53,7 +53,7 @@ class process():
         df = pd.read_csv(self.open_path)
         dfd = df.dropna(axis=axis, how=how)
         path = self.open_path.replace(".csv", "m.csv")
-        dfd.to_csv(path)
+        dfd.to_csv(path, index_label=False)
 
     # 可优化为单步一次性处理
     def filter_processing(self, logical_type, filter):
@@ -77,7 +77,7 @@ class process():
                 elif f['field_type'] == 1 and f['filter_method'] == "notNull":
                     df = df[df[f['field_name']].isnull]
             path = self.open_path.replace(".csv", "f.csv")
-            df.to_csv(path)
+            df.to_csv(path, index_label=False)
             logger.debug("LogDebug<""logical_type : 与>")
         # "或"的判断逻辑
         elif logical_type == "|":
@@ -109,7 +109,7 @@ class process():
 
                 dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True,)
                 i += 1
-            path = self.open_path.replace(".csv", "f.csv")
+            path = self.open_path.replace(".csv", "f.csv", index_label=False)
             dfs.to_csv(path)
 
     # 在指定位置增加序号列
@@ -121,10 +121,21 @@ class process():
         path = self.open_path.replace(".csv", "i.csv")
         df.to_csv(path)
 
+    # 求和函数sum，操作两列，并在末尾生成新一列
     def sum(self, a, b, col_new):
         df = pd.read_csv(self.open_path)
         df.eval(col_new + "=" + a + "+" + b, inplace=True)
-        df.to_csv(self.open_path)
+        df.to_csv(self.open_path, index_label=False)
+
+    # 批量删除列
+    def drop(self, drop):
+        df = pd.read_csv(self.open_path)
+        for delete in drop:
+
+            df.drop(delete['field'], axis=1, inplace=True)
+        path = self.open_path.replace(".csv", "d.csv")
+        df.to_csv(path, index_label=False)
+
 
 
 

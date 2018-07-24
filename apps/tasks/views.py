@@ -4,7 +4,7 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework import filters
 from rest_framework.views import APIView
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
@@ -17,7 +17,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet
-from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer
+from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer,\
+                         DataSetProcessingSerializer
+
 
 import codecs
 import json
@@ -54,6 +56,20 @@ def scoreAnalysis(request):
     return Response({"message": "展示成绩单JSON数据", "data": ls})
 
 
+#查看上传后的文件
+@api_view(['POST'])
+def show_data_set1(request):
+
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    # 服务器路径："/home/ZoomInDataSet/test1.json"
+    # 本机的路径："/Users/cribbee/Downloads/test1.json"
+    transformer.trans(json_path="/Users/cribbee/Downloads/test1.json", csv_path=data_set.step2).csv2json()
+    ds = codecs.open("/Users/cribbee/Downloads/test1.json", 'r', 'utf-8')
+    ls = json.load(ds)
+    os.remove("/Users/cribbee/Downloads/test1.json")
+    return Response({"message": "展示上传后的数据文件", "data": ls})
+
+
 class TaskViewset(viewsets.ModelViewSet):
     """
     list:
@@ -80,7 +96,8 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        # 服务器路径
+        # 服务器路径:"/home/ZoomInDataSet/"
+        # 本地路径："/Users/cribbee/Downloads/"
         taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
@@ -194,7 +211,7 @@ def filters(request):
     return Response({"message": "过滤处理已完成"})
 
 
-# 添加序号列"Ordinal"
+# 添加序号列
 @api_view(['POST'])
 def set_index(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -212,6 +229,36 @@ def sum(request):
     dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request.data['col_new'])
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+
+
+class DelValue(APIView):
+    """
+    批量删除列
+    """
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+
+    def get(self, request):
+        return HttpResponse('message：请使用POST方法')
+
+    def post(self, request):
+        serializer = DataSetProcessingSerializer(data=request.data)
+        data_set = DataSet.objects.get(id=request.data['data_set_id'])
+        dataProcessing.process(open_path=data_set.step3).drop(request.data['drop_fields'])
+        data_set.step3 = data_set.step3.replace(".csv", "d.csv")
+        data_set.save()
+        return Response({"message": "已成功批量删除字段"}, status=status.HTTP_200_OK)
+
+# 批量修改字段名
+@api_view(['POST'])
+def set_index(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).set_index()
+
+    data_set.step3 = data_set.step3.replace(".csv", "i.csv")
+    data_set.save()
+    return Response({"message": "序号列添加已完成"})
+
 
 
 
