@@ -103,7 +103,13 @@ def test():
     # # df2['index'] = df2.index+1
     # # df2.rename(columns={'index':'or'},inplace=True)
     # print(df2)
-    df2.drop({'语文', '数学'}, axis=1, inplace=True)
+
+    # # drop删除的方法，也可以用 del (df2['语文'],df2['数学'])
+    # df2.drop({'语文', '数学'}, axis=1, inplace=True)
+    # print(df2)
+
+    # 修改列名
+    df2.rename(columns={"语文": "啤酒"}, inplace=True)
     print(df2)
 
 

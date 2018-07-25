@@ -46,15 +46,17 @@ urlpatterns = [
 
     url(r'^', include(router.urls)),
 
-    #这里有坑，$符号不能出现
+    # 这里有坑，$符号不能出现
     url(r'docs/', include_docs_urls(title="ZoomIn文档系统")),
 
-    url(r'^task/dataProcessing/drop/', DelValue.as_view(), name="drop"),
 
-    #drf自带的token认证模式
+    # drf自带的token认证模式
     url(r'^api-token-auth/', views.obtain_auth_token),
 
-    #jwt的认证接口
+    # jwt的认证接口
     url(r'^login/', obtain_jwt_token),
+
+    # 数据处理API_views
+    url(r'^task/dataProcessing/drop/', DelValue.as_view(), name="drop"),
 
 ]

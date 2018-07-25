@@ -25,7 +25,7 @@ class process():
         os.mkdir(floder + "/Publish")
         os.mkdir(floder + "/Log")
 
-    def orginal_save(self, jsondata):
+    def original_save(self, jsondata):
 
         with codecs.open(self.open_path, 'w', 'utf-8') as f:
             f.writelines(json.dumps(jsondata, sort_keys=True, indent=4, ensure_ascii=False))
@@ -134,6 +134,14 @@ class process():
 
             df.drop(delete['field'], axis=1, inplace=True)
         path = self.open_path.replace(".csv", "d.csv")
+        df.to_csv(path, index_label=False)
+
+    # 批量修改列名
+    def reset_columns(self, reset):
+        df = pd.read_csv(self.open_path)
+        for rs in reset:
+            df.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
+        path = self.open_path.replace(".csv", "r.csv")
         df.to_csv(path, index_label=False)
 
 

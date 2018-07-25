@@ -63,10 +63,10 @@ def show_data_set1(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     # 服务器路径："/home/ZoomInDataSet/test1.json"
     # 本机的路径："/Users/cribbee/Downloads/test1.json"
-    transformer.trans(json_path="/Users/cribbee/Downloads/test1.json", csv_path=data_set.step2).csv2json()
-    ds = codecs.open("/Users/cribbee/Downloads/test1.json", 'r', 'utf-8')
+    transformer.trans(json_path="/home/ZoomInDataSet/test1.json", csv_path=data_set.step2).csv2json()
+    ds = codecs.open("/home/ZoomInDataSet/test1.json", 'r', 'utf-8')
     ls = json.load(ds)
-    os.remove("/Users/cribbee/Downloads/test1.json")
+    os.remove("/home/ZoomInDataSet/test1.json")
     return Response({"message": "展示上传后的数据文件", "data": ls})
 
 
@@ -98,7 +98,7 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("user_id is " + str(taskinfo.user))
         # 服务器路径:"/home/ZoomInDataSet/"
         # 本地路径："/Users/cribbee/Downloads/"
-        taskinfo.task_folder = "/Users/cribbee/Downloads/" + str(serializer.data["id"])
+        taskinfo.task_folder = "/home/ZoomInDataSet/" + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
         user.task_num += 1
@@ -161,14 +161,15 @@ class DataSetViewset(viewsets.ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         #  初始json文件保存
-        dataProcessing.process(open_path=req_data['step1']).orginal_save(data_set)
+        dataProcessing.process(open_path=req_data['step1']).original_save(data_set)
         #  对data_set做json2csv转换
         transformer.trans(json_path=req_data['step1'], csv_path=req_data['step2']).json2csv()
         #  对data_set进行csv文件格式下的祛除表头操作
         dataProcessing.process(open_path=req_data['step2']).step2_save(int(row_num))
         #  对保存后的文件复制保存以备数据处理使用
         dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['step3'])
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response(data=({"message": "数据上传已完成", "data": serializer.data, "code": "201"}),
+                        status=status.HTTP_201_CREATED, headers=headers)
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -249,15 +250,18 @@ class DelValue(APIView):
         data_set.save()
         return Response({"message": "已成功批量删除字段"}, status=status.HTTP_200_OK)
 
+
 # 批量修改字段名
 @api_view(['POST'])
-def set_index(request):
+@permission_classes((IsAuthenticated, IsOwnerOrReadOnly))
+@authentication_classes((JSONWebTokenAuthentication, SessionAuthentication))
+def reset_columns(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).set_index()
+    dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset'])
 
-    data_set.step3 = data_set.step3.replace(".csv", "i.csv")
+    data_set.step3 = data_set.step3.replace(".csv", "r.csv")
     data_set.save()
-    return Response({"message": "序号列添加已完成"})
+    return Response({"message": "批量修改字段名已经完成"})
 
 
 

@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^/dataProcessing/setIndex$', views.set_index),
     url(r'^/dataProcessing/sum$', views.sum),
     url(r'^/dataProcessing/showDataSet1$', views.show_data_set1),
+    url(r'^/dataProcessing/resetColumn$', views.reset_columns),
 
 
 
