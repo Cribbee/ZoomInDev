@@ -144,6 +144,26 @@ class process():
         path = self.open_path.replace(".csv", "r.csv")
         df.to_csv(path, index_label=False)
 
+    # 展示数据集字段名与字段类型
+    def show_dtypes(self):
+        df = pd.read_csv(self.open_path)
+        dtypes = df.dtypes
+        return dtypes
+
+    # 计算每列的平均值
+    def average(self, data):
+        df = pd.read_csv(self.open_path)
+        Columns_name = df.columns.values.tolist()
+        insertRow = pd.DataFrame(columns=Columns_name)
+        newdf = df.append(insertRow, ignore_index=True)
+        for i in data:
+            print(i)
+            print(i['field'])
+            mean1 = df[i['field']].mean()
+            newdf.loc[len(df), i['field']] = mean1
+        newdf.rename(index={len(newdf) - 1: 'average'}, inplace=True)
+        newdf.to_csv(self.open_path, index_label=False)
+
 
 
 

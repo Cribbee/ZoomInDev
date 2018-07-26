@@ -109,8 +109,8 @@ def test():
     # print(df2)
 
     # 修改列名
-    df2.rename(columns={"语文": "啤酒"}, inplace=True)
-    print(df2)
+    df = df2.dtypes
+    print()
 
 
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)

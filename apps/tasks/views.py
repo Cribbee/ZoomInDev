@@ -27,7 +27,6 @@ import os
 import logging
 
 from db_tools import dataProcessing
-from db_tools import dirProcessing
 from db_tools import transformer
 
 
@@ -61,13 +60,27 @@ def scoreAnalysis(request):
 def show_data_set1(request):
 
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    # 服务器路径："/home/ZoomInDataSet/test1.json"
-    # 本机的路径："/Users/cribbee/Downloads/test1.json"
-    transformer.trans(json_path="/home/ZoomInDataSet/test1.json", csv_path=data_set.step2).csv2json()
-    ds = codecs.open("/home/ZoomInDataSet/test1.json", 'r', 'utf-8')
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
+    ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
-    os.remove("/home/ZoomInDataSet/test1.json")
-    return Response({"message": "展示上传后的数据文件", "data": ls})
+    os.remove(path)
+    return Response({"message": "展示数据处理中的数据集文件", "data": ls})
+
+
+#查看上传后的文件
+@api_view(['POST'])
+def show_data_set3(request):
+
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    #path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
+    ds = codecs.open(path, 'r', 'utf-8')
+    ls = json.load(ds)
+    os.remove(path)
+    return Response({"message": "展示数据处理中的数据集文件", "data": ls})
 
 
 class TaskViewset(viewsets.ModelViewSet):
@@ -96,9 +109,9 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        # 服务器路径:"/home/ZoomInDataSet/"
-        # 本地路径："/Users/cribbee/Downloads/"
-        taskinfo.task_folder = "/home/ZoomInDataSet/" + str(serializer.data["id"])
+        path = "/home/ZoomInDataSet/"  # 服务器路径
+        # path = "/Users/cribbee/Downloads/" # 本地路径
+        taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
         user.task_num += 1
@@ -263,6 +276,23 @@ def reset_columns(request):
     data_set.save()
     return Response({"message": "批量修改字段名已经完成"})
 
+
+# 展示数据集字段名与字段类型
+@api_view(['POST'])
+def show_dtypes(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
+    return Response({"message": "展示每列数据类型dtypes", "data": str(dtypes), "code": "200"}, status=status.HTTP_200_OK)
+
+
+# 计算每列的平均值
+@api_view(['POST'])
+def average(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    print(request.data['key'])
+    dataProcessing.process(open_path=data_set.step3).average(request.data['key'])
+    data_set.save()
+    return Response({"message": "求平均值完成"})
 
 
 
