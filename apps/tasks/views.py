@@ -60,8 +60,8 @@ def scoreAnalysis(request):
 def show_data_set1(request):
 
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -74,8 +74,8 @@ def show_data_set1(request):
 def show_data_set3(request):
 
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    #path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -107,10 +107,10 @@ class TaskViewset(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
 
         logger.debug("task_id is " + str(serializer.data["id"]))
-        taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
+        taskinfo = TaskInfo.objects.get(id=serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        path = "/home/ZoomInDataSet/"  # 服务器路径
-        # path = "/Users/cribbee/Downloads/" # 本地路径
+        # path = "/home/ZoomInDataSet/"  # 服务器路径
+        path = "/Users/cribbee/Downloads/" # 本地路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
