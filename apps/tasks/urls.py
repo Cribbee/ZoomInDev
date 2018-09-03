@@ -18,8 +18,9 @@ urlpatterns = [
     url(r'^/dataProcessing/resetColumn$', views.reset_columns),
     url(r'^/dataProcessing/showDtypes$', views.show_dtypes),
     url(r'^/dataProcessing/average$', views.average),
-
-
+    # url(r'^/dataProcessing/standardDeviation/', views.standardDeviation),
+    # url(r'^/dataProcessing/variance/', views.variance),
+    # url(r'^/dataProcessing/sub/', views.sub)
 
 
 

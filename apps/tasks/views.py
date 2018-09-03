@@ -1,3 +1,5 @@
+import shutil
+
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework import generics
@@ -41,7 +43,9 @@ def jsonUpload(request):
 @api_view(['GET', 'POST'])
 def DataProcessing(request):
     if request.method == 'POST':
+        #path = "D:\\Task\\8211.json"
         fw = codecs.open("/Users/cribbee/Downloads/csv2json.json", 'r', 'utf-8')
+        #fw = codecs.open(path, 'r', 'utf-8')
         ls = json.load(fw)
         return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
@@ -50,7 +54,9 @@ def DataProcessing(request):
 
 @api_view(['GET'])
 def scoreAnalysis(request):
+    #path = "D:\\Task\\8211.json"
     fw = codecs.open("/home/ZoomInDev/csv2json2222.json", 'r', 'utf-8')
+    #fw = codecs.open(path, 'r', 'utf-8')
     ls = json.load(fw)
     return Response({"message": "展示成绩单JSON数据", "data": ls})
 
@@ -60,8 +66,9 @@ def scoreAnalysis(request):
 def show_data_set1(request):
 
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    #path = "D:\\Test\\test1.json"  # windos 路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -74,8 +81,9 @@ def show_data_set1(request):
 def show_data_set3(request):
 
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    #path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    #path = "D:\\Test\\test1.json"  # windos 路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -107,10 +115,11 @@ class TaskViewset(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
 
         logger.debug("task_id is " + str(serializer.data["id"]))
-        taskinfo = TaskInfo.objects.get(id=serializer.data["id"])
+        taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        # path = "/home/ZoomInDataSet/"  # 服务器路径
-        path = "/Users/cribbee/Downloads/" # 本地路径
+        path = "/home/ZoomInDataSet/"  # 服务器路径
+        # path = "/Users/cribbee/Downloads/" # 本地路径
+        #path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
@@ -133,6 +142,15 @@ class TaskViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         return TaskInfo.objects.filter(user=self.request.user)
 
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        shutil.rmtree(instance.task_folder)
+        user = UserProfile.objects.get(id=instance.user_id)
+        user.task_num -= 1
+        user.save()
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 
 class DataSetViewset(viewsets.ModelViewSet):
     """
@@ -154,6 +172,7 @@ class DataSetViewset(viewsets.ModelViewSet):
         row_num = request.data['row_num']
         req_data = {}
         req_data.__setitem__('task', request.data['task'])
+        req_data.__setitem__('title', request.data['title'])
         req_data.__setitem__('step1', request.data['step1'])
         req_data.__setitem__('step2', request.data['step2'])
         req_data.__setitem__('step2', request.data['step3'])
@@ -282,7 +301,7 @@ def reset_columns(request):
 def show_dtypes(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
-    return Response({"message": "展示每列数据类型dtypes", "data": str(dtypes), "code": "200"}, status=status.HTTP_200_OK)
+    return Response({"message": "展示每列数据类型dtypes", "data": dict(dtypes), "code": "200"}, status=status.HTTP_200_OK)
 
 
 # 计算每列的平均值
@@ -293,6 +312,30 @@ def average(request):
     dataProcessing.process(open_path=data_set.step3).average(request.data['key'])
     data_set.save()
     return Response({"message": "求平均值完成"})
+
+# @api_view(['POST'])
+# def standardDeviation(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     print(request.data['key'])
+#     dataProcessing.process(open_path=data_set.step3).standardDeviation(request.data['key'])
+#     data_set.save()
+#     return Response({"message": "求标准差完成"})
+#
+# @api_view(['POST'])
+# def variance(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     print(request.data['key'])
+#     dataProcessing.process(open_path=data_set.step3).variance(request.data['key'])
+#     data_set.save()
+#     return Response({"message": "求方差完成"})
+#
+# @api_view(['POST'])
+# def sub(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).sub(request.data['col_a'], request.data['col_b'],
+#                                                          request.data['col_new'])
+#     data_set.save()
+#     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
 
 

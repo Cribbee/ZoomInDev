@@ -110,7 +110,8 @@ def test():
 
     # 修改列名
     df = df2.dtypes
-    print()
+
+    print(dict(df))
 
 
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)
