@@ -255,6 +255,22 @@ def set_index(request):
     return Response({"message": "序号列添加已完成"})
 
 
+# 字段排序
+@api_view(['POST'])
+def sorting(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).sorting(request.data['col_name'], request.data['ascending'])
+    data_set.save()
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    # path = "D:\\Test\\test1.json"  # windos 路径
+    transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
+    ds = codecs.open(path, 'r', 'utf-8')
+    ls = json.load(ds)
+    os.remove(path)
+    return Response({"message": "字段排序已完成", "data": ls, "code": "200"}, status=status.HTTP_200_OK)
+
+
 # 求和函数sum，操作两列，并在末尾生成新一列
 @api_view(['POST'])
 def sum(request):
@@ -301,7 +317,7 @@ def reset_columns(request):
 def show_dtypes(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
-    return Response({"message": "展示每列数据类型dtypes", "data": dict(dtypes), "code": "200"}, status=status.HTTP_200_OK)
+    return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
 
 
 # 计算每列的平均值

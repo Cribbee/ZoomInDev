@@ -62,7 +62,13 @@ def test():
     df2 = pd.DataFrame({'语文': [100, 95, 96, 97],
                         '数学': [99, 95, 96, 97],
                         '姓名': ["xx", "闫雨", "vv", "sb"],
-                        '化学': [100, 95, 96, 97]},)
+                        '化学': [100, 95, 96, 97],
+                        '时间': [21/2017, 21/2017, 21/2017, 1],
+                        '浮点型': [21 / 2017, 21 / 2017, 21 / 2017, 21 / 2017],
+                        'double': [-2.323579E-01, -2.323579E-01, -2.323579E-01, -2.323579E-01],
+                        },)
+    df2['时间'] = pd.to_datetime(df2['时间'])
+
     df3 ={"filter": [
         {
             "field_type": 0,
@@ -111,8 +117,8 @@ def test():
     # 修改列名
     df = df2.dtypes
 
-    print(dict(df))
-
+    df3=df2.sort_values(by=["数学"],ascending=False).reset_index(inplace=False).drop('index', axis=1, inplace=False)
+    print(df3)
 
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)
     # print(re)

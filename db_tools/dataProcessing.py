@@ -121,6 +121,12 @@ class process():
         path = self.open_path.replace(".csv", "i.csv")
         df.to_csv(path)
 
+    # 字段排序
+    def sorting(self, col_name, ascending):
+        df = pd.read_csv(self.open_path)
+        df = df.sort_values(by=[col_name], ascending=ascending).reset_index(inplace=False).drop('index', axis=1, inplace=False)
+        df.to_csv(self.open_path, index_label=False)
+
     # 求和函数sum，操作两列，并在末尾生成新一列
     def sum(self, a, b, col_new):
         df = pd.read_csv(self.open_path)
