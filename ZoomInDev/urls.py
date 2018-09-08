@@ -42,7 +42,7 @@ router.register(r'dataSet', DataSetViewset, base_name="dataSet")
 urlpatterns = [
     url(r'^upload/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^task', include(tasks)),
+    url(r'^task/', include(tasks)),
 
     url(r'^', include(router.urls)),
 

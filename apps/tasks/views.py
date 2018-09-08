@@ -54,7 +54,6 @@ def DataProcessing(request):
 
 @api_view(['GET'])
 def scoreAnalysis(request):
-    #path = "D:\\Task\\8211.json"
     fw = codecs.open("/home/ZoomInDev/csv2json2222.json", 'r', 'utf-8')
     #fw = codecs.open(path, 'r', 'utf-8')
     ls = json.load(fw)
@@ -117,8 +116,8 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        path = "/home/ZoomInDataSet/"  # 服务器路径
-        # path = "/Users/cribbee/Downloads/" # 本地路径
+        # path = "/home/ZoomInDataSet/"  # 服务器路径
+        path = "/Users/cribbee/Downloads/" # 本地路径
         #path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
@@ -127,7 +126,9 @@ class TaskViewset(viewsets.ModelViewSet):
         taskinfo.save()
         user.save()
 
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        return Response({"message": "任务创建成果", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED, headers=headers)
+
+
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -175,17 +176,18 @@ class DataSetViewset(viewsets.ModelViewSet):
         req_data.__setitem__('title', request.data['title'])
         req_data.__setitem__('step1', request.data['step1'])
         req_data.__setitem__('step2', request.data['step2'])
-        req_data.__setitem__('step2', request.data['step3'])
+        req_data.__setitem__('step3', request.data['step3'])
+        req_data.__setitem__('stepX1', request.data['stepX1'])
         taskinfo = TaskInfo.objects.get(id=req_data['task'])
 
         #  每增加一个数据集，TaskInfo.data_num +1
         taskinfo.data_num += 1
         taskinfo.save()
-        #  step1、2分别是存储的json文件名与最初始的csv文件名,并存储step3以备数据预处理使用
+        #  step1、2分别是存储的json文件名与最初始的csv文件名,并存储step3以备数据预处理使用,stepX1文件是数据集的总结性文件
         req_data['step1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.json")
         req_data['step2'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "2.csv")
         req_data['step3'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "3.csv")
-
+        req_data['stepX1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "sum_up.csv")
         logger.debug("data_set_name is " + str(req_data['step1']))
 
         serializer = self.get_serializer(data=req_data)
@@ -200,6 +202,8 @@ class DataSetViewset(viewsets.ModelViewSet):
         dataProcessing.process(open_path=req_data['step2']).step2_save(int(row_num))
         #  对保存后的文件复制保存以备数据处理使用
         dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['step3'])
+        #  对保存后的文件做总结表创建操作
+        dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['stepX1'])
         return Response(data=({"message": "数据上传已完成", "data": serializer.data, "code": "201"}),
                         status=status.HTTP_201_CREATED, headers=headers)
 

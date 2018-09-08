@@ -65,7 +65,7 @@ class DataSet(models.Model):
 
 class Chart(models.Model):
     """
-    数据集信息
+    数据图表信息
     """
     CHART_TYPE = (
         (1, "簇状直方图"),

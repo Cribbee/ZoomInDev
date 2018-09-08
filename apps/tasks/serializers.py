@@ -40,7 +40,7 @@ class DataSetSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DataSet
-        fields = ("user", "id", "task", "title", "step1", "step2", "step3")
+        fields = ("user", "id", "task", "title", "step1", "step2", "step3", "stepX1")
 
 
 class DataSetDetailSerializer(serializers.ModelSerializer):
