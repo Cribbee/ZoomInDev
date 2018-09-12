@@ -18,9 +18,9 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
-from .models import TaskInfo, DataSet
+from .models import TaskInfo, DataSet, Chart
 from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer,\
-                         DataSetProcessingSerializer
+                         DataSetProcessingSerializer, ChartSerializer, ChartDetailSerializer
 
 
 import codecs
@@ -28,7 +28,7 @@ import json
 import os
 import logging
 
-from db_tools import dataProcessing
+from db_tools import dataProcessing, dataAnalyze
 from db_tools import transformer
 
 
@@ -114,10 +114,10 @@ class TaskViewset(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
 
         logger.debug("task_id is " + str(serializer.data["id"]))
-        taskinfo = TaskInfo.objects.get(id= serializer.data["id"])
+        taskinfo = TaskInfo.objects.get(id=serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        # path = "/home/ZoomInDataSet/"  # 服务器路径
-        path = "/Users/cribbee/Downloads/" # 本地路径
+        path = "/home/ZoomInDataSet/"  # 服务器路径
+        # path = "/Users/cribbee/Downloads/" # 本地路径
         #path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
@@ -127,8 +127,6 @@ class TaskViewset(viewsets.ModelViewSet):
         user.save()
 
         return Response({"message": "任务创建成果", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED, headers=headers)
-
-
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -219,6 +217,58 @@ class DataSetViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         return DataSet.objects.filter(user=self.request.user)
 
+
+class ChartViewset(viewsets.ModelViewSet):
+    """
+    list:
+        展示用户数据集的图表信息
+    update:
+        更新图表信息
+    retrieve:
+        展示部分图表信息
+    partial_update:
+        更新部分图表信息
+    create:
+        创建图表信息
+    delete:
+        删除图表
+    """
+
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = ChartSerializer
+
+    def create(self, request, *args, **kwargs):
+        logger = logging.getLogger('django')
+        serializer = self.get_serializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+
+        chart = Chart.objects.get(id=serializer.data["id"])
+        #生成图表保存文件
+
+        return Response({"message": "图表信息创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED,
+                        headers=headers)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return ChartSerializer
+        elif self.action == "retrieve":
+            return ChartSerializer
+        elif self.action == "update":
+            return ChartSerializer
+
+        return ChartDetailSerializer
+
+    def get_queryset(self):
+        return Chart.objects.filter(user=self.request.user)
 
 #  <数据预处理方法>
 
@@ -358,9 +408,16 @@ def average(request):
 #     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
 
+#  <数据分析方法>
 
+# 展示数据集字段名与字段类型
+@api_view(['POST'])
+def sum_analysis(request):
+    chart = Chart.objects.get(id=request.data['chart_id'])
+    data_set = DataSet.objects.get(id=request.data['data_set'])
 
-
+    dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
+    return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
 
 
 

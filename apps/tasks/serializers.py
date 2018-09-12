@@ -5,7 +5,7 @@ __create_at__ = 2018 / 6 / 12
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
-from .models import TaskInfo, DataSet
+from .models import TaskInfo, DataSet, Chart
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -58,3 +58,35 @@ class DataSetProcessingSerializer(serializers.ModelSerializer):
     class Meta:
         model = DataSet
         fields = ("user",)
+
+
+class ChartSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = Chart
+        validators = [
+            UniqueTogetherValidator(
+                queryset=Chart.objects.all(),
+                fields=('user', 'title'),
+                message="该图表标题已存在"
+            )
+        ]
+        fields = ("id", "user", "data_set", "title", "desc", "chart_type",
+                  "x_axis", "y_axis", "contrast_axis", "secondary_axis",)
+
+
+class ChartDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = Chart
+
+        fields = ("id", "user", "data_set", "title", "desc", "chart_type","x_axis", "y_axis",
+                  "contrast_axis", "secondary_axis", "add_time", "updated_time", "chart_folder",)
+
+
