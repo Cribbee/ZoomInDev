@@ -23,7 +23,8 @@ urlpatterns = [
     # url(r'^/dataProcessing/variance/', views.variance),
     # url(r'^/dataProcessing/sub/', views.sub)
 
-
+    url(r'^chart/sum$', views.sum_analysis),
+    url(r'^chart/mean$', views.mean_analysis),
 
 
 

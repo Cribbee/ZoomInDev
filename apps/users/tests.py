@@ -4,6 +4,7 @@ import codecs
 import pandas as pd
 import numpy as np
 from numpy.random import ranf
+import time
 
 
 #
@@ -126,10 +127,14 @@ def test():
 
     #图表测试
     print(df2)
-    string = ['姓名','性别']
-    df = df2.groupby(['姓名','性别'])['语文','化学'].sum()
+    string = "性别"
+    stringg = "化学,语文"
+    arr = string.split(',')
+    arrr = stringg.split(',')
+    print(arr)
+    df = df2.groupby(arr)[arrr].mean()
     print(df)
-
+    print(df.to_json(orient='columns', force_ascii=False,))
 
 
 

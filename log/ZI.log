@@ -1,0 +1,99 @@
+"POST /task/chart/sum HTTP/1.1" 400 109
+Internal Server Error: /task/chart/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 418, in sum_analysis
+    data_set = DataSet.objects.get(id=request.data['data_set'])
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+tasks.models.DoesNotExist: DataSet matching query does not exist.
+"POST /task/chart/sum HTTP/1.1" 500 16781
+Internal Server Error: /task/chart/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 421, in sum_analysis
+    chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
+TypeError: generate_chart() missing 1 required positional argument: 'self'
+"POST /task/chart/sum HTTP/1.1" 500 16516
+"POST /task/chart/sum HTTP/1.1" 500 17258
+"POST /task/chart/sum HTTP/1.1" 500 17254
+"POST /task/chart/sum HTTP/1.1" 500 17262
+"POST /task/chart/sum HTTP/1.1" 400 75
+"POST /task/chart/sum HTTP/1.1" 500 17266
+Internal Server Error: /task/chart/sum
+Traceback (most recent call last):
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
+    response = self.handle_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/apps/tasks/views.py", line 421, in sum_analysis
+    chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
+  File "/Users/cribbee/PycharmProjects/ZoomInDev/db_tools/dataAnalyze.py", line 26, in generate_chart
+    df = df.groupby([x_axis])[y_axis].sum()
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/generic.py", line 6659, in groupby
+    observed=observed, **kwargs)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/groupby/groupby.py", line 2152, in groupby
+    return klass(obj, by, **kwds)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/groupby/groupby.py", line 599, in __init__
+    mutated=self.mutated)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/groupby/groupby.py", line 3315, in _get_grouper
+    if not isinstance(gpr, Grouping) else gpr
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/groupby/groupby.py", line 2944, in __init__
+    self.grouper = _convert_grouper(index, grouper)
+  File "/Users/cribbee/Virtualenv/V-ZoomIn/lib/python3.6/site-packages/pandas/core/groupby/groupby.py", line 3342, in _convert_grouper
+    raise ValueError('Grouper and axis must be same length')
+ValueError: Grouper and axis must be same length
+"POST /task/chart/sum HTTP/1.1" 500 17685
+"POST /task/chart/sum HTTP/1.1" 200 315
+"POST /task/chart/mean HTTP/1.1" 200 315
+"POST /task/chart/mean HTTP/1.1" 200 315

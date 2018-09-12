@@ -155,7 +155,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "zoomIn",
         'USER': "root",
-        'PASSWORD': "BNU123>0808",
+        'PASSWORD': "dengdaiwushi",
         'HOST': "127.0.0.1",
         'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }

@@ -27,6 +27,7 @@ import codecs
 import json
 import os
 import logging
+import time
 
 from db_tools import dataProcessing, dataAnalyze
 from db_tools import transformer
@@ -410,14 +411,36 @@ def average(request):
 
 #  <数据分析方法>
 
-# 展示数据集字段名与字段类型
+# 获取图表求和数据
 @api_view(['POST'])
 def sum_analysis(request):
     chart = Chart.objects.get(id=request.data['chart_id'])
     data_set = DataSet.objects.get(id=request.data['data_set'])
 
-    dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
-    return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
+    df = dataAnalyze.Process(open_path=data_set.step3).chart_sum(
+        chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
+    chart.x_axis = request.data['x_axis']
+    chart.y_axis = request.data['y_axis']
+    chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+    chart.save()
+    return Response({"message": "获取图表求和数据", "data": df.to_json(orient='columns', force_ascii=False,),
+                     "code": "200"}, status=status.HTTP_200_OK)
+
+
+# 获取图表均值数据
+@api_view(['POST'])
+def mean_analysis(request):
+    chart = Chart.objects.get(id=request.data['chart_id'])
+    data_set = DataSet.objects.get(id=request.data['data_set'])
+
+    df = dataAnalyze.Process(open_path=data_set.step3).chart_sum(
+        chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
+    chart.x_axis = request.data['x_axis']
+    chart.y_axis = request.data['y_axis']
+    chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+    chart.save()
+    return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False,),
+                     "code": "200"}, status=status.HTTP_200_OK)
 
 
 
