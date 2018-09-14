@@ -127,12 +127,12 @@ def test():
 
     #图表测试
     print(df2)
-    string = "性别"
+    string = "性别,姓名"
     stringg = "化学,语文"
     arr = string.split(',')
     arrr = stringg.split(',')
     print(arr)
-    df = df2.groupby(arr)[arrr].mean()
+    df = df2.groupby(arr)[arrr].sum()
     print(df)
     print(df.to_json(orient='columns', force_ascii=False,))
 

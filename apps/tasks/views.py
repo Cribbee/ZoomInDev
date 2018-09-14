@@ -22,7 +22,6 @@ from .models import TaskInfo, DataSet, Chart
 from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer,\
                          DataSetProcessingSerializer, ChartSerializer, ChartDetailSerializer
 
-
 import codecs
 import json
 import os
@@ -36,7 +35,6 @@ from db_tools import transformer
 @api_view(['GET', 'POST'])
 def jsonUpload(request):
     if request.method == 'POST':
-
         return Response({"message": "Json文件保存成功!data中展示接收的数据", "data": request.data})
     return Response({"message": "Please Use POST-method"})
 
@@ -79,7 +77,6 @@ def show_data_set1(request):
 #查看上传后的文件
 @api_view(['POST'])
 def show_data_set3(request):
-
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
     #path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
@@ -127,7 +124,7 @@ class TaskViewset(viewsets.ModelViewSet):
         taskinfo.save()
         user.save()
 
-        return Response({"message": "任务创建成果", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED, headers=headers)
+        return Response({"message": "任务创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -183,10 +180,15 @@ class DataSetViewset(viewsets.ModelViewSet):
         taskinfo.data_num += 1
         taskinfo.save()
         #  step1、2分别是存储的json文件名与最初始的csv文件名,并存储step3以备数据预处理使用,stepX1文件是数据集的总结性文件
-        req_data['step1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "1.json")
-        req_data['step2'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "2.csv")
-        req_data['step3'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "3.csv")
-        req_data['stepX1'] = (str(taskinfo.task_folder)+"/Data/"+str(req_data['task']) + str(taskinfo.user_id) + str(taskinfo.data_num) + "sum_up.csv")
+        req_data['step1'] = (str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
+            taskinfo.data_num) + "1.json")
+        req_data['step2'] = (str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
+            taskinfo.data_num) + "2.csv")
+        req_data['step3'] = (str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
+            taskinfo.data_num) + "3.csv")
+        req_data['stepX1'] = (
+                    str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
+                taskinfo.data_num) + "sum_up.csv")
         logger.debug("data_set_name is " + str(req_data['step1']))
 
         serializer = self.get_serializer(data=req_data)
@@ -202,7 +204,7 @@ class DataSetViewset(viewsets.ModelViewSet):
         #  对保存后的文件复制保存以备数据处理使用
         dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['step3'])
         #  对保存后的文件做总结表创建操作
-        dataProcessing.process(open_path=req_data['step2']).step3_save(req_data['stepX1'])
+        dataProcessing.process(open_path=req_data['step2']).stepX1_save(req_data['step3'], req_data['stepX1'])
         return Response(data=({"message": "数据上传已完成", "data": serializer.data, "code": "201"}),
                         status=status.HTTP_201_CREATED, headers=headers)
 
@@ -217,6 +219,18 @@ class DataSetViewset(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return DataSet.objects.filter(user=self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        os.remove(instance.step1)
+        os.remove(instance.step2)
+        os.remove(instance.step3)
+        os.remove(instance.stepX1)
+        task = TaskInfo.objects.get(id=instance.task_id)
+        task.data_num -= 1
+        task.save()
+        self.perform_destroy(instance)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ChartViewset(viewsets.ModelViewSet):
@@ -248,7 +262,7 @@ class ChartViewset(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
 
         chart = Chart.objects.get(id=serializer.data["id"])
-        #生成图表保存文件
+        # 生成图表保存文件
 
         return Response({"message": "图表信息创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED,
                         headers=headers)
@@ -271,12 +285,12 @@ class ChartViewset(viewsets.ModelViewSet):
     def get_queryset(self):
         return Chart.objects.filter(user=self.request.user)
 
+
 #  <数据预处理方法>
 
 #  处理缺失值
 @api_view(['POST'])
 def missing_value(request):
-
     data_set = DataSet.objects.get(id=request.data['id'])
     dataProcessing.process(open_path=data_set.step3).missing_value(axis=request.data['axis'], how=request.data['how'])
     data_set.step3 = data_set.step3.replace(".csv", "m.csv")
@@ -326,13 +340,7 @@ def sorting(request):
     return Response({"message": "字段排序已完成", "data": ls, "code": "200"}, status=status.HTTP_200_OK)
 
 
-# 求和函数sum，操作两列，并在末尾生成新一列
-@api_view(['POST'])
-def sum(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'], request.data['col_new'])
-    data_set.save()
-    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+
 
 
 class DelValue(APIView):
@@ -348,7 +356,7 @@ class DelValue(APIView):
     def post(self, request):
         serializer = DataSetProcessingSerializer(data=request.data)
         data_set = DataSet.objects.get(id=request.data['data_set_id'])
-        dataProcessing.process(open_path=data_set.step3).drop(request.data['drop_fields'])
+        dataProcessing.process(open_path=data_set.step3).drop(request.data['drop_fields'], data_set.stepX1)
         data_set.step3 = data_set.step3.replace(".csv", "d.csv")
         data_set.save()
         return Response({"message": "已成功批量删除字段"}, status=status.HTTP_200_OK)
@@ -360,7 +368,7 @@ class DelValue(APIView):
 @authentication_classes((JSONWebTokenAuthentication, SessionAuthentication))
 def reset_columns(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset'])
+    dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset'], data_set.stepX1)
 
     data_set.step3 = data_set.step3.replace(".csv", "r.csv")
     data_set.save()
@@ -371,7 +379,7 @@ def reset_columns(request):
 @api_view(['POST'])
 def show_dtypes(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dtypes = dataProcessing.process(open_path=data_set.step3).show_dtypes()
+    dtypes = dataProcessing.process(open_path=data_set.stepX1).show_dtypes()
     return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
 
 
@@ -379,35 +387,57 @@ def show_dtypes(request):
 @api_view(['POST'])
 def average(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    print(request.data['key'])
-    dataProcessing.process(open_path=data_set.step3).average(request.data['key'])
+    average1 = dataProcessing.process(open_path=data_set.step3).average(request.data['key'], data_set.stepX1)
     data_set.save()
-    return Response({"message": "求平均值完成"})
+    return Response({"message": "求平均值完成", "data": str(average1)})
 
-# @api_view(['POST'])
-# def standardDeviation(request):
-#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-#     print(request.data['key'])
-#     dataProcessing.process(open_path=data_set.step3).standardDeviation(request.data['key'])
-#     data_set.save()
-#     return Response({"message": "求标准差完成"})
-#
-# @api_view(['POST'])
-# def variance(request):
-#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-#     print(request.data['key'])
-#     dataProcessing.process(open_path=data_set.step3).variance(request.data['key'])
-#     data_set.save()
-#     return Response({"message": "求方差完成"})
-#
-# @api_view(['POST'])
-# def sub(request):
-#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-#     dataProcessing.process(open_path=data_set.step3).sub(request.data['col_a'], request.data['col_b'],
-#                                                          request.data['col_new'])
-#     data_set.save()
-#     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
+@api_view(['POST'])
+def standardDeviation(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    std1 = dataProcessing.process(open_path=data_set.step3).std(request.data['key'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": "求标准差完成", "data": str(std1)})
+
+
+@api_view(['POST'])
+def variance(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    var1 = dataProcessing.process(open_path=data_set.step3).var(request.data['key'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": "求方差完成", "data": str(var1)})
+
+# 求和函数sum，操作两列，并在末尾生成新一列
+@api_view(['POST'])
+def sum(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'],
+                                                         request.data['col_new'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+
+@api_view(['POST'])
+def sub(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).sub(request.data['col_a'], request.data['col_b'],
+                                                         request.data['col_new'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
+
+
+@api_view(['POST'])
+def changeType(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).changeType(request.data['key'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": "类型转换完成"})
+
+@api_view(['POST'])
+def changeDesc(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.stepX1).changeDesc(request.data['key'])
+    data_set.save()
+    return Response({"message": "字段描述修改完成"})
 
 #  <数据分析方法>
 
@@ -441,6 +471,4 @@ def mean_analysis(request):
     chart.save()
     return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False,),
                      "code": "200"}, status=status.HTTP_200_OK)
-
-
 

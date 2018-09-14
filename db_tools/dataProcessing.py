@@ -11,6 +11,7 @@ import logging
 import pandas as pd
 import numpy as np
 from numpy import nan as NaN
+from datetime import datetime
 
 
 class process():
@@ -43,11 +44,13 @@ class process():
         with codecs.open(write_path, 'w', 'utf-8') as f:
             f.writelines(data)
 
-    def stepx1_save(self,write_path):
-
-        data = codecs.open(self.open_path, 'r', 'utf-8').readlines()
-        with codecs.open(write_path, 'w', 'utf-8') as f:
-            f.writelines(data)
+    def stepX1_save(self, open_path, write_path):
+        df = pd.read_csv(open_path)
+        Columns_name = df.columns.values.tolist()
+        new_df = pd.DataFrame(columns=Columns_name, index=['字段类型', '字段描述', '平均值', '方差', '标准差'])
+        for i in Columns_name:
+            new_df.loc['字段类型', i] = df[i].dtypes
+        new_df.to_csv(write_path, index_label=False)
 
     # def missing_data(self,**kwargs):
     #     self.allow_blan = kwargs.pop('allow_blank', False)
@@ -93,7 +96,7 @@ class process():
                 if f['field_type'] == 0:
                     str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
                     print(str_expression)
-                    #df_merger[] = df[eval(str_expression)]
+                    # df_merger[] = df[eval(str_expression)]
                     df_merger.append(df[eval(str_expression)])
                     count += 1
                 elif f['field_type'] == 1 and f['filter_method'] == "contains":
@@ -112,8 +115,7 @@ class process():
             i = 0
             dfs = pd.DataFrame(None)
             while i < count:
-
-                dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True,)
+                dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
                 i += 1
             path = self.open_path.replace(".csv", "f.csv", index_label=False)
             dfs.to_csv(path)
@@ -133,49 +135,103 @@ class process():
         df = df.sort_values(by=[col_name], ascending=ascending).reset_index(inplace=False).drop('index', axis=1, inplace=False)
         df.to_csv(self.open_path, index_label=False)
 
-    # 求和函数sum，操作两列，并在末尾生成新一列
-    def sum(self, a, b, col_new):
-        df = pd.read_csv(self.open_path)
-        df.eval(col_new + "=" + a + "+" + b, inplace=True)
-        df.to_csv(self.open_path, index_label=False)
-
     # 批量删除列
-    def drop(self, drop):
+    def drop(self, drop, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         for delete in drop:
-
             df.drop(delete['field'], axis=1, inplace=True)
+            df_X.drop(delete['field'], axis=1, inplace=True)
         path = self.open_path.replace(".csv", "d.csv")
         df.to_csv(path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
 
     # 批量修改列名
-    def reset_columns(self, reset):
+    def reset_columns(self, reset, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         for rs in reset:
             df.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
+            df_X.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
         path = self.open_path.replace(".csv", "r.csv")
         df.to_csv(path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
 
     # 展示数据集字段名与字段类型
     def show_dtypes(self):
         df = pd.read_csv(self.open_path)
-        dtypes = df.dtypes
+        dtypes = df.loc['字段类型']
         return dtypes
 
-    # 计算每列的平均值
-    def average(self, data):
+    # 修改字段类型
+    def changeType(self, data, stepX_path):
         df = pd.read_csv(self.open_path)
-        Columns_name = df.columns.values.tolist()
-        insertRow = pd.DataFrame(columns=Columns_name)
-        newdf = df.append(insertRow, ignore_index=True)
+        df_X = pd.read_csv(stepX_path)
         for i in data:
-            print(i)
-            print(i['field'])
+            df[i['field']] = df[i['field']].astype(i['type'])
+            df_X.loc['字段类型', i['field']] = i['type']
+        df.to_csv(self.open_path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
+
+    # 修改字段描述
+    def changeDesc(self, data):
+        df_X = pd.read_csv(self.open_path)
+        for i in data:
+            df_X.loc['字段描述', i['field']] = i['desc']
+        df_X.to_csv(self.open_path, index_label=False)
+
+    # 求和函数sum，操作两列，并在末尾生成新一列
+    def sum(self, a, b, col_new, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        df.eval(col_new + "=" + a + "+" + b, inplace=True)
+        df_X[col_new] = ''
+        df.to_csv(self.open_path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
+
+    # 求差函数sub
+    def sub(self, a, b, col_new, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        df.eval(col_new + "=" + a + "-" + b, inplace=True)
+        df_X[col_new] = ''
+        df.to_csv(self.open_path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
+
+    # 计算平均值、方差、标准差
+    def average(self, data, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        average = {}
+        for i in data:
             mean1 = df[i['field']].mean()
-            newdf.loc[len(df), i['field']] = mean1
-        newdf.rename(index={len(newdf) - 1: 'average'}, inplace=True)
-        newdf.to_csv(self.open_path, index_label=False)
+            df_X.loc['平均值', i['field']] = mean1
+            average[i['field']] = mean1
+        df_X.to_csv(stepX_path, index_label=False)
+        return average
 
+    # 求方差
+    def var(self, data, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        var = {}
+        for i in data:
+            var1 = df[i['field']].var()
+            df_X.loc['方差', i['field']] = var1
+            var[i['field']] = var1
+        df_X.to_csv(stepX_path, index_label=False)
+        return var
 
+    #求标准差
+    def std(self, data, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        std = {}
+        for i in data:
+            std1 = df[i['field']].std()
+            df_X.loc['标准差', i['field']] = std1
+            std[i['field']] = std1
+        df_X.to_csv(stepX_path, index_label=False)
+        return std
 
 

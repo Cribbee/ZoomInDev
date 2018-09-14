@@ -19,10 +19,11 @@ urlpatterns = [
     url(r'^dataProcessing/showDtypes$', views.show_dtypes),
     url(r'^dataProcessing/sorting$', views.sorting),
     url(r'^dataProcessing/average$', views.average),
-    # url(r'^/dataProcessing/standardDeviation/', views.standardDeviation),
-    # url(r'^/dataProcessing/variance/', views.variance),
-    # url(r'^/dataProcessing/sub/', views.sub)
-
+    url(r'^dataProcessing/standardDeviation$', views.standardDeviation),
+    url(r'^dataProcessing/variance$', views.variance),
+    url(r'^dataProcessing/sub$', views.sub),
+    url(r'^dataProcessing/changeType$', views.changeType),
+    url(r'^dataProcessing/changeDesc$', views.changeDesc),
     url(r'^chart/sum$', views.sum_analysis),
     url(r'^chart/mean$', views.mean_analysis),
 
