@@ -1,38 +1,39 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Cribbee'
-__create_at__ = 2018 / 9 / 19
+__create_at__ = 2018 / 9 / 20
 
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
-from user_operation.models import UserTask
+from .models import Regression
 
 
-
-class UserTaskSerializer(serializers.ModelSerializer):
-    #获取当前登录的用户 使用serializers.HiddenField
+class RegressionSerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
     )
 
     class Meta:
-        # validate实现唯一联合，一个商品只能收藏一次
+        model = Regression
         validators = [
             UniqueTogetherValidator(
-                queryset=UserTask.objects.all(),
-                fields=('user', 'tasks'),
-                #  message的信息可以自定义
-                message="已经创建过该项目"
+                queryset=Regression.objects.all(),
+                fields=('user', 'title'),
+                message="该模型的图表标题已存在"
             )
         ]
-        model = UserTask
-        # 收藏的时候需要返回任务的id，因为取消收藏的时候必须知道任务的id是多少
-        fields = ("user", "tasks", 'id')
+        fields = ("id", "user", "data_set", "title", "desc", "category",
+                  "x_axis", "y_axis", "division_ratio", "mth_power", "error_type", )
 
-# class UserFavDetailSerializer(serializers.ModelSerializer):
-#     tasks = TakSerializer()
-#
-#     class Meta:
-#         model = UserFav
-#         fields = ("goods", "id")
+
+class RegressionDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = Regression
+
+        fields = ("id", "user", "data_set", "title", "desc", "category", "x_axis", "y_axis",
+                  "division_ratio", "mth_power", "add_time", "updated_time", "chart_folder1",)
 
