@@ -16,6 +16,7 @@ from rest_framework import status
 from django.http import HttpResponse, JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
 
+
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet, Chart
@@ -340,9 +341,6 @@ def sorting(request):
     return Response({"message": "字段排序已完成", "data": ls, "code": "200"}, status=status.HTTP_200_OK)
 
 
-
-
-
 class DelValue(APIView):
     """
     批量删除列
@@ -360,6 +358,7 @@ class DelValue(APIView):
         data_set.step3 = data_set.step3.replace(".csv", "d.csv")
         data_set.save()
         return Response({"message": "已成功批量删除字段"}, status=status.HTTP_200_OK)
+
 
 
 # 批量修改字段名
@@ -471,4 +470,5 @@ def mean_analysis(request):
     chart.save()
     return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False,),
                      "code": "200"}, status=status.HTTP_200_OK)
+
 

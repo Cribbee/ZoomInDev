@@ -131,10 +131,9 @@ def test():
     stringg = "化学,语文"
     arr = string.split(',')
     arrr = stringg.split(',')
-    print(arr)
     df = df2.groupby(arr)[arrr].sum()
     print(df)
-    print(df.to_json(orient='columns', force_ascii=False,))
+    #print(df.to_json(orient='columns', force_ascii=False,))
 
 
 

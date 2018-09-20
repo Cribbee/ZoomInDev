@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^dataProcessing/sub$', views.sub),
     url(r'^dataProcessing/changeType$', views.changeType),
     url(r'^dataProcessing/changeDesc$', views.changeDesc),
+
     url(r'^chart/sum$', views.sum_analysis),
     url(r'^chart/mean$', views.mean_analysis),
 

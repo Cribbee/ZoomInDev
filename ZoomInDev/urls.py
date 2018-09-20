@@ -60,4 +60,7 @@ urlpatterns = [
     # 数据处理API_views
     url(r'^task/dataProcessing/drop/', DelValue.as_view(), name="drop"),
 
+    # 数据挖掘API_views
+
+
 ]
