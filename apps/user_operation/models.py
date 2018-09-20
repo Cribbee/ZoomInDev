@@ -12,7 +12,7 @@ class UserTask(models.Model):
     """
     用户操作任务
     """
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户", )
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户", )
     tasks = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务", help_text="任务id")
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u"添加时间")
 

@@ -18,7 +18,7 @@ class TaskInfo(models.Model):
         (2, "未完成"),
     )
 
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
     task_name = models.CharField(max_length=30, null=True, blank=True, verbose_name="任务名", help_text="任务名")
     data_num = models.IntegerField(default=0, verbose_name="数据文件数量")
     status_type = models.IntegerField(choices=STATUS_TYPE, default=2, verbose_name="任务状态", help_text="任务状态")
@@ -42,8 +42,8 @@ class DataSet(models.Model):
     数据集信息
     """
 
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
-    task = models.ForeignKey(TaskInfo, models.CASCADE, verbose_name="任务ID")
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
+    task = models.ForeignKey(TaskInfo, models.CASCADE, null=True, verbose_name="任务ID")
     title = models.CharField(max_length=20, verbose_name="数据集文件名", default="", help_text="标题")
     desc = models.CharField(max_length=20, verbose_name="数据集描述信息", default="", help_text="数据集描述描述")
     step1 = models.CharField(max_length=100, verbose_name="json源文件名", default="")
@@ -74,7 +74,7 @@ class Chart(models.Model):
         (4, "散点图"),
     )
 
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
     data_set = models.IntegerField(verbose_name="数据集ID", default=-1)
     title = models.CharField(max_length=20, verbose_name="图表标题", default="", help_text="图表标题")
     desc = models.CharField(max_length=20, verbose_name="图表描述", blank=True, null=True, default="", help_text="图表描述")

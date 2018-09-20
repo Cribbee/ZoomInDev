@@ -41,8 +41,9 @@ class Regression(models.Model):
         (3, "RMSE:均方根误差"),
     )
 
-    user = models.ForeignKey(User, models.CASCADE, verbose_name="用户ID")
-    data_set = models.IntegerField(verbose_name="数据集ID", default=0)
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
+    category = models.ForeignKey(ModelCategory, models.CASCADE, null=True, verbose_name="模型类目")
+    data_set = models.IntegerField(verbose_name="数据集ID", default=-1)
     title = models.CharField(max_length=20, verbose_name="标题", default="", help_text="标题")
     desc = models.CharField(max_length=20, verbose_name="描述", blank=True, null=True, default="", help_text="描述")
     x_axis = models.CharField(max_length=200, verbose_name="自变量", blank=True, null=True, default="", help_text="特征项个数区分一元或多元")
@@ -58,7 +59,7 @@ class Regression(models.Model):
     updated_time = models.DateTimeField(default=datetime.now, verbose_name="更新时间")
 
     class Meta:
-        verbose_name = "数据图表"
+        verbose_name = "回归分析模型"
         verbose_name_plural = verbose_name
 
     def __str__(self):
