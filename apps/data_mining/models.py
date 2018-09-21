@@ -49,6 +49,8 @@ class Regression(models.Model):
     x_axis = models.CharField(max_length=200, verbose_name="自变量", blank=True, null=True, default="", help_text="特征项个数区分一元或多元")
     y_axis = models.CharField(max_length=200, verbose_name="因变量", blank=True, null=True, default="", help_text="目标项")
     division_ratio = models.FloatField(verbose_name="数据划分比例", default=0)
+    xlabel = models.CharField(max_length=30, verbose_name="横轴标签", default="", help_text="X轴标签")
+    ylabel = models.CharField(max_length=30, verbose_name="纵轴标签", default="", help_text="Y轴标签")
     mth_power = models.IntegerField(verbose_name="次数m", default=1)
     error_type = models.IntegerField(choices=ERROR_TYPE, verbose_name="误差计算类别", help_text="默认MSE")
     chart_folder1 = models.CharField(max_length=50, verbose_name="图表存放路径1", null=True, blank=True, default="")
