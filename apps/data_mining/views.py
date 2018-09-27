@@ -13,7 +13,17 @@ from rest_framework import status
 
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
+from tasks.models import TaskInfo, DataSet
 from .models import Regression
+from .serializers import RegressionSerializer, RegressionDetailSerializer
+from db_tools import dataProcessing, dataAnalyze, dataMining
+from db_tools import transformer
+
+
+import os
+import logging
+import time
+
 
 # Create your views here.
 
@@ -33,17 +43,44 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
     delete:
         删除回归分析
     """
-    # queryset = Regression.objects.all()
-    # serializer_class = GoodsSerializer
-    # pagination_class = GoodsPagination
-    # filter_backends = (DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter)
-    # filter_class = GoodsFilter
-    # search_fields = ('name', 'goods_brief', 'goods_desc')
-    # ordering_fields = ('sold_num', 'shop_price')
-    #
-    # def retrieve(self, request, *args, **kwargs):
-    #     instance = self.get_object()
-    #     instance.click_num += 1
-    #     instance.save()
-    #     serializer = self.get_serializer(instance)
-    #     return Response(serializer.data)
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = RegressionSerializer
+
+    def create(self, request, *args, **kwargs):
+        logger = logging.getLogger('django')
+        serializer = self.get_serializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        data_set = DataSet.objects.get(id=serializer.data['data_set'])
+        taskinfo = TaskInfo.objects.get(id=data_set.task)
+
+        model = Regression.objects.get(id=serializer.data["id"])
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder).regression(serializer.data['category'], serializer.data['x_axis'],
+                                                                                   serializer.data['y_axis'], serializer.data['xlabel'],
+                                                                                   serializer.data['ylabel'],serializer.data['test_size'],
+                                                                                   serializer.data['mth_power'], serializer.data['error_type'])
+
+        # 生成图表保存文件
+        return Response({"message": "本回归模型创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED,
+                        headers=headers)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return RegressionSerializer
+        elif self.action == "retrieve":
+            return RegressionSerializer
+        elif self.action == "update":
+            return RegressionSerializer
+
+        return RegressionDetailSerializer
+
+    def get_queryset(self):
+        return Regression.objects.filter(user=self.request.user)
