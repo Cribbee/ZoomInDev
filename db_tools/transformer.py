@@ -6,6 +6,7 @@ import json
 import sys
 import codecs
 import os
+import logging
 
 
 class trans():
@@ -15,10 +16,10 @@ class trans():
         self.csvpath = csv_path
 
     def json2csv(self):
+        logger = logging.getLogger('django')
         fr = codecs.open(self.jsonpath, 'r', 'utf-8')
         ls = json.load(fr)
         print(fr)
-        print(ls)
         data = [list(ls[0].keys())]
         for item in ls:
             # print(item)

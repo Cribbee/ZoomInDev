@@ -55,13 +55,24 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         data_set = DataSet.objects.get(id=serializer.data['data_set'])
-        taskinfo = TaskInfo.objects.get(id=data_set.task)
+        taskinfo = TaskInfo.objects.get(id=data_set.task_id)
 
         model = Regression.objects.get(id=serializer.data["id"])
-        data = dataMining.Process(data_set.step3, taskinfo.task_folder).regression(serializer.data['category'], serializer.data['x_axis'],
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder).regression(serializer.data['title'], serializer.data['category'], serializer.data['x_axis'],
                                                                                    serializer.data['y_axis'], serializer.data['xlabel'],
                                                                                    serializer.data['ylabel'],serializer.data['test_size'],
-                                                                                   serializer.data['mth_power'], serializer.data['error_type'])
+                                                                                   serializer.data['mth_power'], request.data['error_type'])
+        if serializer.data['category'] == 11:
+            model.chart_folder1 = data[1]
+            model.save()
+            return Response({"message": "本回归模型创建成功", "data": ["chart_folder1: "+data[1], "error_sum: "+str(data[0])], "code": "201"},
+                            status=status.HTTP_201_CREATED, headers=headers)
+        if serializer.data['category'] == 12:
+            model.chart_folder1 = data[0]
+            model.chart_folder2 = data[1]
+            model.save()
+            return Response({"message": "本回归模型创建成功", "data": ["chart_folder1: "+data[0], "chart_folder2: "+data[1]], "code": "201"},
+                            status=status.HTTP_201_CREATED, headers=headers)
 
         # 生成图表保存文件
         return Response({"message": "本回归模型创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED,

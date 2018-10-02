@@ -36,9 +36,10 @@ class Regression(models.Model):
     回归分析模型
     """
     ERROR_TYPE = (
-        (1, "MSE:均方误差"),
-        (2, "MAE:平均绝对误差"),
-        (3, "RMSE:均方根误差"),
+        (1, "MSE: 均方误差"),
+        (2, "MAE: 平均绝对误差"),
+        (3, "RMSE: 均方根误差"),
+        (4, "R2: R平方值")
     )
 
     user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
@@ -48,7 +49,7 @@ class Regression(models.Model):
     desc = models.CharField(max_length=20, verbose_name="描述", blank=True, null=True, default="", help_text="描述")
     x_axis = models.CharField(max_length=200, verbose_name="自变量", blank=True, null=True, default="", help_text="特征项个数区分一元或多元")
     y_axis = models.CharField(max_length=200, verbose_name="因变量", blank=True, null=True, default="", help_text="目标项")
-    division_ratio = models.FloatField(verbose_name="数据划分比例", default=0)
+    test_size = models.FloatField(verbose_name="数据划分比例", default=0)
     xlabel = models.CharField(max_length=30, verbose_name="横轴标签", default="", help_text="X轴标签")
     ylabel = models.CharField(max_length=30, verbose_name="纵轴标签", default="", help_text="Y轴标签")
     mth_power = models.IntegerField(verbose_name="次数m", default=1)

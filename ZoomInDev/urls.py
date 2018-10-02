@@ -27,6 +27,7 @@ from django.views.static import serve
 
 from users.views import UserViewset
 from tasks.views import TaskViewset, DataSetViewset, ChartViewset, DelValue
+from data_mining.views import RegressionViewSet
 from user_operation.views import UserTaskViewset
 from tasks import urls as tasks
 
@@ -37,6 +38,8 @@ router.register(r'usertask', UserTaskViewset, base_name="usertask")
 router.register(r'taskinfo', TaskViewset, base_name="task")
 router.register(r'dataSet', DataSetViewset, base_name="dataSet")
 router.register(r'chart', ChartViewset, base_name="chart")
+router.register(r'dataMining/regression', RegressionViewSet, base_name="regression")
+
 
 
 
@@ -61,6 +64,7 @@ urlpatterns = [
     url(r'^task/dataProcessing/drop/', DelValue.as_view(), name="drop"),
 
     # 数据挖掘API_views
+
 
 
 ]

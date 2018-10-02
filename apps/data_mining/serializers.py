@@ -22,8 +22,8 @@ class RegressionSerializer(serializers.ModelSerializer):
                 message="该模型的图表标题已存在"
             )
         ]
-        fields = ("id", "user", "data_set", "title", "desc", "category",
-                  "x_axis", "y_axis", "division_ratio", "mth_power", "error_type", )
+        fields = ("id", "user", "data_set", "title", "desc", "category", "xlabel", "ylabel", "x_axis",
+                  "y_axis", "test_size", "mth_power", "error_type", "chart_folder1", "chart_folder2")
 
 
 class RegressionDetailSerializer(serializers.ModelSerializer):
@@ -35,5 +35,5 @@ class RegressionDetailSerializer(serializers.ModelSerializer):
         model = Regression
 
         fields = ("id", "user", "data_set", "title", "desc", "category", "x_axis", "y_axis",
-                  "division_ratio", "mth_power", "add_time", "updated_time", "chart_folder1",)
+                  "test_size", "mth_power", "error_type", "add_time", "updated_time", "chart_folder1", "chart_folder2")
 

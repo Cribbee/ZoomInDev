@@ -25,14 +25,14 @@ class Process():
 
     def __init__(self, open_path, dir_folder):
         self.open_path = open_path
-        self.dir_folder = dir_folder + "/Publish"
+        self.dir_folder = dir_folder + "/Publish/"
 
     def regression(self, title, category, x_axis, y_axis, xlabel, ylabel, test_size, mth_power, error_type, ):
         df = pd.read_csv(self.open_path)
         X = df[[x_axis]]
         y = df[y_axis]
         chart_folder = self.dir_folder + title + ".png"
-        chart_folder_err = self.dir_folder + title + "error_sum.png"
+        chart_folder_err = self.dir_folder + title + "error.png"
         sns.set_style('darkgrid')
         if category == 11:  #线性回归
             linreg = LinearRegression()
@@ -94,7 +94,7 @@ class Process():
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
             plt.scatter(X, y, label='training points')
-            plt.plot(X_fit, y_lin_fit, label='linear fit', linestyle='--')
+            plt.plot(X_test, y_lin_fit, label='linear fit', linestyle='--')
 
             for m in range(2, m + 1):
                 high_order = PolynomialFeatures(degree=m, include_bias=False)

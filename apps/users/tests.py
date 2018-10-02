@@ -125,24 +125,88 @@ def test():
     # re = pd.concat([df3, df2], join='outer', axis=0,ignore_index=True,)
     # print(re)
 
-    #图表测试
-    print(df2)
-    string = "性别,姓名"
-    stringg = "化学,语文"
-    arr = string.split(',')
-    arrr = stringg.split(',')
-    df = df2.groupby(arr)[arrr].sum()
-    print(df)
-    #print(df.to_json(orient='columns', force_ascii=False,))
+    # #图表测试
+    # print(df2)
+    # string = "性别,姓名"
+    # stringg = "化学,语文"
+    # arr = string.split(',')
+    # arrr = stringg.split(',')
+    # df = df2.groupby(arr)[arrr].sum()
+    # print(df)
+    # #print(df.to_json(orient='columns', force_ascii=False,))
+
+# def chart_mean(chart_type, x_axis, y_axis):
+#     open_path = "/Users/cribbee/Downloads/2/Data/2213.csv"
+#     df = pd.read_csv(open_path)
+#
+#     x_axis = x_axis.split(',')
+#     y_axis = y_axis.split(',')
+#     if chart_type == 1:
+#         df = df.groupby(x_axis)[y_axis].mean()
+#         return df
+#     elif chart_type == 2:
+#         df = df.groupby(x_axis)[y_axis].mean()
+#         return df
+#     elif chart_type == 3:
+#         # 饼图
+#         df = df.groupby(x_axis)[y_axis].sum()
+#         i = float(df.apply(lambda x: x.sum()))
+#         df['Percent'] = df[y_axis] / i
+#         print(df)
+#         return df
 
 
 
 
 
 
+
+
+
+def hha():
+    m = 4
+    for m in range(2, m+1):
+        print(m)
+
+
+
+def chart_mean(chart_type, x_axis, y_axis):
+    open_path = "/Users/cribbee/Downloads/2/Data/2213.csv"
+    df = pd.read_csv(open_path)
+
+    x_axis = x_axis.split(',')
+    y_axis = y_axis.split(',')
+    if chart_type == 1:
+        df = df.groupby(x_axis)[y_axis].mean()
+        return df
+    elif chart_type == 2:
+        df = df.groupby(x_axis)[y_axis].mean()
+        return df
+    elif chart_type == 3:
+
+        df_sum_sum = pd.DataFrame(df[y_axis].sum()).sum().values[0]
+        df_sum = pd.DataFrame(df[y_axis].sum()).T / df_sum_sum
+
+        df = df.append(df_sum)
+        print(df_sum_sum)
+
+        print(df[y_axis])
+
+        print(df['RANK'].dtype)
+
+
+def main():
+    chart_type = 3
+    x_axis = ""
+    y_axis = "RANK,RANK_H"
+    chart_mean(chart_type, x_axis, y_axis)
 
 
 if __name__ == '__main__':
-    test()
+    main()
+
+
+
+
 
 
