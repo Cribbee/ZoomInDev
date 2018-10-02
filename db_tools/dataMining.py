@@ -77,8 +77,8 @@ class Process():
 
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=100)
 
-            X_train = X_train.sort_values(by='Year', ascending=True)
-            X_test = X_test.sort_values(by='Year', ascending=True)
+            X_train = X_train.sort_values(by=x_axis, ascending=True)
+            X_test = X_test.sort_values(by=x_axis, ascending=True)
             y_train = y_train.sort_values(ascending=True)
             y_test = y_test.sort_values(ascending=True)
 
