@@ -22,12 +22,13 @@ urlpatterns = [
     url(r'^dataProcessing/standardDeviation$', views.standardDeviation),
     url(r'^dataProcessing/variance$', views.variance),
     url(r'^dataProcessing/sub$', views.sub),
-    url(r'^dataProcessing/changeType$', views.changeType),
+    url(r'^dataProcessing/changeType$', views.force_changeType),
     url(r'^dataProcessing/changeDesc$', views.changeDesc),
-
     url(r'^chart/sum$', views.sum_analysis),
     url(r'^chart/mean$', views.mean_analysis),
-
-
+    url(r'^dataProcessing/test_changeType$', views.test_changeType),
+    url(r'^dataProcessing/resetColumns_name_type_desc$', views.resetColumns_name_type_desc),
+    url(r'^dataProcessing/resetColumns_name_type$', views.resetColumns_name_type),
+    url(r'^dataProcessing/showDesc$', views.show_desc)
 
 ]

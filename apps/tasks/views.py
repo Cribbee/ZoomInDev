@@ -16,7 +16,6 @@ from rest_framework import status
 from django.http import HttpResponse, JsonResponse
 from django_filters.rest_framework import DjangoFilterBackend
 
-
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet, Chart
@@ -60,10 +59,9 @@ def scoreAnalysis(request):
     return Response({"message": "展示成绩单JSON数据", "data": ls})
 
 
-#查看上传后的文件
+# 查看上传后的文件
 @api_view(['POST'])
 def show_data_set1(request):
-
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
     # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
@@ -75,13 +73,13 @@ def show_data_set1(request):
     return Response({"message": "展示数据处理中的数据集文件", "data": ls})
 
 
-#查看上传后的文件
+# 查看上传后的文件
 @api_view(['POST'])
 def show_data_set3(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    #path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
-    #path = "D:\\Test\\test1.json"  # windos 路径
+    # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
+    # path = "D:\\Test\\test1.json"  # windos 路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -117,7 +115,7 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("user_id is " + str(taskinfo.user))
         path = "/home/ZoomInDataSet/"  # 服务器路径
         # path = "/Users/cribbee/Downloads/" # 本地路径
-        #path = "D:\\Task\\"  # windos 路径
+        # path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)
@@ -142,7 +140,9 @@ class TaskViewset(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-        shutil.rmtree(instance.task_folder)
+        if os.path.exists(instance.task_folder):
+            shutil.rmtree(instance.task_folder)
+        self.perform_destroy(instance)
         user = UserProfile.objects.get(id=instance.user_id)
         user.task_num -= 1
         user.save()
@@ -360,7 +360,6 @@ class DelValue(APIView):
         return Response({"message": "已成功批量删除字段"}, status=status.HTTP_200_OK)
 
 
-
 # 批量修改字段名
 @api_view(['POST'])
 @permission_classes((IsAuthenticated, IsOwnerOrReadOnly))
@@ -369,7 +368,7 @@ def reset_columns(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset'], data_set.stepX1)
 
-    data_set.step3 = data_set.step3.replace(".csv", "r.csv")
+    # data_set.step3 = data_set.step3.replace(".csv", "r.csv")
     data_set.save()
     return Response({"message": "批量修改字段名已经完成"})
 
@@ -380,6 +379,13 @@ def show_dtypes(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dtypes = dataProcessing.process(open_path=data_set.stepX1).show_dtypes()
     return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def show_desc(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    desc = dataProcessing.process(open_path=data_set.stepX1).show_desc()
+    return Response({"message": "展示每列数据类型描述", "data": str(dict(desc)), "code": "200"}, status=status.HTTP_200_OK)
 
 
 # 计算每列的平均值
@@ -406,6 +412,7 @@ def variance(request):
     data_set.save()
     return Response({"message": "求方差完成", "data": str(var1)})
 
+
 # 求和函数sum，操作两列，并在末尾生成新一列
 @api_view(['POST'])
 def sum(request):
@@ -414,6 +421,7 @@ def sum(request):
                                                          request.data['col_new'], data_set.stepX1)
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+
 
 @api_view(['POST'])
 def sub(request):
@@ -425,19 +433,58 @@ def sub(request):
 
 
 @api_view(['POST'])
-def changeType(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).changeType(request.data['key'], data_set.stepX1)
-    data_set.save()
-    return Response({"message": "类型转换完成"})
-
-@api_view(['POST'])
 def changeDesc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dataProcessing.process(open_path=data_set.stepX1).changeDesc(request.data['key'])
     data_set.save()
     return Response({"message": "字段描述修改完成"})
 
+
+@api_view(['POST'])
+def force_changeType(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).dropRow(request.data['key'])
+    dataProcessing.process(open_path=data_set.step3).changeType(request.data['key'], data_set.stepX1)
+    data_set.save()
+    return Response({"message": "类型转换完成"})
+
+
+@api_view(['POST'])
+def test_changeType(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    result = dataProcessing.process(open_path=data_set.step3).test_changeType(request.data['key'], data_set.stepX1)
+    print(result)
+    if not result:
+        dataProcessing.process(open_path=data_set.step3).changeType(request.data['key'], data_set.stepX1)
+        return Response({"message": "类型转换成功"})
+    else:
+        return Response({"违规率": str(result)})
+
+@api_view(['POST'])
+def resetColumns_name_type_desc(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    result = dataProcessing.process(open_path=data_set.step3).test_changeType(request.data['type_field'], data_set.stepX1)
+    if not result:
+        dataProcessing.process(open_path=data_set.stepX1).changeDesc(request.data['desc_field'])
+        dataProcessing.process(open_path=data_set.step3).changeType(request.data['type_field'], data_set.stepX1)
+        dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
+        return Response({"message": "修改成功"})
+    else:
+        dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
+        return Response({"message": "类型修改失败", "违规率": str(result)})
+
+@api_view(['POST'])
+def resetColumns_name_type(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    result = dataProcessing.process(open_path=data_set.step3).test_changeType(request.data['type_field'],
+                                                                              data_set.stepX1)
+    if not result:
+        dataProcessing.process(open_path=data_set.step3).changeType(request.data['type_field'], data_set.stepX1)
+        dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
+        return Response({"message": "修改成功"})
+    else:
+        dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
+        return Response({"message": "类型修改失败", "违规率": str(result)})
 #  <数据分析方法>
 
 # 获取图表求和数据
@@ -470,5 +517,3 @@ def mean_analysis(request):
     chart.save()
     return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False,),
                      "code": "200"}, status=status.HTTP_200_OK)
-
-

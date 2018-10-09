@@ -153,8 +153,8 @@ class process():
         for rs in reset:
             df.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
             df_X.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
-        path = self.open_path.replace(".csv", "r.csv")
-        df.to_csv(path, index_label=False)
+        # path = self.open_path.replace(".csv", "r.csv")
+        df.to_csv(self.open_path, index_label=False)
         df_X.to_csv(stepX_path, index_label=False)
 
     # 展示数据集字段名与字段类型
@@ -163,15 +163,12 @@ class process():
         dtypes = df.loc['字段类型']
         return dtypes
 
-    # 修改字段类型
-    def changeType(self, data, stepX_path):
+    # 展示字段描述
+    def show_desc(self):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        for i in data:
-            df[i['field']] = df[i['field']].astype(i['type'])
-            df_X.loc['字段类型', i['field']] = i['type']
-        df.to_csv(self.open_path, index_label=False)
-        df_X.to_csv(stepX_path, index_label=False)
+        desc = df.loc['字段描述'].fillna('')
+        return desc
+
 
     # 修改字段描述
     def changeDesc(self, data):
@@ -233,5 +230,49 @@ class process():
             std[i['field']] = std1
         df_X.to_csv(stepX_path, index_label=False)
         return std
+
+    # 修改字段类型
+    def changeType(self, data, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        for i in data:
+            df[i['field']] = df[i['field']].astype(i['type'])
+            df_X.loc['字段类型', i['field']] = i['type']
+        df.to_csv(self.open_path, index_label=False)
+        df_X.to_csv(stepX_path, index_label=False)
+
+    # 测试该字段是否含有违规行，若有则报违规率，若无则直接修改类型
+    def test_changeType(self, data, stepX_path):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
+        total = len(df)
+        result = {}
+        for i in data:
+            if df_X.loc['字段类型', i['field']] == 'object' and i['type'] == 'float64':
+                num = 0
+                for k in df[i['field']]:
+                    try:
+                        number = float(k)
+                    except ValueError:
+                        num = num + 1
+                if num > 0:
+                    result[i['field']] = ("%.3f" % (num / total))
+                print(result)
+        print(result)
+        return result
+
+    def dropRow(self, data):
+        df = pd.read_csv(self.open_path)
+        for i in data:
+            index = 0
+            if (i['type']) == 'float64':
+                for k in df[i['field']]:
+                    try:
+                        number = float(k)
+                    except ValueError:
+                        df = df.drop(index)
+                    index = index + 1
+        print(df)
+        df.to_csv(self.open_path, index_label=False)
 
 
