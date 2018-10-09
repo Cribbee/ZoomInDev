@@ -96,3 +96,6 @@
 "POST /task/chart/sum HTTP/1.1" 200 542
 "GET /docs/ HTTP/1.1" 200 288766
 "GET /docs/schema.js HTTP/1.1" 200 25952
+"GET / HTTP/1.1" 200 5959
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 7602
