@@ -33,9 +33,15 @@ def save_upload_file(PostFile, FilePath):
         f = open(FilePath, 'wb')
         for chunk in PostFile.chunks():
             f.write(chunk)
+<<<<<<< HEAD
     except Exception as e:
         f.close()
         return u"写入文件错误:%s" % e
+=======
+    except Exception as e:
+        f.close()
+        return u"写入文件错误:%s" % e
+>>>>>>> be083166368065525d5b7e7bd59682a206ff29ec
     f.close()
     return u"SUCCESS"
 
@@ -312,5 +318,9 @@ def save_scrawl_file(request, filename):
         f.close()
         state = "SUCCESS"
     except Exception as e:
+<<<<<<< HEAD
         state = u"写入图片文件错误:%s" % e
+=======
+        state = u"写入图片文件错误:%s" % e
+>>>>>>> be083166368065525d5b7e7bd59682a206ff29ec
     return state
