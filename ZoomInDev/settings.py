@@ -156,7 +156,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "zoomIn",
         'USER': "root",
-        'PASSWORD': "BNU123>0808",
+        'PASSWORD': "dengdaiwushi",
         'HOST': "127.0.0.1",
         'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
@@ -226,6 +226,6 @@ REST_FRAMEWORK = {
 #JWT的一些设置参考git上官方文档：
 import datetime
 JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=7),
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
 }

@@ -151,6 +151,7 @@ class Process():
             plt.legend((pic), (error_sum_show[0:mth_power]))
             plt.savefig(chart_folder_err)
 
+
             return chart_folder, chart_folder_err
 
 
