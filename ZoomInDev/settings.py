@@ -133,7 +133,7 @@ LOGGING = {
     'disable_existing_loggers': True,
     'handlers': {
         'file': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'log/ZI.log',
         },
@@ -141,7 +141,7 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
     },
