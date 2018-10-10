@@ -47,9 +47,10 @@ class process():
     def stepX1_save(self, open_path, write_path):
         df = pd.read_csv(open_path)
         Columns_name = df.columns.values.tolist()
-        new_df = pd.DataFrame(columns=Columns_name, index=['字段类型', '字段描述', '平均值', '方差', '标准差'])
+        new_df = pd.DataFrame(columns=Columns_name, index=['字段类型', '字段描述', '源文件列名', '平均值', '方差', '标准差'])
         for i in Columns_name:
             new_df.loc['字段类型', i] = df[i].dtypes
+            new_df.loc['源文件列名', i] = i
         new_df.to_csv(write_path, index_label=False)
 
     # def missing_data(self,**kwargs):
@@ -168,6 +169,11 @@ class process():
         desc = df.loc['字段描述'].fillna('')
         return desc
 
+    #展示原文件列名
+    def show_OriginColumnsName(self):
+        df = pd.read_csv(self.open_path)
+        Columns_name = df.loc['源文件列名']
+        return Columns_name
 
     # 修改字段描述
     def changeDesc(self, data):
