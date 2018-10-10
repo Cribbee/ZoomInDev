@@ -308,8 +308,6 @@ def filters(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dataProcessing.process(open_path=data_set.step3).filter_processing(request.data['logical_type'],
                                                                        request.data['filter'])
-
-    data_set.step3 = data_set.step3.replace(".csv", "f.csv")
     data_set.save()
     return Response({"message": "过滤处理已完成"})
 

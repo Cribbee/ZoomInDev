@@ -85,7 +85,7 @@ class process():
                     df = df[df[f['field_name']].notnull]
                 elif f['field_type'] == 1 and f['filter_method'] == "notNull":
                     df = df[df[f['field_name']].isnull]
-            path = self.open_path.replace(".csv", "f.csv")
+            path = self.open_path
             df.to_csv(path, index_label=False)
             logger.debug("LogDebug<""logical_type : 与>")
         # "或"的判断逻辑
@@ -117,8 +117,8 @@ class process():
             while i < count:
                 dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
                 i += 1
-            path = self.open_path.replace(".csv", "f.csv", index_label=False)
-            dfs.to_csv(path)
+            path = self.open_path
+            df.to_csv(path, index_label=False)
 
     # 在指定位置增加序号列
     def set_index(self):
