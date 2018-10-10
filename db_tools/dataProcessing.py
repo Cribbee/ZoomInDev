@@ -86,7 +86,7 @@ class process():
                 elif f['field_type'] == 1 and f['filter_method'] == "notNull":
                     df = df[df[f['field_name']].isnull]
             path = self.open_path
-            df.to_csv(path, index_label=False)
+            df.to_csv(path, index_label=False, index=0)
             logger.debug("LogDebug<""logical_type : 与>")
         # "或"的判断逻辑
         elif logical_type == "|":
@@ -95,7 +95,6 @@ class process():
             for f in filter:
                 if f['field_type'] == 0:
                     str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
-                    print(str_expression)
                     # df_merger[] = df[eval(str_expression)]
                     df_merger.append(df[eval(str_expression)])
                     count += 1
@@ -118,7 +117,7 @@ class process():
                 dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
                 i += 1
             path = self.open_path
-            df.to_csv(path, index_label=False)
+            df.to_csv(path, index_label=False, index=0)
 
     # 在指定位置增加序号列
     def set_index(self):
