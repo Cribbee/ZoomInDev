@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^dataProcessing/test_changeType$', views.test_changeType),
     url(r'^dataProcessing/resetColumns_name_type_desc$', views.resetColumns_name_type_desc),
     url(r'^dataProcessing/resetColumns_name_type$', views.resetColumns_name_type),
-    url(r'^dataProcessing/showDesc$', views.show_desc)
+    url(r'^dataProcessing/showDesc$', views.show_desc),
+    url(r'^dataProcessing/showOriginColumnsName$', views.show_OriginColumnsName)
 
 ]

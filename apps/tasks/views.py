@@ -53,6 +53,7 @@ def DataProcessing(request):
 
 @api_view(['GET'])
 def scoreAnalysis(request):
+    # path = "D:\\Task\\8211.json"
     fw = codecs.open("/home/ZoomInDev/csv2json2222.json", 'r', 'utf-8')
     #fw = codecs.open(path, 'r', 'utf-8')
     ls = json.load(fw)
@@ -146,7 +147,6 @@ class TaskViewset(viewsets.ModelViewSet):
         user = UserProfile.objects.get(id=instance.user_id)
         user.task_num -= 1
         user.save()
-        self.perform_destroy(instance)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
@@ -378,12 +378,19 @@ def show_dtypes(request):
     dtypes = dataProcessing.process(open_path=data_set.stepX1).show_dtypes()
     return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
 
-
+#展示字段描述
 @api_view(['POST'])
 def show_desc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     desc = dataProcessing.process(open_path=data_set.stepX1).show_desc()
     return Response({"message": "展示每列数据类型描述", "data": str(dict(desc)), "code": "200"}, status=status.HTTP_200_OK)
+
+#展示源文件列名
+@api_view(['POST'])
+def show_OriginColumnsName(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    Columns_name = dataProcessing.process(open_path=data_set.stepX1).show_OriginColumnsName()
+    return Response({"message": "展示源文件列名", "data": str(dict(Columns_name)), "code": "200"}, status=status.HTTP_200_OK)
 
 
 # 计算每列的平均值
@@ -394,7 +401,7 @@ def average(request):
     data_set.save()
     return Response({"message": "求平均值完成", "data": str(average1)})
 
-
+#计算列标准差
 @api_view(['POST'])
 def standardDeviation(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -403,6 +410,7 @@ def standardDeviation(request):
     return Response({"message": "求标准差完成", "data": str(std1)})
 
 
+#计算列方差
 @api_view(['POST'])
 def variance(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -420,7 +428,7 @@ def sum(request):
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
 
-
+#求差函数sub
 @api_view(['POST'])
 def sub(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -429,7 +437,7 @@ def sub(request):
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
-
+#修改字段描述
 @api_view(['POST'])
 def changeDesc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -437,7 +445,7 @@ def changeDesc(request):
     data_set.save()
     return Response({"message": "字段描述修改完成"})
 
-
+#强制删除违法行并修改类型
 @api_view(['POST'])
 def force_changeType(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -446,7 +454,7 @@ def force_changeType(request):
     data_set.save()
     return Response({"message": "类型转换完成"})
 
-
+#判断有无违法行，若有则回报违规率，若无直接修改
 @api_view(['POST'])
 def test_changeType(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -458,6 +466,7 @@ def test_changeType(request):
     else:
         return Response({"违规率": str(result)})
 
+#修改列名、字段类型、字段描述
 @api_view(['POST'])
 def resetColumns_name_type_desc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -471,6 +480,7 @@ def resetColumns_name_type_desc(request):
         dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
         return Response({"message": "类型修改失败", "违规率": str(result)})
 
+#修改列名、字段类型
 @api_view(['POST'])
 def resetColumns_name_type(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
