@@ -23,14 +23,18 @@ import matplotlib.pyplot as plt
 
 class Process():
 
-    def __init__(self, open_path, dir_folder):
+    def __init__(self, open_path, dir_folder, upload_folder):
         self.open_path = open_path
         self.dir_folder = dir_folder + "/Publish/"
+        self.upload_folder = upload_folder
 
     def regression(self, title, category, x_axis, y_axis, xlabel, ylabel, test_size, mth_power, error_type, ):
         df = pd.read_csv(self.open_path)
         X = df[[x_axis]]
         y = df[y_axis]
+        chart_folder_re = self.upload_folder + title + ".png"
+        chart_folder_err_re = self.upload_folder + title + "error.png"
+
         chart_folder = self.dir_folder + title + ".png"
         chart_folder_err = self.dir_folder + title + "error.png"
         sns.set_style('darkgrid')
@@ -50,6 +54,7 @@ class Process():
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
             plt.savefig(chart_folder)
+            plt.savefig(chart_folder_re)
             # plt.show()
 
             if error_type == 1:
@@ -67,7 +72,7 @@ class Process():
             elif error_type == 4:
                 # R2
                 error_sum = r2_score(y_test, y_pred)
-                return error_sum, chart_folder
+                return error_sum, chart_folder_re, chart_folder
 
         elif category == 12:  #非线性回归
 
@@ -106,6 +111,7 @@ class Process():
                 plt.tight_layout()
 
             plt.savefig(chart_folder)
+            plt.savefig(chart_folder_re)
 
             error_sum = []
             error_sum_show = []
@@ -150,8 +156,8 @@ class Process():
             plt.scatter([i for i in range(mth_power + 1, n_max + 1)], error_sum[mth_power:], c='black', marker='x', s=55)
             plt.legend((pic), (error_sum_show[0:mth_power]))
             plt.savefig(chart_folder_err)
+            plt.savefig(chart_folder_err_re)
 
-
-            return chart_folder, chart_folder_err
+            return chart_folder_re, chart_folder_err_re, chart_folder, chart_folder_err
 
 

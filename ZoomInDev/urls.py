@@ -44,7 +44,8 @@ router.register(r'dataMining/regression', RegressionViewSet, base_name="regressi
 
 
 urlpatterns = [
-    url(r'^upload/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+    url(r'^home/ZoomInDataSet/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
+
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^task/', include(tasks)),
 

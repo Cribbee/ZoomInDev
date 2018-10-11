@@ -57,8 +57,9 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
         data_set = DataSet.objects.get(id=serializer.data['data_set'])
         taskinfo = TaskInfo.objects.get(id=data_set.task_id)
 
+        upload_folder = "/home/ZoomInDataSet/DataMining/Regression/"
         model = Regression.objects.get(id=serializer.data["id"])
-        data = dataMining.Process(data_set.step3, taskinfo.task_folder).regression(serializer.data['title'], serializer.data['category'], serializer.data['x_axis'],
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder, upload_folder).regression(serializer.data['title'], serializer.data['category'], serializer.data['x_axis'],
                                                                                    serializer.data['y_axis'], serializer.data['xlabel'],
                                                                                    serializer.data['ylabel'],serializer.data['test_size'],
                                                                                    serializer.data['mth_power'], request.data['error_type'])
