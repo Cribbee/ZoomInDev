@@ -206,8 +206,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #  使django能够找到upload文件夹，存取文件,setting.py中设置完后，还要到url.py进行设置
-MEDIA_URL = '/upload/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "upload")
+MEDIA_URL = '/home/ZoomInDataSet/'
+MEDIA_ROOT = os.path.join('/home/ZoomInDataSet/')
 
 
 
