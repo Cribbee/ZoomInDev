@@ -54,9 +54,9 @@ class Regression(models.Model):
     ylabel = models.CharField(max_length=30, verbose_name="纵轴标签", default="", help_text="Y轴标签")
     mth_power = models.IntegerField(verbose_name="次数m", default=1)
     error_type = models.IntegerField(choices=ERROR_TYPE, verbose_name="误差计算类别", help_text="默认MSE")
-    chart_folder1 = models.CharField(max_length=50, verbose_name="图表存放路径1", null=True, blank=True, default="")
-    chart_folder2 = models.CharField(max_length=50, verbose_name="图表存放路径2", null=True, blank=True, default="")
-    chart_folder3 = models.CharField(max_length=50, verbose_name="图表存放路径3", null=True, blank=True, default="")
+    chart_folder1 = models.CharField(max_length=200, verbose_name="图表存放路径1", null=True, blank=True, default="")
+    chart_folder2 = models.CharField(max_length=200, verbose_name="图表存放路径2", null=True, blank=True, default="")
+    chart_folder3 = models.CharField(max_length=200, verbose_name="图表存放路径3", null=True, blank=True, default="")
 
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     updated_time = models.DateTimeField(default=datetime.now, verbose_name="更新时间")
