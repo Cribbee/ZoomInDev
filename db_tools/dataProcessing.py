@@ -13,6 +13,13 @@ import numpy as np
 from numpy import nan as NaN
 from datetime import datetime
 
+from scipy import stats
+from scipy.stats import norm
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn import linear_model
+from matplotlib.font_manager import FontProperties
+
 
 class process():
 
@@ -74,7 +81,7 @@ class process():
         if logical_type == "&":
             for f in filter:
                 if f['field_type'] == 0:
-                    str_expression = "df['"+f['field_name']+"']" + f['filter_method'] + f['filter_obj']
+                    str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
                     logger.debug("LogDebug<""str_expression : " + str_expression + ">")
                     df = df[eval(str_expression)]
 
@@ -132,7 +139,8 @@ class process():
     # 字段排序
     def sorting(self, col_name, ascending):
         df = pd.read_csv(self.open_path)
-        df = df.sort_values(by=[col_name], ascending=ascending).reset_index(inplace=False).drop('index', axis=1, inplace=False)
+        df = df.sort_values(by=[col_name], ascending=ascending).reset_index(inplace=False).drop('index', axis=1,
+                                                                                                inplace=False)
         df.to_csv(self.open_path, index_label=False)
 
     # 批量删除列
@@ -154,7 +162,7 @@ class process():
             df.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
             df_X.rename(columns={rs['original_col']: rs['new_col']}, inplace=True)
         # path = self.open_path.replace(".csv", "r.csv")
-        df.to_csv(self.open_path, index_label=False)
+        df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
     # 展示数据集字段名与字段类型
@@ -169,7 +177,7 @@ class process():
         desc = df.loc['字段描述'].fillna('')
         return desc
 
-    #展示原文件列名
+    # 展示原文件列名
     def show_OriginColumnsName(self):
         df = pd.read_csv(self.open_path)
         Columns_name = df.loc['源文件列名']
@@ -188,7 +196,7 @@ class process():
         df_X = pd.read_csv(stepX_path)
         df.eval(col_new + "=" + a + "+" + b, inplace=True)
         df_X[col_new] = ''
-        df.to_csv(self.open_path, index_label=False)
+        df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
     # 求差函数sub
@@ -197,7 +205,7 @@ class process():
         df_X = pd.read_csv(stepX_path)
         df.eval(col_new + "=" + a + "-" + b, inplace=True)
         df_X[col_new] = ''
-        df.to_csv(self.open_path, index_label=False)
+        df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
     # 计算平均值、方差、标准差
@@ -224,7 +232,7 @@ class process():
         df_X.to_csv(stepX_path, index_label=False)
         return var
 
-    #求标准差
+    # 求标准差
     def std(self, data, stepX_path):
         df = pd.read_csv(self.open_path)
         df_X = pd.read_csv(stepX_path)
@@ -243,7 +251,7 @@ class process():
         for i in data:
             df[i['field']] = df[i['field']].astype(i['type'])
             df_X.loc['字段类型', i['field']] = i['type']
-        df.to_csv(self.open_path, index_label=False)
+        df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
     # 测试该字段是否含有违规行，若有则报违规率，若无则直接修改类型
@@ -266,6 +274,7 @@ class process():
         print(result)
         return result
 
+    # 跟修改字段类型搭配，删除违法行
     def dropRow(self, data):
         df = pd.read_csv(self.open_path)
         for i in data:
@@ -277,7 +286,69 @@ class process():
                     except ValueError:
                         df = df.drop(index)
                     index = index + 1
-        print(df)
-        df.to_csv(self.open_path, index_label=False)
+        df.to_csv(self.open_path, index_label=False, index=0)
+
+    ## RANKkit部分
+    def moreThanZero(arr):
+        return 1 if arr >= 0 else 0
+
+    # Rankit列表
+    def BNUZRankit(self, c):
+        r = []
+        n = max(c)
+        a = 0.5
+        if n <= 10:
+            a = 3.0 / 8
+        for i in c:
+            r.append(norm.ppf((i - a) / (n + 1 - 2 * a)))
+        return r
+
+    # Rankit序列
+    # 换成标准分
+    def BNUZT(score):
+        return 100 * score + 500
+
+    # 生成RANKit，C_name 为列名
+    def TScoreRankit(self, C_name):
+        df = pd.read_csv(self.open_path)
+        rank = df[C_name].rank(method='max')
+        rankit = self.BNUZRankit(rank)
+        df[str(C_name + '_Rankit')] = rankit
+        df.to_csv(self.open_path, index_label=False, index=0)
+
+    # 生成RANK排名，C_name为列名
+    def TScoreRank(self, C_name):
+        df = pd.read_csv(self.open_path)
+        rank = df[C_name].rank(method='max')
+        df[str(C_name + '_Rank')] = rank
+        df.to_csv(self.open_path, index_label=False, index=0)
+
+    # layers为层数，实现分层，并生成每个学生所在的层列，C_name为列名
+    def score2Layer(self, layers, C_name):
+        df = pd.read_csv(self.open_path)
+        count = (df[C_name].count())
+        countsPerlayer = count // layers
+        rank = df[C_name].rank(method='max')
+        df[str(C_name + '_LAYER')] = rank // (countsPerlayer + 1) + 1
+        df.to_csv(self.open_path, index_label=False, index=0)
+
+    # 生成每个学生所在层的平均值
+    def score2Layer_mean(self, layers, C_name):
+        df = pd.read_csv(self.open_path)
+        count = (df[C_name].count())
+        countsPerlayer = count // layers
+        rank = df[C_name].rank(method='max')
+        layer = rank // (countsPerlayer + 1) + 1
+        grouped = df.groupby(layer)
+        grouped_score = grouped[C_name]
+        grouped_score = grouped_score.agg(['mean'])
+        layer_value = grouped_score['mean'].values
+        temp = []
+        for i in layer:
+            temp.append(layer_value[int(i - 1)])
+        df[str(C_name + 'LAYER_mean_')] = temp
+        df.to_csv(self.open_path, index_label=False, index=0)
 
 
+A = process('D:\\dfwNoZeroT2018Sum.csv')
+A.score2Layer_mean(20, 'T_SUM')
