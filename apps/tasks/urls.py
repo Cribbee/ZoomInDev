@@ -30,6 +30,10 @@ urlpatterns = [
     url(r'^dataProcessing/resetColumns_name_type_desc$', views.resetColumns_name_type_desc),
     url(r'^dataProcessing/resetColumns_name_type$', views.resetColumns_name_type),
     url(r'^dataProcessing/showDesc$', views.show_desc),
-    url(r'^dataProcessing/showOriginColumnsName$', views.show_OriginColumnsName)
+    url(r'^dataProcessing/showOriginColumnsName$', views.show_OriginColumnsName),
+    url(r'^dataProcessing/TscoreRank', views.TscoreRank),
+    url(r'^dataProcessing/TscoreRankit', views.TScoreRankit),
+    url(r'^dataProcessing/Score2Layer', views.Score2Layer),
+    url(r'^dataProcessing/Score2Layer_mean', views.Score2Layer_mean)
 
 ]
