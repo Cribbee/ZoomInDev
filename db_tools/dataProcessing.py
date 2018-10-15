@@ -304,6 +304,17 @@ class process():
         return r
 
     # Rankit序列
+    def BNUZRankitSeries(self, s):
+        r = []
+        n = max(s)
+        a = 0.5
+        if n <= 10:
+            a = 3.0 / 8
+        for i in s:
+            r.append(norm.ppf((i - a) / (n + 1 - 2 * a)))
+        return pd.Series(r)
+
+    # Rankit序列
     # 换成标准分
     def BNUZT(score):
         return 100 * score + 500
@@ -312,9 +323,10 @@ class process():
     def TScoreRankit(self, C_name):
         df = pd.read_csv(self.open_path)
         rank = df[C_name].rank(method='max')
-        rankit = self.BNUZRankit(rank)
-        df[str(C_name + '_Rankit')] = rankit
-        df.to_csv(self.open_path, index_label=False, index=0)
+        rankit = self.BNUZRankitSeries(rank)
+        print(rankit)
+        # df[str(C_name + '_Rankit')] = rankit
+        # df.to_csv(self.open_path, index_label=False, index=0)
 
     # 生成RANK排名，C_name为列名
     def TScoreRank(self, C_name):
@@ -350,5 +362,4 @@ class process():
         df.to_csv(self.open_path, index_label=False, index=0)
 
 
-A = process('D:\\dfwNoZeroT2018Sum.csv')
-A.score2Layer_mean(20, 'T_SUM')
+

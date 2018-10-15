@@ -19,8 +19,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from .models import TaskInfo, DataSet, Chart
-from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer,\
-                         DataSetProcessingSerializer, ChartSerializer, ChartDetailSerializer
+from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer, DataSetDetailSerializer, \
+    DataSetProcessingSerializer, ChartSerializer, ChartDetailSerializer
 
 import codecs
 import json
@@ -42,9 +42,9 @@ def jsonUpload(request):
 @api_view(['GET', 'POST'])
 def DataProcessing(request):
     if request.method == 'POST':
-        #path = "D:\\Task\\8211.json"
+        # path = "D:\\Task\\8211.json"
         fw = codecs.open("/Users/cribbee/Downloads/csv2json.json", 'r', 'utf-8')
-        #fw = codecs.open(path, 'r', 'utf-8')
+        # fw = codecs.open(path, 'r', 'utf-8')
         ls = json.load(fw)
         return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
@@ -55,7 +55,7 @@ def DataProcessing(request):
 def scoreAnalysis(request):
     # path = "D:\\Task\\8211.json"
     fw = codecs.open("/home/ZoomInDev/csv2json2222.json", 'r', 'utf-8')
-    #fw = codecs.open(path, 'r', 'utf-8')
+    # fw = codecs.open(path, 'r', 'utf-8')
     ls = json.load(fw)
     return Response({"message": "展示成绩单JSON数据", "data": ls})
 
@@ -66,7 +66,7 @@ def show_data_set1(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
     # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
-    #path = "D:\\Test\\test1.json"  # windos 路径
+    # path = "D:\\Test\\test1.json"  # windos 路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
     ls = json.load(ds)
@@ -124,7 +124,8 @@ class TaskViewset(viewsets.ModelViewSet):
         taskinfo.save()
         user.save()
 
-        return Response({"message": "任务创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED, headers=headers)
+        return Response({"message": "任务创建成功", "data": serializer.data, "code": "201"}, status=status.HTTP_201_CREATED,
+                        headers=headers)
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -188,8 +189,8 @@ class DataSetViewset(viewsets.ModelViewSet):
         req_data['step3'] = (str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
             taskinfo.data_num) + "3.csv")
         req_data['stepX1'] = (
-                    str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
-                taskinfo.data_num) + "sum_up.csv")
+                str(taskinfo.task_folder) + "/Data/" + str(req_data['task']) + str(taskinfo.user_id) + str(
+            taskinfo.data_num) + "sum_up.csv")
         logger.debug("data_set_name is " + str(req_data['step1']))
 
         serializer = self.get_serializer(data=req_data)
@@ -378,14 +379,16 @@ def show_dtypes(request):
     dtypes = dataProcessing.process(open_path=data_set.stepX1).show_dtypes()
     return Response({"message": "展示每列数据类型dtypes", "data": str(dict(dtypes)), "code": "200"}, status=status.HTTP_200_OK)
 
-#展示字段描述
+
+# 展示字段描述
 @api_view(['POST'])
 def show_desc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     desc = dataProcessing.process(open_path=data_set.stepX1).show_desc()
     return Response({"message": "展示每列数据类型描述", "data": str(dict(desc)), "code": "200"}, status=status.HTTP_200_OK)
 
-#展示源文件列名
+
+# 展示源文件列名
 @api_view(['POST'])
 def show_OriginColumnsName(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -401,7 +404,8 @@ def average(request):
     data_set.save()
     return Response({"message": "求平均值完成", "data": str(average1)})
 
-#计算列标准差
+
+# 计算列标准差
 @api_view(['POST'])
 def standardDeviation(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -410,7 +414,7 @@ def standardDeviation(request):
     return Response({"message": "求标准差完成", "data": str(std1)})
 
 
-#计算列方差
+# 计算列方差
 @api_view(['POST'])
 def variance(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -428,7 +432,8 @@ def sum(request):
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
 
-#求差函数sub
+
+# 求差函数sub
 @api_view(['POST'])
 def sub(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -437,7 +442,8 @@ def sub(request):
     data_set.save()
     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
-#修改字段描述
+
+# 修改字段描述
 @api_view(['POST'])
 def changeDesc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -445,7 +451,8 @@ def changeDesc(request):
     data_set.save()
     return Response({"message": "字段描述修改完成"})
 
-#强制删除违法行并修改类型
+
+# 强制删除违法行并修改类型
 @api_view(['POST'])
 def force_changeType(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -454,7 +461,8 @@ def force_changeType(request):
     data_set.save()
     return Response({"message": "类型转换完成"})
 
-#判断有无违法行，若有则回报违规率，若无直接修改
+
+# 判断有无违法行，若有则回报违规率，若无直接修改
 @api_view(['POST'])
 def test_changeType(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -466,11 +474,13 @@ def test_changeType(request):
     else:
         return Response({"违规率": str(result)})
 
-#修改列名、字段类型、字段描述
+
+# 修改列名、字段类型、字段描述
 @api_view(['POST'])
 def resetColumns_name_type_desc(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    result = dataProcessing.process(open_path=data_set.step3).test_changeType(request.data['type_field'], data_set.stepX1)
+    result = dataProcessing.process(open_path=data_set.step3).test_changeType(request.data['type_field'],
+                                                                              data_set.stepX1)
     if not result:
         dataProcessing.process(open_path=data_set.stepX1).changeDesc(request.data['desc_field'])
         dataProcessing.process(open_path=data_set.step3).changeType(request.data['type_field'], data_set.stepX1)
@@ -480,7 +490,8 @@ def resetColumns_name_type_desc(request):
         dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
         return Response({"message": "类型修改失败", "违规率": str(result)})
 
-#修改列名、字段类型
+
+# 修改列名、字段类型
 @api_view(['POST'])
 def resetColumns_name_type(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
@@ -493,6 +504,41 @@ def resetColumns_name_type(request):
     else:
         dataProcessing.process(open_path=data_set.step3).reset_columns(request.data['reset_field'], data_set.stepX1)
         return Response({"message": "类型修改失败", "违规率": str(result)})
+
+
+# 生成指定列的rankit
+@api_view(['POST'])
+def TScoreRankit(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).TScoreRankit(request.data['Column_name'])
+    return Response({"message": "Rankit列生成完成"})
+
+
+# 生成指定列的rank
+@api_view(['POST'])
+def TscoreRank(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).TScoreRank(request.data['Column_name'])
+    return Response({"message": "Rank列生成完成"})
+
+
+# 根据指定列，以及指定层数，生成每个学生对应的层次
+@api_view(['POST'])
+def Score2Layer(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).score2Layer(request.data['layers', request.data['Column_name']])
+    return Response({"message": "layer列生成完成"})
+
+
+# 根据制定列，生成每个学生所在层数的平均值
+@api_view(['POST'])
+def Score2Layer_mean(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).score2Layer_mean(
+        request.data['layers', request.data['Column_name']])
+    return Response({"message": "层平均值列生成完成"})
+
+
 #  <数据分析方法>
 
 # 获取图表求和数据
@@ -507,7 +553,7 @@ def sum_analysis(request):
     chart.y_axis = request.data['y_axis']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     chart.save()
-    return Response({"message": "获取图表求和数据", "data": df.to_json(orient='columns', force_ascii=False,),
+    return Response({"message": "获取图表求和数据", "data": df.to_json(orient='columns', force_ascii=False, ),
                      "code": "200"}, status=status.HTTP_200_OK)
 
 
@@ -523,5 +569,5 @@ def mean_analysis(request):
     chart.y_axis = request.data['y_axis']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     chart.save()
-    return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False,),
+    return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False, ),
                      "code": "200"}, status=status.HTTP_200_OK)
