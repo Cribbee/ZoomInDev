@@ -5,20 +5,30 @@ __create_at__ = 2018 / 5 / 28
 import json
 import csv
 import codecs
+import pandas as pd
 
 
 def trans():
-    fr = codecs.open("/Users/cribbee/Downloads/score.csv", 'r', 'utf-8')
+    # df = pd.read_excel("D:\\2018原始分.xls", sheetname=[0, 1, 2])
+    # df0 = df[0].sort_values(by='身份证号', axis=0, ascending=True)
+    # df1 = df[1].sort_values(by='身份证号', axis=0, ascending=True)
+    # dfw = pd.merge(df1, df0, on="身份证号")
+    # dfw['总分'] = round(dfw['总分'].astype(float), 0)
+    # dfw = dfw[dfw['总分'] > 0]
+    # dfw.to_json("D:\\2018文科原始分333.json", force_ascii=False, orient='records')
+    # dfw.to_csv("D:\\2018文科原始 分1.csv")
+
+    fr = codecs.open("D:\\Task\\12\\Data\\122213.csvy", 'r', 'utf-8')
     ls = []
     for line in fr:
         line = line.replace("\n", "")
         ls.append(line.split(','))
     fr.close()
 
-    fw = codecs.open("/Users/cribbee/Downloads/csv2json2222.json", 'w', 'utf-8')
+    fw = codecs.open("D:\\2018文科原始分4444.json", 'w', 'utf-8')
     for i in range(1,len(ls)):
         ls[i] = dict(zip(ls[0], ls[i]))
-    json.dump(ls[1:], fw, sort_keys=True, indent=4, ensure_ascii=False)
+    json.dump(ls[1:], fw, separators=(',', ':'), ensure_ascii=False)
     fw.close()
 
 

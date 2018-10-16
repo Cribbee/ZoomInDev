@@ -43,5 +43,5 @@ class trans():
         fw = codecs.open(self.jsonpath, 'w', 'utf-8')
         for i in range(1, len(ls)):
             ls[i] = dict(zip(ls[0], ls[i]))
-        json.dump(ls[1:], fw, sort_keys=True, indent=4, ensure_ascii=False)
+        json.dump(ls[1:], fw,  separators=(',', ':'), ensure_ascii=False)
         fw.close()

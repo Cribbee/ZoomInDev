@@ -538,6 +538,12 @@ def Score2Layer_mean(request):
         request.data['layers', request.data['Column_name']])
     return Response({"message": "层平均值列生成完成"})
 
+@api_view(['POST'])
+def Expression(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).Expression(request.data['key'], request.data['value'])
+    return Response({"message": "列生成完成"})
+
 
 #  <数据分析方法>
 
