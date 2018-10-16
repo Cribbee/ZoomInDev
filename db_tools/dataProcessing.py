@@ -34,14 +34,13 @@ class process():
         os.mkdir(floder + "/Log")
 
     def original_save(self, jsondata):
-
         with codecs.open(self.open_path, 'w', 'utf-8') as f:
-            f.writelines(json.dumps(jsondata, sort_keys=True, indent=4, ensure_ascii=False))
+            f.writelines(json.dumps(jsondata, separators=(',', ':'), ensure_ascii=False))
 
     def step2_save(self, row_num):
 
         data = codecs.open(self.open_path, 'r', 'utf-8').readlines()
-        data[row_num] = ''
+        data[0:row_num] = ''
         with codecs.open(self.open_path, 'w', 'utf-8') as f:
             f.writelines(data)
 
@@ -361,5 +360,8 @@ class process():
         df[str(C_name + 'LAYER_mean_')] = temp
         df.to_csv(self.open_path, index_label=False, index=0)
 
+    # 用户自定义表达式，生成新的一列。key是列名，vailue是表达式内容
+    def Expression(self, key, value):
+        pass
 
 
