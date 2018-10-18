@@ -37,6 +37,7 @@ class trans():
         ls = []
         for line in fr:
             line = line.replace("\n", "")
+            line = line.replace("\r", "")
             ls.append(line.split(','))
         fr.close()
 

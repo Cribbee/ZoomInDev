@@ -1,5 +1,6 @@
 import shutil
 
+from collections import OrderedDict
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework import generics
@@ -27,6 +28,7 @@ import json
 import os
 import logging
 import time
+import pandas as pd
 
 from db_tools import dataProcessing, dataAnalyze
 from db_tools import transformer
@@ -78,14 +80,16 @@ def show_data_set1(request):
 @api_view(['POST'])
 def show_data_set3(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    df = pd.read_csv(data_set.step3)
+    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
     # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
-    # path = "D:\\Test\\test1.json"  # windos 路径
-    transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
-    ds = codecs.open(path, 'r', 'utf-8')
-    ls = json.load(ds)
-    os.remove(path)
-    return Response({"message": "展示数据处理中的数据集文件", "data": ls})
+    # path = "D:\\Test\\test2.json"  # windos 路径
+    # transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
+    # ds = codecs.open(path, 'r', 'utf-8')
+    # ls = json.load(ds, object_pairs_hook=OrderedDict)
+    # # os.remove(path)
+
+    return Response({"message": "展示数据处理中的数据集文件", "data": df.to_json(orient="records", force_ascii=False)})
 
 
 class TaskViewset(viewsets.ModelViewSet):
@@ -473,6 +477,13 @@ def test_changeType(request):
         return Response({"message": "类型转换成功"})
     else:
         return Response({"违规率": str(result)})
+
+# 如果数据行包含控制，则删除数据行
+@api_view(['POST'])
+def dropnan(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    dataProcessing.process(open_path=data_set.step3).dropnan()
+    return Response({"message": "去除空值处理完毕"})
 
 
 # 修改列名、字段类型、字段描述

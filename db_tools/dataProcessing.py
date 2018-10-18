@@ -287,6 +287,11 @@ class process():
                     index = index + 1
         df.to_csv(self.open_path, index_label=False, index=0)
 
+    def dropnan(self):
+        df = pd.read_csv(self.open_path)
+        df = df.dropna()
+        df.to_csv(self.open_path)
+
     ## RANKkit部分
     def moreThanZero(arr):
         return 1 if arr >= 0 else 0
