@@ -88,8 +88,9 @@ def show_data_set3(request):
     # ds = codecs.open(path, 'r', 'utf-8')
     # ls = json.load(ds, object_pairs_hook=OrderedDict)
     # # os.remove(path)
-
-    return Response({"message": "展示数据处理中的数据集文件", "data": df.to_json(orient="records", force_ascii=False)})
+    js = df.to_json(orient="records", force_ascii=False)
+    data = json.loads(js)
+    return Response({"message": "展示数据处理中的数据集文件", "data": data})
 
 
 class TaskViewset(viewsets.ModelViewSet):
