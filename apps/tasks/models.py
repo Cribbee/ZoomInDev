@@ -79,6 +79,7 @@ class Chart(models.Model):
     title = models.CharField(max_length=20, verbose_name="图表标题", default="", help_text="图表标题")
     desc = models.CharField(max_length=20, verbose_name="图表描述", blank=True, null=True, default="", help_text="图表描述")
     chart_type = models.IntegerField(choices=CHART_TYPE, verbose_name="表格类别总览", help_text="表格类别")
+    chart_method = models.CharField(max_length=200,verbose_name="数据处理方法总揽",default="",help_text="数据处理方法")
     x_axis = models.CharField(max_length=200, verbose_name="维度", blank=True, null=True, default="", help_text="图表维度")
     y_axis = models.CharField(max_length=200, verbose_name="数值", blank=True, null=True, default="", help_text="图表数值")
     contrast_axis = models.CharField(max_length=200, verbose_name="对比", blank=True, null=True, default="", help_text="图表对比轴")
