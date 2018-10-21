@@ -127,7 +127,7 @@ class Process():
             t += 1
         return (result)
 
-    def process(self,x_axis,y_axis,chart_method,chart_type):
+    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value):
         '''
 
         :param x_axis: 数据维度
@@ -148,4 +148,9 @@ class Process():
             else:
                 i = float(df.apply(lambda x: x.sum()))
                 df['Percent'] = df[y_axis] / i
+        if sort == 1:
+            df = df.sort_values(by=sort_value, ascending=1)
+        elif sort == 0:
+            df = df.sort_values(by=sort_value, ascending=0)
+
         return df

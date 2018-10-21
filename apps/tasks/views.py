@@ -569,10 +569,12 @@ def analysis_result(request):
 
     df = dataAnalyze.Process(open_path=data_set.step3).process(
         chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'],
-        chart_method=request.data['chart_method']
+        chart_method=request.data['chart_method'], sort = request.data['sort'], sort_value=request.data['sort_value'],
     )
     chart.x_axis = request.data['x_axis']
     chart.y_axis = request.data['y_axis']
+    chart.sort = request.data['sort']
+    chart.sort_value = request.data['sort_value']
     chart.chart_type = request.data['chart_type']
     chart.chart_method = request.data['chart_method']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
