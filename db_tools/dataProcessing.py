@@ -287,25 +287,11 @@ class process():
                     index = index + 1
         df.to_csv(self.open_path, index_label=False, index=0)
 
+    #如果某一行有空值，则删去整行
     def dropnan(self):
         df = pd.read_csv(self.open_path)
         df = df.dropna()
-        df.to_csv(self.open_path)
-
-    ## RANKkit部分
-    def moreThanZero(arr):
-        return 1 if arr >= 0 else 0
-
-    # Rankit列表
-    def BNUZRankit(self, c):
-        r = []
-        n = max(c)
-        a = 0.5
-        if n <= 10:
-            a = 3.0 / 8
-        for i in c:
-            r.append(norm.ppf((i - a) / (n + 1 - 2 * a)))
-        return r
+        df.to_csv(self.open_path, index_label=False, index=0)
 
     # Rankit序列
     def BNUZRankitSeries(self, s):
@@ -319,18 +305,14 @@ class process():
         return pd.Series(r)
 
     # Rankit序列
-    # 换成标准分
-    def BNUZT(score):
-        return 100 * score + 500
 
     # 生成RANKit，C_name 为列名
     def TScoreRankit(self, C_name):
         df = pd.read_csv(self.open_path)
         rank = df[C_name].rank(method='max')
         rankit = self.BNUZRankitSeries(rank)
-        print(rankit)
-        # df[str(C_name + '_Rankit')] = rankit
-        # df.to_csv(self.open_path, index_label=False, index=0)
+        df[str(C_name + '_Rankit')] = rankit
+        df.to_csv(self.open_path, index_label=False, index=0)
 
     # 生成RANK排名，C_name为列名
     def TScoreRank(self, C_name):
@@ -365,8 +347,19 @@ class process():
         df[str(C_name + 'LAYER_mean_')] = temp
         df.to_csv(self.open_path, index_label=False, index=0)
 
-    # 用户自定义表达式，生成新的一列。key是列名，vailue是表达式内容
-    def Expression(self, key, value):
-        pass
 
+    # 用户自定义表达式，生成新的一列。newColumnName是生成的新列名，expression是表达式内容
+    def Expression(self, newColumnName, expression):
+        df = pd.read_csv(self.open_path)
+        try:
+            df.eval(str(newColumnName + '=' + expression), inplace=True)
+        except:
+            return("表达式错误")
+        else:
+            df.to_csv(self.open_path, index_label=False, index=0)
+            return("新增列添加成功")
+
+#
+# A = process("D:\\Task\\12\\Data\\122263.csv")
+# A.eval_test('new', 'RANK+RANK_H')
 

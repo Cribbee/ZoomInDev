@@ -487,6 +487,13 @@ def dropnan(request):
     dataProcessing.process(open_path=data_set.step3).dropnan()
     return Response({"message": "去除空值处理完毕"})
 
+@api_view(['POST'])
+def changeTitle(request):
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+    data_set.title = request.data['new_title']
+    data_set.save()
+    return Response({"message": "title修改完毕"})
+
 
 # 修改列名、字段类型、字段描述
 @api_view(['POST'])
@@ -539,7 +546,7 @@ def TscoreRank(request):
 @api_view(['POST'])
 def Score2Layer(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).score2Layer(request.data['layers', request.data['Column_name']])
+    dataProcessing.process(open_path=data_set.step3).score2Layer(request.data['layers'], request.data['Column_name'])
     return Response({"message": "layer列生成完成"})
 
 
@@ -548,15 +555,16 @@ def Score2Layer(request):
 def Score2Layer_mean(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     dataProcessing.process(open_path=data_set.step3).score2Layer_mean(
-        request.data['layers', request.data['Column_name']])
+        request.data['layers'], request.data['Column_name'])
     return Response({"message": "层平均值列生成完成"})
 
 
+# newColumnName为新增列名，espression为表达式
 @api_view(['POST'])
 def Expression(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).Expression(request.data['key'], request.data['value'])
-    return Response({"message": "列生成完成"})
+    result = dataProcessing.process(open_path=data_set.step3).Expression(request.data['newColumnName'], request.data['expression'])
+    return Response({"message": str(result)})
 
 
 #  <数据分析方法>
