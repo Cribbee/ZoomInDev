@@ -557,11 +557,13 @@ def Score2Layer_mean(request):
         request.data['layers'], request.data['Column_name'])
     return Response({"message": "层平均值列生成完成"})
 
+
+# newColumnName为新增列名，espression为表达式
 @api_view(['POST'])
 def Expression(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).Expression(request.data['key'], request.data['value'])
-    return Response({"message": "列生成完成"})
+    result = dataProcessing.process(open_path=data_set.step3).Expression(request.data['newColumnName'], request.data['expression'])
+    return Response({"message": str(result)})
 
 
 #  <数据分析方法>

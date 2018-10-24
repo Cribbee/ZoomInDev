@@ -356,9 +356,8 @@ class process():
         except:
             return("表达式错误")
         else:
-            print(df)
-            df.to_csv(self.open_path, index_label=False, idnex=0)
-            return("表达式修改成功")
+            df.to_csv(self.open_path, index_label=False, index=0)
+            return("新增列添加成功")
 
 #
 # A = process("D:\\Task\\12\\Data\\122263.csv")
