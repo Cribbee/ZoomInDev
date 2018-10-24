@@ -479,6 +479,7 @@ def test_changeType(request):
     else:
         return Response({"违规率": str(result)})
 
+
 # 如果数据行包含控制，则删除数据行
 @api_view(['POST'])
 def dropnan(request):
@@ -568,33 +569,23 @@ def Expression(request):
 
 #  <数据分析方法>
 
-# 获取图表求和数据
+# # 获取图表处理数据
 @api_view(['POST'])
-def sum_analysis(request):
+def analysis_result(request):
     chart = Chart.objects.get(id=request.data['chart_id'])
     data_set = DataSet.objects.get(id=request.data['data_set'])
 
-    df = dataAnalyze.Process(open_path=data_set.step3).chart_sum(
-        chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
+    df = dataAnalyze.Process(open_path=data_set.step3).process(
+        chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'],
+        chart_method=request.data['chart_method'], sort = request.data['sort'], sort_value=request.data['sort_value'],
+    )
     chart.x_axis = request.data['x_axis']
     chart.y_axis = request.data['y_axis']
+    chart.sort = request.data['sort']
+    chart.sort_value = request.data['sort_value']
+    chart.chart_type = request.data['chart_type']
+    chart.chart_method = request.data['chart_method']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     chart.save()
-    return Response({"message": "获取图表求和数据", "data": df.to_json(orient='columns', force_ascii=False, ),
-                     "code": "200"}, status=status.HTTP_200_OK)
-
-
-# 获取图表均值数据
-@api_view(['POST'])
-def mean_analysis(request):
-    chart = Chart.objects.get(id=request.data['chart_id'])
-    data_set = DataSet.objects.get(id=request.data['data_set'])
-
-    df = dataAnalyze.Process(open_path=data_set.step3).chart_sum(
-        chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'])
-    chart.x_axis = request.data['x_axis']
-    chart.y_axis = request.data['y_axis']
-    chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-    chart.save()
-    return Response({"message": "获取图表均值数据", "data": df.to_json(orient='columns', force_ascii=False, ),
+    return Response({"message": "获取图表处理数据", "data": df.to_json(orient='columns', force_ascii=False, ),
                      "code": "200"}, status=status.HTTP_200_OK)

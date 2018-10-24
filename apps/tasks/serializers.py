@@ -74,7 +74,7 @@ class ChartSerializer(serializers.ModelSerializer):
                 message="该图表标题已存在"
             )
         ]
-        fields = ("id", "user", "data_set", "title", "desc", "chart_type",
+        fields = ("id", "user", "data_set", "title","sort","sort_value", "desc", "chart_type","chart_method",
                   "x_axis", "y_axis", "contrast_axis", "secondary_axis",)
 
 
@@ -86,7 +86,7 @@ class ChartDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chart
 
-        fields = ("id", "user", "data_set", "title", "desc", "chart_type","x_axis", "y_axis",
+        fields = ("id", "user", "data_set", "title", "sort","sort_value","desc", "chart_type","chart_method","x_axis", "y_axis",
                   "contrast_axis", "secondary_axis", "add_time", "updated_time", "chart_folder",)
 
 
