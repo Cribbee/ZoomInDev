@@ -149,8 +149,10 @@ class Process():
                 i = float(df.apply(lambda x: x.sum()))
                 df['Percent'] = df[y_axis] / i
         if sort == 1:
-            df = df.sort_values(by=sort_value, ascending=1)
+            if sort_value !="":
+                df = df.sort_values(by=sort_value, ascending=1)
         elif sort == 0:
-            df = df.sort_values(by=sort_value, ascending=0)
+            if sort_value !="":
+                df = df.sort_values(by=sort_value, ascending=0)
 
         return df
