@@ -160,7 +160,7 @@ class Process():
         i = 0
         dfs = pd.DataFrame(None)
         while i < count:
-            dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
+            dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0)
             i += 1
         return dfs
 
