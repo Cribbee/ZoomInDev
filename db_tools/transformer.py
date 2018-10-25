@@ -19,7 +19,6 @@ class trans():
         logger = logging.getLogger('django')
         fr = codecs.open(self.jsonpath, 'r', 'utf-8')
         ls = json.load(fr)
-        print(fr)
         data = [list(ls[0].keys())]
         for item in ls:
             # print(item)
