@@ -83,6 +83,7 @@ class Chart(models.Model):
     sort = models.IntegerField(verbose_name="排序方式", help_text="表格排序方式", default=-1)
     sort_value = models.CharField(max_length=20, verbose_name="排序基准", blank=True, null=True, default="",
                                   help_text="图表排序基准")
+    filter = models.CharField(max_length=500,verbose_name="筛选条件",default="",blank = True,null=True,help_text="图表筛选条件")
     x_axis = models.CharField(max_length=200, verbose_name="维度", blank=True, null=True, default="", help_text="图表维度")
     y_axis = models.CharField(max_length=200, verbose_name="数值", blank=True, null=True, default="", help_text="图表数值")
     contrast_axis = models.CharField(max_length=200, verbose_name="对比", blank=True, null=True, default="", help_text="图表对比轴")

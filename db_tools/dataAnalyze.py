@@ -127,7 +127,44 @@ class Process():
             t += 1
         return (result)
 
-    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value):
+
+
+    def chart_filter(self,df,filter):
+        '''
+
+        :param df:
+        :param filter:
+        :return:
+        '''
+        df_merger = []
+        count = 0
+
+
+        for f in filter:
+            if f['field_type'] == 0:
+                str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
+                df_merger.append(df[eval(str_expression)])
+                count += 1
+            elif f['field_type'] == 1 and f['filter_method'] == "contains":
+                df_merger.append(df[df[f['field_name']].str.contains(f['filter_obj'])])
+                count += 1
+            elif f['field_type'] == 1 and f['filter_method'] == "notContains":
+                df_merger.append(df[~df[f['field_name']].str.contains(f['filter_obj'])])
+                count += 1
+            elif f['field_type'] == 1 and f['filter_method'] == "isNull":
+                df_merger.append(df[df[f['field_name']].notnull])
+                count += 1
+            elif f['field_type'] == 1 and f['filter_method'] == "notNull":
+                df_merger.append(df[df[f['field_name']].isnull])
+                count += 1
+        i = 0
+        dfs = pd.DataFrame(None)
+        while i < count:
+            dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
+            i += 1
+        return df
+
+    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter):
         '''
 
         :param x_axis: 数据维度
@@ -154,5 +191,7 @@ class Process():
         elif sort == 0:
             if sort_value !="":
                 df = df.sort_values(by=sort_value, ascending=0)
+        if filter !="":
+            df = self.chart_filter(df,filter)
 
         return df
