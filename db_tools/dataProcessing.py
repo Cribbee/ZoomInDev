@@ -194,7 +194,7 @@ class process():
         df = pd.read_csv(self.open_path)
         df_X = pd.read_csv(stepX_path)
         df.eval(col_new + "=" + a + "+" + b, inplace=True)
-        df_X[col_new] = ''
+        df_X[col_new] = [df[col_new].dtype, str(a + "+" + b), col_new, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
@@ -203,7 +203,8 @@ class process():
         df = pd.read_csv(self.open_path)
         df_X = pd.read_csv(stepX_path)
         df.eval(col_new + "=" + a + "-" + b, inplace=True)
-        df_X[col_new] = ''
+        print(df[col_new].dtype)
+        df_X[col_new] = [df[col_new].dtype, str(a + "-" + b), col_new, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(stepX_path, index_label=False)
 
@@ -307,32 +308,42 @@ class process():
     # Rankit序列
 
     # 生成RANKit，C_name 为列名
-    def TScoreRankit(self, C_name):
+    def TScoreRankit(self, C_name, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         rank = df[C_name].rank(method='max')
         rankit = self.BNUZRankitSeries(rank)
         df[str(C_name + '_Rankit')] = rankit
+        df_X[str(C_name + '_Rankit')] =[df[str(C_name + '_Rankit')].dtype, '', str(C_name + '_Rankit'), '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
+        df_X.to_csv(stepX_path, index_label=False)
 
     # 生成RANK排名，C_name为列名
-    def TScoreRank(self, C_name):
+    def TScoreRank(self, C_name, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         rank = df[C_name].rank(method='max')
         df[str(C_name + '_Rank')] = rank
+        df_X[str(C_name + '_Rank')] = [df[str(C_name + '_Rank')].dtype, '', str(C_name + '_Rank'), '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
+        df_X.to_csv(stepX_path, index_label=False)
 
     # layers为层数，实现分层，并生成每个学生所在的层列，C_name为列名
-    def score2Layer(self, layers, C_name):
+    def score2Layer(self, layers, C_name, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         count = (df[C_name].count())
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
         df[str(C_name + '_LAYER')] = rank // (countsPerlayer + 1) + 1
+        df_X[str(C_name + '_LAYER')] = [df[str(C_name + '_LAYER')].dtype, '', str(C_name + '_LAYER'), '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
+        df_X.to_csv(stepX_path, index_label=False)
 
     # 生成每个学生所在层的平均值
-    def score2Layer_mean(self, layers, C_name):
+    def score2Layer_mean(self, layers, C_name, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         count = (df[C_name].count())
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
@@ -344,22 +355,24 @@ class process():
         temp = []
         for i in layer:
             temp.append(layer_value[int(i - 1)])
-        df[str(C_name + 'LAYER_mean_')] = temp
+        df[str(C_name + '_LAYER_mean')] = temp
+        df_X[str(C_name + '_LAYER_mean')] = [df[str(C_name + '_LAYER_mean')].dtype, '', str(C_name + '_LAYER_mean'), '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
+        df_X.to_csv(stepX_path, index_label=False)
 
 
     # 用户自定义表达式，生成新的一列。newColumnName是生成的新列名，expression是表达式内容
-    def Expression(self, newColumnName, expression):
+    def Expression(self, newColumnName, expression, stepX_path):
         df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(stepX_path)
         try:
             df.eval(str(newColumnName + '=' + expression), inplace=True)
         except:
             return("表达式错误")
         else:
+            df_X[newColumnName] = [df[newColumnName].dtype, expression, newColumnName, '', '', '']
             df.to_csv(self.open_path, index_label=False, index=0)
-            return("新增列添加成功")
+            df_X.to_csv(stepX_path, index_label=False)
 
-#
-# A = process("D:\\Task\\12\\Data\\122263.csv")
-# A.eval_test('new', 'RANK+RANK_H')
+            return("新增列添加成功")
 
