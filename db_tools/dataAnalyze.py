@@ -162,7 +162,7 @@ class Process():
         while i < count:
             dfs = pd.concat([dfs, df_merger[i]], join='outer', axis=0, ignore_index=True, )
             i += 1
-        return df
+        return dfs
 
     def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter):
         '''
@@ -191,7 +191,10 @@ class Process():
         elif sort == 0:
             if sort_value !="":
                 df = df.sort_values(by=sort_value, ascending=0)
-        if filter !="":
+        if filter =="":
+            df = df
+        else:
+
             df = self.chart_filter(df,filter)
 
         return df
