@@ -45,8 +45,9 @@ def jsonUpload(request):
 def DataProcessing(request):
     if request.method == 'POST':
         # path = "D:\\Task\\8211.json"
-        fw = codecs.open("/Users/sharb/Downloads/csv2json.json", 'r', 'utf-8')
-        # fw = codecs.open(path, 'r', 'utf-8')
+        path = "/home/ZoomInDev/csv2json.json"
+        # fw = codecs.open("/Users/sharb/Downloads/csv2json.json", 'r', 'utf-8')
+        fw = codecs.open(path, 'r', 'utf-8')
         ls = json.load(fw)
         return Response({"message": "数据预处理已完成，data中为处理过后的数据表", "data": request.data})
 
@@ -66,8 +67,8 @@ def scoreAnalysis(request):
 @api_view(['POST'])
 def show_data_set1(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
-    path = "/Users/sharb/Downloads/test1.json"  # 本机的路径
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    # path = "/Users/sharb/Downloads/test1.json"  # 本机的路径
     # path = "D:\\Test\\test1.json"  # windos 路径
     transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
     ds = codecs.open(path, 'r', 'utf-8')
@@ -81,7 +82,7 @@ def show_data_set1(request):
 def show_data_set3(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
     df = pd.read_csv(data_set.step3)
-    # path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
+    path = "/home/ZoomInDataSet/test1.json"  # 服务器路径
     # path = "/Users/cribbee/Downloads/test1.json"  # 本机的路径
     # path = "D:\\Test\\test2.json"  # windos 路径
     # transformer.trans(json_path=path, csv_path=data_set.step3).csv2json()
@@ -119,8 +120,8 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id=serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        # path = "/home/ZoomInDataSet/"  # 服务器路径
-        path = "/Users/sharb/Downloads/" # 本地路径
+        path = "/home/ZoomInDataSet/"  # 服务器路径
+        # path = "/Users/sharb/Downloads/" # 本地路径
         # path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
