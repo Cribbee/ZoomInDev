@@ -48,7 +48,7 @@ class Process():
             plt.rcParams['font.sans-serif'] = ['SiHei']
             plt.rcParams['axes.unicode_minus'] = False
             plt.figure()
-            plt.rcParams['figure.dpi'] = 300  # 分辨率
+            plt.subplots(1, 1, figsize=(11, 5.5))
             # plt.plot(range(len(y_pred)), y_pred, 'b', label="predict")
             # plt.plot(range(len(y_pred)), y_test, 'r', label="test")
             plt.scatter(X, y, label='training points')
@@ -99,7 +99,7 @@ class Process():
             plt.rcParams['font.sans-serif'] = ['SiHei']
             plt.rcParams['axes.unicode_minus'] = False
             plt.figure()
-            plt.rcParams['figure.dpi'] = 300  # 分辨率
+            plt.subplots(1, 1, figsize=(10, 5))
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
             plt.scatter(X, y, label='training points')
