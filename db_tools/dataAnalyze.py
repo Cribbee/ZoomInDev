@@ -157,7 +157,8 @@ class Process():
 
         return df
 
-    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter):
+    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter,
+                secondary_axis,chart_method_2nd,chart_type_2nd):
         '''
 
         :param x_axis: 数据维度
@@ -167,6 +168,8 @@ class Process():
         :return:
         '''
         chart_method = chart_method.split(",")
+        secondary_axis = secondary_axis.split(",")
+        chart_method_2nd = chart_method_2nd.split(',')
         x_axis = x_axis.split(',')
         y_axis = y_axis.split(',')
         df = self.process_result(x_axis, y_axis, chart_method)
@@ -178,6 +181,27 @@ class Process():
             else:
                 i = float(df.apply(lambda x: x.sum()))
                 df['Percent'] = df[y_axis] / i
+        if secondary_axis ==[""]:
+            df = df
+        else:
+            df_2nd = self.process_result(x_axis,secondary_axis,chart_method_2nd)
+            if chart_type_2nd ==3:
+                if x_axis == ['']:
+                    i = df.values.sum()
+                    df_2nd = df_2nd.append(df[secondary_axis] / i)
+                    df_2nd.index = ['Data', 'Percent']
+                else:
+                    i = float(df.apply(lambda x: x.sum()))
+                    df_2nd['Percent'] = df_2nd[secondary_axis] / i
+            secondary_axis_name = []
+            for i in secondary_axis:
+                i = i+"_2nd"
+                secondary_axis_name.append(i)
+            name = y_axis + secondary_axis_name
+
+            df = pd.concat([df, df_2nd], join='outer', axis=1, ignore_index=True, sort=False)
+            df.columns = name
+
         if sort == 1:
             if sort_value !="":
                 df = df.sort_values(by=sort_value, ascending=1)

@@ -579,7 +579,8 @@ def analysis_result(request):
     df = dataAnalyze.Process(open_path=data_set.step3).process(
         chart_type=request.data['chart_type'], x_axis=request.data['x_axis'], y_axis=request.data['y_axis'],
         chart_method=request.data['chart_method'], sort = request.data['sort'], sort_value=request.data['sort_value'],
-        filter = request.data['filter']
+        filter = request.data['filter'],secondary_axis= request.data["secondary_axis"],
+        chart_type_2nd=request.data['chart_type_2nd'],chart_method_2nd=request.data['chart_method_2nd']
     )
     chart.x_axis = request.data['x_axis']
     chart.y_axis = request.data['y_axis']
@@ -588,6 +589,8 @@ def analysis_result(request):
     chart.chart_type = request.data['chart_type']
     chart.chart_method = request.data['chart_method']
     chart.filter = request.data['filter']
+    chart.chart_method_2nd = request.data['chart_method_2nd']
+    chart.chart_type_2nd = request.data['chart_type_2nd']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     chart.save()
     return Response({"message": "获取图表处理数据", "data": df.to_json(orient='columns', force_ascii=False, ),
