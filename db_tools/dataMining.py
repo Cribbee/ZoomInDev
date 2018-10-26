@@ -48,10 +48,12 @@ class Process():
             plt.rcParams['font.sans-serif'] = ['SiHei']
             plt.rcParams['axes.unicode_minus'] = False
             plt.figure()
+            plt.subplots(1, 1, figsize=(11, 5.5))
             # plt.plot(range(len(y_pred)), y_pred, 'b', label="predict")
             # plt.plot(range(len(y_pred)), y_test, 'r', label="test")
             plt.scatter(X, y, label='training points')
-            plt.plot(X_test, y_pred, 'r', label='linear fit', )
+            linear_r2 = r2_score(y_test, y_pred)
+            plt.plot(X_test, y_pred, color='r', label='linear fit, $R^2=%.2f$' % linear_r2)
             plt.legend(loc="upper left")  # 显示图中的标签
             plt.xlabel(xlabel)
             plt.ylabel(ylabel)
@@ -71,10 +73,10 @@ class Process():
                 # RMSE
                 error_sum = mean_squared_error(y_test, y_pred) ** 0.5
                 return error_sum, chart_folder
-            elif error_type == 4:
-                # R2
-                error_sum = r2_score(y_test, y_pred)
-                return error_sum, chart_folder_re, chart_folder
+            # elif error_type == 4:
+            #     # R2
+            #     error_sum = r2_score(y_test, y_pred)
+            #     return error_sum, chart_folder_re, chart_folder
 
         elif category == 12:  #非线性回归
 
