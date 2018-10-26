@@ -88,9 +88,9 @@ class process():
                     df = df[df[f['field_name']].str.contains(f['filter_obj'])]
                 elif f['field_type'] == 1 and f['filter_method'] == "notContains":
                     df = df[~df[f['field_name']].str.contains(f['filter_obj'])]
-                elif f['field_type'] == 1 and f['filter_method'] == "isNull":
-                    df = df[df[f['field_name']].notnull]
                 elif f['field_type'] == 1 and f['filter_method'] == "notNull":
+                    df = df[df[f['field_name']].notnull]
+                elif f['field_type'] == 1 and f['filter_method'] == "isNull":
                     df = df[df[f['field_name']].isnull]
             path = self.open_path
             df.to_csv(path, index_label=False, index=0)
