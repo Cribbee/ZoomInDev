@@ -75,7 +75,7 @@ class ChartSerializer(serializers.ModelSerializer):
             )
         ]
         fields = ("id", "user", "data_set", "title","sort","sort_value", "desc", "filter","chart_type","chart_method",
-                  "x_axis", "y_axis", "contrast_axis", "secondary_axis",)
+                  "x_axis", "y_axis", "contrast_axis", "secondary_axis","chart_type_2nd","chart_method_2nd")
 
 
 class ChartDetailSerializer(serializers.ModelSerializer):
@@ -87,6 +87,6 @@ class ChartDetailSerializer(serializers.ModelSerializer):
         model = Chart
 
         fields = ("id", "user", "data_set", "title", "sort","sort_value","desc","filter", "chart_type","chart_method","x_axis", "y_axis",
-                  "contrast_axis", "secondary_axis", "add_time", "updated_time", "chart_folder",)
+                  "contrast_axis", "secondary_axis","chart_type_2nd", "chart_method_2nd","add_time", "updated_time", "chart_folder",)
 
 
