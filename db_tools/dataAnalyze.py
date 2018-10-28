@@ -97,7 +97,7 @@ class Process():
                 df_mean = df.groupby(x_axis)[y_axis].mean()
         return df_mean
 
-    def process_result(self,x_axis, y_axis, chart_method):
+    def process_result(self,df,x_axis, y_axis, chart_method):
         '''
 
         :param x_axis:
@@ -110,8 +110,7 @@ class Process():
         '''
         # 数据处理函数
 
-        open_path = self.open_path
-        df = pd.read_csv(open_path)
+
         result = pd.DataFrame()
         processed_data = pd.DataFrame()
         t = 0
@@ -146,10 +145,10 @@ class Process():
                 logger.debug("LogDebug<""str_expression : " + str_expression + ">")
                 df = df[eval(str_expression)]
 
-            elif f['field_type'] == 1 and f['filter_method'] == "contains":
-                df = df[df[f['field_name']].astype(str).str.contains(f['filter_obj'])]
-            elif f['field_type'] == 1 and f['filter_method'] == "notContains":
-                df = df[~df[f['field_name']].astype(str).str.contains(f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "equal":
+                df = df[df[f['field_name']].astype(str)==(f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "notEqual":
+                df = df[~df[f['field_name']].astype(str)==(f['filter_obj'])]
             elif f['field_type'] == 1 and f['filter_method'] == "isNull":
                 df = df[df[f['field_name']].astype(str).isnull()]
             elif f['field_type'] == 1 and f['filter_method'] == "notNull":
@@ -157,22 +156,37 @@ class Process():
 
         return df
 
-    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter,
+    def process(self,x_axis,y_axis,chart_method,chart_type,sort,sort_value,filter,filter_past,
                 secondary_axis,chart_method_2nd,chart_type_2nd):
         '''
 
-        :param x_axis: 数据维度
-        :param y_axis: 数据数值
-        :param chart_method: 数据处理方法
-        :param chart_type: 绘图样式
+        :param x_axis: 维度
+        :param y_axis: 数值
+        :param chart_method: 数值计算方法
+        :param chart_type: 绘图类型
+        :param sort: 排序方法，1升序，0倒序
+        :param sort_value: 排序基准
+        :param filter: 处理后的筛选器
+        :param filter_past: 处理前筛选
+        :param secondary_axis: 次轴
+        :param chart_method_2nd: 次轴数值计算方法
+        :param chart_type_2nd: 次轴绘图类型
         :return:
         '''
         chart_method = chart_method.split(",")
         secondary_axis = secondary_axis.split(",")
         chart_method_2nd = chart_method_2nd.split(',')
+        open_path = self.open_path
+        df = pd.read_csv(open_path)
         x_axis = x_axis.split(',')
         y_axis = y_axis.split(',')
-        df = self.process_result(x_axis, y_axis, chart_method)
+        if filter_past!=[""]:
+            df = self.chart_filter(df,filter_past)
+        df2 = df
+
+        df = self.process_result(df,x_axis, y_axis, chart_method)
+
+        # 如果绘图类型是饼图，则需要假如各数值占比
         if chart_type ==3:
             if x_axis == ['']:
                 i = df.values.sum()
@@ -181,10 +195,11 @@ class Process():
             else:
                 i = float(df.apply(lambda x: x.sum()))
                 df['Percent'] = df[y_axis] / i
+        #         次轴拼接，并且次轴数值名后加_2nd以便区分
         if secondary_axis ==[""]:
             df = df
         else:
-            df_2nd = self.process_result(x_axis,secondary_axis,chart_method_2nd)
+            df_2nd = self.process_result(df2,x_axis,secondary_axis,chart_method_2nd)
             if chart_type_2nd ==3:
                 if x_axis == ['']:
                     i = df.values.sum()
@@ -201,7 +216,7 @@ class Process():
 
             df = pd.concat([df, df_2nd], join='outer', axis=1, ignore_index=True, sort=False)
             df.columns = name
-
+        # 排序
         if sort == 1:
             if sort_value !="":
                 df = df.sort_values(by=sort_value, ascending=1)
