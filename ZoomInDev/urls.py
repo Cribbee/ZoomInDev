@@ -27,7 +27,7 @@ from django.views.static import serve
 
 from users.views import UserViewset
 from tasks.views import TaskViewset, DataSetViewset, ChartViewset, DelValue
-from data_mining.views import RegressionViewSet
+from data_mining.views import RegressionViewSet,ClusteringViewSet
 from user_operation.views import UserTaskViewset
 from tasks import urls as tasks
 
@@ -39,7 +39,7 @@ router.register(r'taskinfo', TaskViewset, base_name="task")
 router.register(r'dataSet', DataSetViewset, base_name="dataSet")
 router.register(r'chart', ChartViewset, base_name="chart")
 router.register(r'dataMining/regression', RegressionViewSet, base_name="regression")
-
+router.register(r'dataMining/clustering', ClusteringViewSet, base_name="clustering")
 
 
 
