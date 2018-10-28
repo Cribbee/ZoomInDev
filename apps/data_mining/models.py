@@ -67,3 +67,39 @@ class Regression(models.Model):
 
     def __str__(self):
         return self.title
+
+class Modelclustering(models.Model):
+    """
+        聚类分析模型
+    """
+    ERROR_TYPE = (
+        (1, "分布密度散点图"),
+        (2, "计数统计图"),
+        (3 , "小提琴图"),
+        (4 , "二维散点图")
+    )
+
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户ID")
+    category = models.ForeignKey(ModelCategory, models.CASCADE, null=True, verbose_name="模型类目")
+    data_set = models.IntegerField(verbose_name="数据集ID", default=-1)
+    title = models.CharField(max_length=20, verbose_name="标题", default="", help_text="标题")
+    desc = models.CharField(max_length=20, verbose_name="描述", blank=True, null=True, default="", help_text="描述")
+
+    # max_iter = models.IntegerField(verbose_name="最大迭代次数", default=300)
+    k_clustering = models.IntegerField(verbose_name="k值", default=8)          #K簇点的选择
+    Datacsv_list = models.CharField(max_length=20,verbose_name="传进的csv数值列", default=10)          #选用
+    # batch_size = models.IntegerField(verbose_name="随机取样数", default=100)
+    random_state = models.IntegerField(verbose_name="随机种子值", default=30)
+
+    error_type = models.IntegerField(choices=ERROR_TYPE, verbose_name="图片展示类型", help_text="默认分布密度散点图",default=1)
+    chart_folder1 = models.CharField(max_length=50, verbose_name="图表存放路径1", null=True, blank=True, default="")      #存放手肘法最佳的点
+    chart_folder2 = models.CharField(max_length=50, verbose_name="图表存放路径2", null=True, blank=True, default="")      #存放散点图
+    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+    updated_time = models.DateTimeField(default=datetime.now, verbose_name="更新时间")
+
+    class Meta:
+        verbose_name = "聚类分析模型"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title

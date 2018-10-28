@@ -14,8 +14,8 @@ from rest_framework import status
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from tasks.models import TaskInfo, DataSet
-from .models import Regression
-from .serializers import RegressionSerializer, RegressionDetailSerializer
+from .models import Regression,Modelclustering
+from .serializers import RegressionSerializer, RegressionDetailSerializer,ClusteringDetailSerializer,ClusteringSerializer
 from db_tools import dataProcessing, dataAnalyze, dataMining
 from db_tools import transformer
 
@@ -96,3 +96,67 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
 
     def get_queryset(self):
         return Regression.objects.filter(user=self.request.user)
+
+#聚类模型
+class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
+    """
+    用户认证
+    """
+    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    serializer_class = ClusteringSerializer
+
+    #传递参数
+    def create(self, request, *args, **kwargs):
+        logger = logging.getLogger('django')
+        serializer = self.get_serializer(data=request.data)
+
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        data_set = DataSet.objects.get(id=serializer.data['data_set'])      #数据集AD      接收传过来的参数
+        taskinfo = TaskInfo.objects.get(id=data_set.task_id)                #任务ID
+
+        upload_folder = "/home/ZoomInDataSet/DataMining/Clustering/"
+
+        model = Modelclustering.objects.get(id=serializer.data["id"])            #3
+        #strp3路径，D/task路径             传过去文件路径，文件夹的起始路径
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder,upload_folder).clustering(serializer.data['title'],
+                                                                                   serializer.data['category'],
+                                                                                   serializer.data['random_state'],
+                                                                                   serializer.data['k_clustering'],
+                                                                                   serializer.data['Datacsv_list'],
+                                                                                   serializer.data['error_type'],)
+        #聚类
+        if serializer.data['category'] == 13:
+            model.chart_folder1 = data[0]
+            model.chart_folder2 = data[1]
+            model.save()
+            return Response({"message": "本聚类模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1]],
+                             "code": "201"},
+                            status=status.HTTP_201_CREATED, headers=headers)
+
+        # 生成图表保存文件
+        return Response({"message": "本聚类模型创建成功", "data": serializer.data, "code": "201"},
+                        status=status.HTTP_201_CREATED,
+                        headers=headers)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def get_serializer_class(self):
+        if self.action == "create":
+            return ClusteringSerializer
+        elif self.action == "retrieve":
+            return ClusteringSerializer
+        elif self.action == "update":
+            return ClusteringSerializer
+
+        return ClusteringDetailSerializer
+
+    def get_queryset(self):
+        return Modelclustering.objects.filter(user=self.request.user)
+
+
