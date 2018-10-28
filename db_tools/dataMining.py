@@ -168,6 +168,9 @@ class Process():
 
     def clustering(self, title, category, random_state, k_clustering, Datacsv_list, error_type):
         df = pd.read_csv(self.open_path, header=0)
+        chart_folder_re = self.upload_folder + title + ".png"
+        chart_folder_err_re = self.upload_folder + title + "error.png"
+
         chart_folder = self.dir_folder + title + ".png"
         chart_folder_err = self.dir_folder + title + "error.png"
         f, ax = plt.subplots(figsize=(15, 10))
@@ -192,7 +195,7 @@ class Process():
                 elif error_type == 3:  # 小提琴图
                     sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
                 plt.savefig(chart_folder_err)
-
+                plt.savefig(chart_folder_err_re)
                 sse = []  # 手肘法则
                 lunkuo = []  # 轮廓系数存放距离
                 start, end = 3, 15
@@ -214,6 +217,7 @@ class Process():
                 ax2.set_ylabel('LUN-KUO-INDEX')
 
                 plt.savefig(chart_folder)
+                plt.savefig(chart_folder_re)
             return chart_folder, chart_folder_err
 
         # *******二维数据
@@ -230,6 +234,7 @@ class Process():
                 if error_type == 4:  # 二维的散点图
                     plt.scatter(data[:, 0], data[:, 1], s=20, c=df['categery'])  # c是标签
                     plt.savefig(chart_folder_err)
+                    plt.savefig(chart_folder_err_re)
 
                 sse = []  # 手肘法则
                 lunkuo = []  # 轮廓系数存放距离
@@ -254,6 +259,7 @@ class Process():
                 ax1.set_ylabel('SSE')
                 ax2.set_ylabel('LUN-KUO-INDEX')
                 plt.savefig(chart_folder)
+                plt.savefig(chart_folder_re)
             return chart_folder, chart_folder_err
 
 
