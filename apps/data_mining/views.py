@@ -122,17 +122,23 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
         model = Modelclustering.objects.get(id=serializer.data["id"])            #3
         #strp3路径，D/task路径             传过去文件路径，文件夹的起始路径
         data = dataMining.Process(data_set.step3, taskinfo.task_folder,upload_folder).clustering(serializer.data['title'],
-                                                                                   serializer.data['category'],
-                                                                                   serializer.data['random_state'],
-                                                                                   serializer.data['k_clustering'],
-                                                                                   serializer.data['Datacsv_list'],
-                                                                                   serializer.data['error_type'],)
+                                                                                            serializer.data['category'],
+                                                                                            serializer.data['k_clustering'],
+                                                                                            serializer.data['Datacsv_list'],
+                                                                                            serializer.data['random_state'],
+                                                                                            serializer.data['max_iter'],
+                                                                                            serializer.data['batch_size'],
+                                                                                            serializer.data['n_init'],
+                                                                                            serializer.data['reassignment_ratio'],
+                                                                                            )
         #聚类
         if serializer.data['category'] == 13:
-            model.chart_folder1 = data[0]
-            model.chart_folder2 = data[1]
+            model.chart_folder0 = data[0]
+            model.chart_folder1 = data[1]
+            model.chart_folder2 = data[2]
+            model.chart_folder3 = data[3]
             model.save()
-            return Response({"message": "本聚类模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1]],
+            return Response({"message": "本聚类模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder2: " + data[3]],
                              "code": "201"},
                             status=status.HTTP_201_CREATED, headers=headers)
 
