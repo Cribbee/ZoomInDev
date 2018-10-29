@@ -14,8 +14,8 @@ from rest_framework import status
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from tasks.models import TaskInfo, DataSet
-from .models import Regression,Modelclustering
-from .serializers import RegressionSerializer, RegressionDetailSerializer,ClusteringDetailSerializer,ClusteringSerializer
+from .models import Regression, Clustering
+from .serializers import RegressionSerializer, RegressionDetailSerializer, ClusteringDetailSerializer, ClusteringSerializer
 from db_tools import dataProcessing, dataAnalyze, dataMining
 from db_tools import transformer
 
@@ -97,6 +97,7 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
     def get_queryset(self):
         return Regression.objects.filter(user=self.request.user)
 
+
 #聚类模型
 class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
     """
@@ -119,18 +120,17 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
 
         upload_folder = "/home/ZoomInDataSet/DataMining/Clustering/"
 
-        model = Modelclustering.objects.get(id=serializer.data["id"])            #3
+        model = Clustering.objects.get(id=serializer.data["id"])            #3
         #strp3路径，D/task路径             传过去文件路径，文件夹的起始路径
-        data = dataMining.Process(data_set.step3, taskinfo.task_folder,upload_folder).clustering(serializer.data['title'],
-                                                                                            serializer.data['category'],
-                                                                                            serializer.data['k_clustering'],
-                                                                                            serializer.data['Datacsv_list'],
-                                                                                            serializer.data['random_state'],
-                                                                                            serializer.data['max_iter'],
-                                                                                            serializer.data['batch_size'],
-                                                                                            serializer.data['n_init'],
-                                                                                            serializer.data['reassignment_ratio'],
-                                                                                            )
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder,
+                                  upload_folder).clustering(serializer.data['title'], serializer.data['category'],
+                                                                                      serializer.data['k_clustering'],
+                                                                                      serializer.data['Datacsv_list'],
+                                                                                      serializer.data['random_state'],
+                                                                                      serializer.data['max_iter'],
+                                                                                      serializer.data['batch_size'],
+                                                                                      serializer.data['n_init'],
+                                                                                      serializer.data['reassignment_ratio'],)
         #聚类
         if serializer.data['category'] == 13:
             model.chart_folder0 = data[0]
@@ -163,6 +163,6 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
         return ClusteringDetailSerializer
 
     def get_queryset(self):
-        return Modelclustering.objects.filter(user=self.request.user)
+        return Clustering.objects.filter(user=self.request.user)
 
 
