@@ -52,7 +52,7 @@ class ClusteringSerializer(serializers.ModelSerializer):
             )
         ]
         fields = ("id", "user", "data_set", "title", "desc", "category"
-                  , "k_clustering","Datacsv_list","random_state", "error_type", "chart_folder1", "chart_folder2")
+                  , "k_clustering","Datacsv_list","random_state", "max_iter","batch_size","n_init","reassignment_ratio", "chart_folder1", "chart_folder2")
 
 
 class ClusteringDetailSerializer(serializers.ModelSerializer):
@@ -63,6 +63,6 @@ class ClusteringDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Modelclustering
         fields = ("id", "user", "data_set", "title", "desc", "category"
-                  , "k_clustering", "Datacsv_list", "random_state","add_time","updated_time", "error_type", "chart_folder1", "chart_folder2")
+                  , "k_clustering", "Datacsv_list", "random_state","max_iter","batch_size","n_init","reassignment_ratio","add_time","updated_time", "chart_folder1", "chart_folder2")
 
 
