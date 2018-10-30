@@ -429,24 +429,24 @@ def variance(request):
     return Response({"message": "求方差完成", "data": str(var1)})
 
 
-# 求和函数sum，操作两列，并在末尾生成新一列
-@api_view(['POST'])
-def sum(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'],
-                                                         request.data['col_new'], data_set.stepX1)
-    data_set.save()
-    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
-
-
-# 求差函数sub
-@api_view(['POST'])
-def sub(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).sub(request.data['col_a'], request.data['col_b'],
-                                                         request.data['col_new'], data_set.stepX1)
-    data_set.save()
-    return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
+# # 求和函数sum，操作两列，并在末尾生成新一列
+# @api_view(['POST'])
+# def sum(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).sum(request.data['col_a'], request.data['col_b'],
+#                                                          request.data['col_new'], data_set.stepX1)
+#     data_set.save()
+#     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求和完成"})
+#
+#
+# # 求差函数sub
+# @api_view(['POST'])
+# def sub(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).sub(request.data['col_a'], request.data['col_b'],
+#                                                          request.data['col_new'], data_set.stepX1)
+#     data_set.save()
+#     return Response({"message": request.data['col_a'] + "列与" + request.data['col_b'] + "列求差完成"})
 
 
 # 修改字段描述
@@ -527,46 +527,51 @@ def resetColumns_name_type(request):
         return Response({"message": "类型修改失败", "违规率": str(result)})
 
 
-# 生成指定列的rankit
+# # 生成指定列的rankit
+# @api_view(['POST'])
+# def TScoreRankit(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).TScoreRankit(request.data['Column_name'], data_set.stepX1)
+#     return Response({"message": "Rankit列生成完成"})
+#
+#
+# # 生成指定列的rank
+# @api_view(['POST'])
+# def TscoreRank(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).TScoreRank(request.data['Column_name'], data_set.stepX1)
+#     return Response({"message": "Rank列生成完成"})
+#
+#
+# # 根据指定列，以及指定层数，生成每个学生对应的层次
+# @api_view(['POST'])
+# def Score2Layer(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3).score2Layer(request.data['layers'], request.data['Column_name'], data_set.stepX1)
+#     return Response({"message": "layer列生成完成"})
+#
+#
+# # 根据制定列，生成每个学生所在层数的平均值
+# @api_view(['POST'])
+# def Score2Layer_mean(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     dataProcessing.process(open_path=data_set.step3, stepX_path=data_set.stepX1, newColumnName=request.data['newColumnName']).Layer_average1(
+#         request.data['layer_name'], request.data['Column_name'])
+#     return Response({"message": "层平均值列生成完成"})
+
+
+# # newColumnName为新增列名，espression为表达式
+# @api_view(['POST'])
+# def Expression(request):
+#     data_set = DataSet.objects.get(id=request.data['data_set_id'])
+#     result = dataProcessing.process(open_path=data_set.step3, stepX_path=data_set.stepX1, newColumnName=request.data['newColumnName']).Expression(request.data['expression'])
+#     return Response({"message": str(result)})
+
 @api_view(['POST'])
-def TScoreRankit(request):
+def zoomin_eval(request):
     data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).TScoreRankit(request.data['Column_name'], data_set.stepX1)
-    return Response({"message": "Rankit列生成完成"})
-
-
-# 生成指定列的rank
-@api_view(['POST'])
-def TscoreRank(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).TScoreRank(request.data['Column_name'], data_set.stepX1)
-    return Response({"message": "Rank列生成完成"})
-
-
-# 根据指定列，以及指定层数，生成每个学生对应的层次
-@api_view(['POST'])
-def Score2Layer(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).score2Layer(request.data['layers'], request.data['Column_name'], data_set.stepX1)
-    return Response({"message": "layer列生成完成"})
-
-
-# 根据制定列，生成每个学生所在层数的平均值
-@api_view(['POST'])
-def Score2Layer_mean(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    dataProcessing.process(open_path=data_set.step3).score2Layer_mean(
-        request.data['layers'], request.data['Column_name'], data_set.stepX1)
-    return Response({"message": "层平均值列生成完成"})
-
-
-# newColumnName为新增列名，espression为表达式
-@api_view(['POST'])
-def Expression(request):
-    data_set = DataSet.objects.get(id=request.data['data_set_id'])
-    result = dataProcessing.process(open_path=data_set.step3).Expression(request.data['newColumnName'], request.data['expression'], data_set.stepX1)
+    result = dataProcessing.process(open_path=data_set.step3, stepX_path=data_set.stepX1, newColumnName=request.data['newColumnName']).zoomin_eval(request.data['function'])
     return Response({"message": str(result)})
-
 
 #  <数据分析方法>
 

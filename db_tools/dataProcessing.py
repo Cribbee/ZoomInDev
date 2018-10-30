@@ -23,8 +23,10 @@ from matplotlib.font_manager import FontProperties
 
 class process():
 
-    def __init__(self, open_path):
+    def __init__(self, open_path, stepX_path=None, newColumnName = None):
         self.open_path = open_path
+        self.stepX_path = stepX_path
+        self.newColumnName = newColumnName
 
     @staticmethod
     def mkdir(floder):
@@ -189,60 +191,54 @@ class process():
             df_X.loc['字段描述', i['field']] = i['desc']
         df_X.to_csv(self.open_path, index_label=False)
 
-    # 求和函数sum，操作两列，并在末尾生成新一列
-    def sum(self, a, b, col_new, stepX_path):
-        df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        df.eval(col_new + "=" + a + "+" + b, inplace=True)
-        df_X[col_new] = [df[col_new].dtype, str(a + "+" + b), col_new, '', '', '']
-        df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
-
-    # 求差函数sub
-    def sub(self, a, b, col_new, stepX_path):
-        df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        df.eval(col_new + "=" + a + "-" + b, inplace=True)
-        print(df[col_new].dtype)
-        df_X[col_new] = [df[col_new].dtype, str(a + "-" + b), col_new, '', '', '']
-        df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
+    # # 求和函数sum，操作两列，并在末尾生成新一列
+    # def sum(self, a, b, col_new, stepX_path):
+    #     df = pd.read_csv(self.open_path)
+    #     df_X = pd.read_csv(stepX_path)
+    #     df.eval(col_new + "=" + a + "+" + b, inplace=True)
+    #     df_X[col_new] = [df[col_new].dtype, str(a + "+" + b), col_new, '', '', '']
+    #     df.to_csv(self.open_path, index_label=False, index=0)
+    #     df_X.to_csv(stepX_path, index_label=False)
+    #
+    # # 求差函数sub
+    # def sub(self, a, b, col_new, stepX_path):
+    #     df = pd.read_csv(self.open_path)
+    #     df_X = pd.read_csv(stepX_path)
+    #     df.eval(col_new + "=" + a + "-" + b, inplace=True)
+    #     print(df[col_new].dtype)
+    #     df_X[col_new] = [df[col_new].dtype, str(a + "-" + b), col_new, '', '', '']
+    #     df.to_csv(self.open_path, index_label=False, index=0)
+    #     df_X.to_csv(stepX_path, index_label=False)
 
     # 计算平均值、方差、标准差
-    def average(self, data, stepX_path):
+    def average(self, ColumnName):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        average = {}
-        for i in data:
-            mean1 = df[i['field']].mean()
-            df_X.loc['平均值', i['field']] = mean1
-            average[i['field']] = mean1
-        df_X.to_csv(stepX_path, index_label=False)
-        return average
+        df_X = pd.read_csv(self.stepX_path)
+        mean1 = df[ColumnName].mean()
+        df_X.loc['平均值', ColumnName] = mean1
+        df_X.to_csv(self.stepX_path, index_label=False)
+        return mean1
 
     # 求方差
-    def var(self, data, stepX_path):
+    def var(self, ColumnName):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        var = {}
-        for i in data:
-            var1 = df[i['field']].var()
-            df_X.loc['方差', i['field']] = var1
-            var[i['field']] = var1
-        df_X.to_csv(stepX_path, index_label=False)
-        return var
+        df_X = pd.read_csv(self.stepX_path)
+        var1 = df[ColumnName].var()
+        df_X.loc['方差', ColumnName] = var1
+        df_X.to_csv(self.stepX_path, index_label=False)
+        return var1
 
     # 求标准差
-    def std(self, data, stepX_path):
+    def std(self, ColumnName):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
-        std = {}
-        for i in data:
-            std1 = df[i['field']].std()
-            df_X.loc['标准差', i['field']] = std1
-            std[i['field']] = std1
-        df_X.to_csv(stepX_path, index_label=False)
-        return std
+        df_X = pd.read_csv(self.stepX_path)
+        # std = {}
+        # for i in data:
+        std1 = df[ColumnName].std()
+        df_X.loc['标准差', ColumnName] = std1
+        # std[i['field']] = std1
+        df_X.to_csv(self.stepX_path, index_label=False)
+        return std1
 
     # 修改字段类型
     def changeType(self, data, stepX_path):
@@ -308,42 +304,43 @@ class process():
     # Rankit序列
 
     # 生成RANKit，C_name 为列名
-    def TScoreRankit(self, C_name, stepX_path):
+    def Rankit(self, C_name):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
+        df_X = pd.read_csv(self.stepX_path)
         rank = df[C_name].rank(method='max')
         rankit = self.BNUZRankitSeries(rank)
-        df[str(C_name + '_Rankit')] = rankit
-        df_X[str(C_name + '_Rankit')] =[df[str(C_name + '_Rankit')].dtype, '', str(C_name + '_Rankit'), '', '', '']
+        df[self.newColumnName] = rankit
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
+        df_X.to_csv(self.stepX_path, index_label=False)
 
     # 生成RANK排名，C_name为列名
-    def TScoreRank(self, C_name, stepX_path):
+    def Rank(self, C_name):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
+        df_X = pd.read_csv(self.stepX_path)
         rank = df[C_name].rank(method='max')
-        df[str(C_name + '_Rank')] = rank
-        df_X[str(C_name + '_Rank')] = [df[str(C_name + '_Rank')].dtype, '', str(C_name + '_Rank'), '', '', '']
+        # rank = df[C_name].rank(method='max', ascending=False)
+        df[self.newColumnName] = rank
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
+        df_X.to_csv(self.stepX_path, index_label=False)
 
     # layers为层数，实现分层，并生成每个学生所在的层列，C_name为列名
-    def score2Layer(self, layers, C_name, stepX_path):
+    def Layer(self, layers, C_name):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
+        df_X = pd.read_csv(self.stepX_path)
         count = (df[C_name].count())
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
-        df[str(C_name + '_LAYER')] = rank // (countsPerlayer + 1) + 1
-        df_X[str(C_name + '_LAYER')] = [df[str(C_name + '_LAYER')].dtype, '', str(C_name + '_LAYER'), '', '', '']
+        df[self.newColumnName] = rank // (countsPerlayer + 1) + 1
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
+        df_X.to_csv(self.stepX_path, index_label=False)
 
     # 生成每个学生所在层的平均值
-    def score2Layer_mean(self, layers, C_name, stepX_path):
+    def Layer_average(self, layers, C_name):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
+        df_X = pd.read_csv(self.stepX_path)
         count = (df[C_name].count())
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
@@ -355,24 +352,44 @@ class process():
         temp = []
         for i in layer:
             temp.append(layer_value[int(i - 1)])
-        df[str(C_name + '_LAYER_mean')] = temp
-        df_X[str(C_name + '_LAYER_mean')] = [df[str(C_name + '_LAYER_mean')].dtype, '', str(C_name + '_LAYER_mean'), '', '', '']
+        df[self.newColumnName] = temp
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(stepX_path, index_label=False)
+        df_X.to_csv(self.stepX_path, index_label=False)
 
+    # 根据某一分层列，生成平均值,layer_name为指定的分层列，C_name为以相对应的分层列求均值的列
+    def Layer_average1(self, layer_name, C_name):
+        df = pd.read_csv(self.open_path)
+        df_X = pd.read_csv(self.stepX_path)
+        grouped_mean = df[C_name].groupby(df[layer_name]).mean()
+        temp = []
+        for i in df[layer_name]:
+            temp.append(grouped_mean.values[int(i-1)])
+        df[self.newColumnName] = temp
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df.to_csv(self.open_path, index_label=False, index=0)
+        df_X.to_csv(self.open_path, index_label=False)
 
     # 用户自定义表达式，生成新的一列。newColumnName是生成的新列名，expression是表达式内容
-    def Expression(self, newColumnName, expression, stepX_path):
+    #expression 必须字母开头
+    def Expression(self, expression):
         df = pd.read_csv(self.open_path)
-        df_X = pd.read_csv(stepX_path)
+        df_X = pd.read_csv(self.stepX_path)
         try:
-            df.eval(str(newColumnName + '=' + expression), inplace=True)
+            df.eval(str(self.newColumnName + '=' + expression), inplace=True)
         except:
             return("表达式错误")
         else:
-            df_X[newColumnName] = [df[newColumnName].dtype, expression, newColumnName, '', '', '']
+            df_X[self.newColumnName] = [df[self.newColumnName].dtype, expression, self.newColumnName, '', '', '']
             df.to_csv(self.open_path, index_label=False, index=0)
-            df_X.to_csv(stepX_path, index_label=False)
-
+            df_X.to_csv(self.stepX_path, index_label=False)
             return("新增列添加成功")
 
+    def zoomin_eval(self, function):
+        str = "self."+function
+        try:
+            eval(str)
+        except:
+            return("表达式错误")
+        else:
+            return("表达式调用成功")
