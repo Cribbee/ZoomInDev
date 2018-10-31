@@ -368,7 +368,7 @@ class process():
         df[self.newColumnName] = temp
         df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
-        df_X.to_csv(self.open_path, index_label=False)
+        df_X.to_csv(self.stepX_path, index_label=False)
 
     # 用户自定义表达式，生成新的一列。newColumnName是生成的新列名，expression是表达式内容
     #expression 必须字母开头
