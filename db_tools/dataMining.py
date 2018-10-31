@@ -189,24 +189,27 @@ class Process():
                 # *****
                 # if error_type == 1:  # 分布密度散点图
                 sns.swarmplot(x=new_data[list[0]])  # 带分布密度的散点图
-                chart_folder_err_re = self.upload_folder + title + "分布密度散点图"+".png"
-                chart_folder1_err = self.dir_folder + title + "分布密度散点图"+".png"
+                chart_folder_err_re = self.upload_folder + title + u"分布密度散点图"+".png"
+                chart_folder1_err = self.dir_folder + title + u"分布密度散点图"+".png"
                 plt.savefig(chart_folder1_err)
                 plt.savefig(chart_folder_err_re)
+                plt.cla()
 
                 # elif error_type == 2:  # 计数统计图
                 sns.countplot(x="categery", data=new_data)  # 计数统计图:每个类别分别有多少人
-                chart_folder_err_re = self.upload_folder + title + "计数统计图" + ".png"
-                chart_folder2_err = self.dir_folder + title + "计数统计图" + ".png"
+                chart_folder_err_re = self.upload_folder + title + u"计数统计图" + ".png"
+                chart_folder2_err = self.dir_folder + title + u"计数统计图" + ".png"
                 plt.savefig(chart_folder2_err)
                 plt.savefig(chart_folder_err_re)
+                plt.cla()
 
                 # elif error_type == 3:  # 小提琴图
                 sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
-                chart_folder_err_re = self.upload_folder + title + "小提琴图" + ".png"
-                chart_folder3_err = self.dir_folder + title + "小提琴图" + ".png"
+                chart_folder_err_re = self.upload_folder + title + u"小提琴图" + ".png"
+                chart_folder3_err = self.dir_folder + title + u"小提琴图" + ".png"
                 plt.savefig(chart_folder3_err)
                 plt.savefig(chart_folder_err_re)
+                plt.cla()
 
                 sse = []  # 手肘法则
                 lunkuo = []  # 轮廓系数存放距离
@@ -230,58 +233,65 @@ class Process():
 
                 plt.savefig(chart_folder)
                 plt.savefig(chart_folder_re)
+                plt.cla()
                 return chart_folder, chart_folder1_err,chart_folder2_err,chart_folder3_err
+
             #MiniBatch, random_state=random_state,n_init = n_init , max_iter = max_iter,batch_size=batch_size,reassignment_ratio=reassignment_ratio
-            # if category == 14:
-            #     mbk = MiniBatchKMeans(data , n_clusters=3)
-            #     df['categery'] = mbk[1]  # 添加聚类列为category列
-            #     new_data = df[[list[0], 'categery']]  # 得到中考总分和聚类标签
-            #
-            #     # *****
-            #     # if error_type == 1:  # 分布密度散点图
-            #     sns.swarmplot(x=new_data[list[0]])  # 带分布密度的散点图
-            #     chart_folder_err_re = self.upload_folder + title + "分布密度散点图" + ".png"
-            #     chart_folder1_err = self.dir_folder + title + "分布密度散点图" + ".png"
-            #     plt.savefig(chart_folder1_err)
-            #     # plt.savefig(chart_folder_err_re)
-            #
-            #     # elif error_type == 2:  # 计数统计图
-            #     sns.countplot(x="categery", data=new_data)  # 计数统计图:每个类别分别有多少人
-            #     chart_folder_err_re = self.upload_folder + title + "计数统计图" + ".png"
-            #     chart_folder2_err = self.dir_folder + title + "计数统计图" + ".png"
-            #     plt.savefig(chart_folder2_err)
-            #     # plt.savefig(chart_folder_err_re)
-            #
-            #     # elif error_type == 3:  # 小提琴图
-            #     sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
-            #     chart_folder_err_re = self.upload_folder + title + "小提琴图" + ".png"
-            #     chart_folder3_err = self.dir_folder + title + "小提琴图" + ".png"
-            #     plt.savefig(chart_folder3_err)
-            #     # plt.savefig(chart_folder_err_re)
-            #
-            #     sse = []  # 手肘法则
-            #     lunkuo = []  # 轮廓系数存放距离
-            #     start, end = 3, 15
-            #     for i in range(start, end):
-            #         km = k_means(data, n_clusters=i, random_state=80)
-            #         sse.append(km[2])
-            #         lunkuo.append(silhouette_score(data, km[1], metric='euclidean'))
-            #     fig, ax1 = plt.subplots(figsize=(10, 7))
-            #     ax2 = ax1.twinx()
-            #     lns1 = ax1.plot(range(start, end), sse, 'o-', c='g', label='zhou-bu')
-            #     lns2 = ax2.plot(range(start, end), lunkuo, 'o-', c='r', label='lun-kuo')
-            #     new_ticks = np.linspace(start, end, end - start + 1)
-            #     plt.xticks(new_ticks)
-            #     lns = lns1 + lns2
-            #     labs = [l.get_label() for l in lns]
-            #     ax1.legend(lns, labs, loc=0)
-            #     ax1.set_xlabel('K')
-            #     ax1.set_ylabel('SSE')
-            #     ax2.set_ylabel('LUN-KUO-INDEX')
-            #
-            #     plt.savefig(chart_folder)
-            #     plt.savefig(chart_folder_re)
-            #     return chart_folder, chart_folder1_err, chart_folder2_err, chart_folder3_err
+            if category == 14:
+                mbk = MiniBatchKMeans(n_clusters=k_clustering, random_state=random_state,n_init = n_init , max_iter = max_iter,batch_size=batch_size,reassignment_ratio=reassignment_ratio)
+                mbk.fit(data)
+                df['categery'] = mbk.labels_  # 添加聚类列为category列
+                new_data = df[[list[0], 'categery']]  # 得到中考总分和聚类标签
+
+                # *****
+                # if error_type == 1:  # 分布密度散点图
+                sns.swarmplot(x=new_data[list[0]])  # 带分布密度的散点图
+                chart_folder_err_re = self.upload_folder + title + "分布密度散点图" + ".png"
+                chart_folder1_err = self.dir_folder + title + "分布密度散点图" + ".png"
+                plt.savefig(chart_folder1_err)
+                plt.savefig(chart_folder_err_re)
+                plt.cla()
+
+                # elif error_type == 2:  # 计数统计图
+                sns.countplot(x="categery", data=new_data)  # 计数统计图:每个类别分别有多少人
+                chart_folder_err_re = self.upload_folder + title + "计数统计图" + ".png"
+                chart_folder2_err = self.dir_folder + title + "计数统计图" + ".png"
+                plt.savefig(chart_folder2_err)
+                plt.cla()
+                # plt.savefig(chart_folder_err_re)
+
+                # elif error_type == 3:  # 小提琴图
+                sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
+                chart_folder_err_re = self.upload_folder + title + "小提琴图" + ".png"
+                chart_folder3_err = self.dir_folder + title + "小提琴图" + ".png"
+                plt.savefig(chart_folder3_err)
+                plt.savefig(chart_folder_err_re)
+                plt.cla()
+
+                sse = []  # 手肘法则
+                lunkuo = []  # 轮廓系数存放距离
+                start, end = 3, 15
+                for i in range(start, end):
+                    km = k_means(data, n_clusters=i, random_state=80)
+                    sse.append(km[2])
+                    lunkuo.append(silhouette_score(data, km[1], metric='euclidean'))
+                fig, ax1 = plt.subplots(figsize=(10, 7))
+                ax2 = ax1.twinx()
+                lns1 = ax1.plot(range(start, end), sse, 'o-', c='g', label='zhou-bu')
+                lns2 = ax2.plot(range(start, end), lunkuo, 'o-', c='r', label='lun-kuo')
+                new_ticks = np.linspace(start, end, end - start + 1)
+                plt.xticks(new_ticks)
+                lns = lns1 + lns2
+                labs = [l.get_label() for l in lns]
+                ax1.legend(lns, labs, loc=0)
+                ax1.set_xlabel('K')
+                ax1.set_ylabel('SSE')
+                ax2.set_ylabel('LUN-KUO-INDEX')
+
+                plt.savefig(chart_folder)
+                plt.savefig(chart_folder_re)
+                plt.cla()
+                return chart_folder, chart_folder1_err, chart_folder2_err, chart_folder3_err
 
 
 
@@ -298,8 +308,11 @@ class Process():
 
                 # if error_type == 4:  # 二维的散点图
                 plt.scatter(data[:, 0], data[:, 1], s=20, c=df['categery'])  # c是标签
-                plt.savefig(chart_folder_err)
-                plt.savefig(chart_folder_err_re)
+                chart_folder4_err = self.dir_folder + title + u"二维散点图" + ".png"
+                chart_folder4_err_re = self.dir_folder + title + u"二维散点图" + ".png"
+                plt.savefig(chart_folder4_err)
+                plt.savefig(chart_folder4_err_re)
+                plt.cla()
 
 
                 sse = []  # 手肘法则
@@ -326,8 +339,52 @@ class Process():
                 ax2.set_ylabel('LUN-KUO-INDEX')
                 plt.savefig(chart_folder)
                 plt.savefig(chart_folder_re)
-            return chart_folder, chart_folder_err
+                plt.cla()
+                return chart_folder, chart_folder4_err
 
+            if category == 14:
+                mbk = MiniBatchKMeans(n_clusters=k_clustering, random_state=random_state, n_init=n_init,
+                                      max_iter=max_iter, batch_size=batch_size, reassignment_ratio=reassignment_ratio)
+                mbk.fit(data)
+                df['categery'] = mbk.labels_  # 添加聚类列为category列
+                new_data = df[[list[0], 'categery']]  # 得到中考总分和聚类标签
+
+
+                # if error_type == 4:  # 二维的散点图
+                plt.scatter(data[:, 0], data[:, 1], s=20, c=df['categery'])  # c是标签
+                chart_folder4_err = self.dir_folder + title + u"二维散点图" + ".png"
+                chart_folder4_err_re = self.dir_folder + title + u"二维散点图" + ".png"
+                plt.savefig(chart_folder4_err)
+                plt.savefig(chart_folder4_err_re)
+                plt.cla()
+
+
+                sse = []  # 手肘法则
+                lunkuo = []  # 轮廓系数存放距离
+                start, end = 3, 15
+                for i in range(start, end):
+                    km = k_means(data, n_clusters=i, random_state=random_state)
+                    sse.append(km[2])
+                    lunkuo.append(silhouette_score(data, km[1], metric='euclidean'))
+                print(km[1])
+                print(sse)
+                fig, ax1 = plt.subplots(figsize=(10, 7))
+                ax2 = ax1.twinx()
+                lns1 = ax1.plot(range(start, end), sse, 'o-', c='g', label='zhou-bu')
+                lns2 = ax2.plot(range(start, end), lunkuo, 'o-', c='r', label='lun-kuo')
+                new_ticks = np.linspace(start, end, end - start + 1)
+                plt.xticks(new_ticks)
+                lns = lns1 + lns2
+                labs = [l.get_label() for l in lns]
+                ax1.legend(lns, labs, loc=0)
+                ax1.set_xlabel('K')
+
+                ax1.set_ylabel('SSE')   
+                ax2.set_ylabel('LUN-KUO-INDEX')
+                plt.savefig(chart_folder)
+                plt.savefig(chart_folder_re)
+                plt.cla()
+                return chart_folder, chart_folder4_err
 
 
 

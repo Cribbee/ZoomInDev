@@ -133,14 +133,41 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
                                                                                       serializer.data['reassignment_ratio'],)
         #聚类
         if serializer.data['category'] == 13:
-            model.chart_folder0 = data[0]
-            model.chart_folder1 = data[1]
-            model.chart_folder2 = data[2]
-            model.chart_folder3 = data[3]
-            model.save()
-            return Response({"message": "本聚类模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder2: " + data[3]],
-                             "code": "201"},
-                            status=status.HTTP_201_CREATED, headers=headers)
+            if len(serializer.data['Datacsv_list'].split(',')) == 1:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.chart_folder2 = data[2]
+                model.chart_folder3 = data[3]
+                model.save()
+                return Response({"message": "Kmeans聚类一维模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder4: " + data[3]],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+            else:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.save()
+                return Response({"message": "Kmeans聚类二维模型创建成功",
+                                 "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], ],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+        if serializer.data['category'] == 14:
+            if len(serializer.data['Datacsv_list'].split(',')) == 1:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.chart_folder2 = data[2]
+                model.chart_folder3 = data[3]
+                model.save()
+                return Response({"message": "MiniBatch聚类一维模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder4: " + data[3]],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+            else:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.save()
+                return Response({"message": "MiniBatch聚类二维模型创建成功",
+                                 "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], ],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
 
         # 生成图表保存文件
         return Response({"message": "本聚类模型创建成功", "data": serializer.data, "code": "201"},
