@@ -189,26 +189,26 @@ class Process():
                 # *****
                 # if error_type == 1:  # 分布密度散点图
                 sns.swarmplot(x=new_data[list[0]])  # 带分布密度的散点图
-                chart_folder_err_re = self.upload_folder + title + u"分布密度散点图"+".png"
-                chart_folder1_err = self.dir_folder + title + u"分布密度散点图"+".png"
+                chart_folder1_err_re = self.upload_folder + title +"1.png"
+                chart_folder1_err = self.dir_folder + title +"1.png"
                 plt.savefig(chart_folder1_err)
-                plt.savefig(chart_folder_err_re)
+                plt.savefig(chart_folder1_err_re)
                 plt.cla()
 
                 # elif error_type == 2:  # 计数统计图
                 sns.countplot(x="categery", data=new_data)  # 计数统计图:每个类别分别有多少人
-                chart_folder_err_re = self.upload_folder + title + u"计数统计图" + ".png"
-                chart_folder2_err = self.dir_folder + title + u"计数统计图" + ".png"
+                chart_folder2_err_re = self.upload_folder + title + "2.png"
+                chart_folder2_err = self.dir_folder + title  + "2.png"
                 plt.savefig(chart_folder2_err)
-                plt.savefig(chart_folder_err_re)
+                plt.savefig(chart_folder2_err_re)
                 plt.cla()
 
                 # elif error_type == 3:  # 小提琴图
                 sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
-                chart_folder_err_re = self.upload_folder + title + u"小提琴图" + ".png"
-                chart_folder3_err = self.dir_folder + title + u"小提琴图" + ".png"
+                chart_folder3_err_re = self.upload_folder + title  + "3.png"
+                chart_folder3_err = self.dir_folder + title  + "3.png"
                 plt.savefig(chart_folder3_err)
-                plt.savefig(chart_folder_err_re)
+                plt.savefig(chart_folder3_err_re)
                 plt.cla()
 
                 sse = []  # 手肘法则
@@ -246,26 +246,26 @@ class Process():
                 # *****
                 # if error_type == 1:  # 分布密度散点图
                 sns.swarmplot(x=new_data[list[0]])  # 带分布密度的散点图
-                chart_folder_err_re = self.upload_folder + title + "分布密度散点图" + ".png"
-                chart_folder1_err = self.dir_folder + title + "分布密度散点图" + ".png"
+                chart_folder1_err_re = self.upload_folder + title  + "1.png"
+                chart_folder1_err = self.dir_folder + title  + "1.png"
                 plt.savefig(chart_folder1_err)
-                plt.savefig(chart_folder_err_re)
+                plt.savefig(chart_folder1_err_re)
                 plt.cla()
 
                 # elif error_type == 2:  # 计数统计图
                 sns.countplot(x="categery", data=new_data)  # 计数统计图:每个类别分别有多少人
-                chart_folder_err_re = self.upload_folder + title + "计数统计图" + ".png"
-                chart_folder2_err = self.dir_folder + title + "计数统计图" + ".png"
+                chart_folder2_err_re = self.upload_folder + title + "2.png"
+                chart_folder2_err = self.dir_folder + title + "2.png"
                 plt.savefig(chart_folder2_err)
+                plt.savefig(chart_folder2_err_re)
                 plt.cla()
-                # plt.savefig(chart_folder_err_re)
 
                 # elif error_type == 3:  # 小提琴图
                 sns.violinplot(x="categery", y=list[0], data=new_data, palette="muted")  # 小提琴图
-                chart_folder_err_re = self.upload_folder + title + "小提琴图" + ".png"
-                chart_folder3_err = self.dir_folder + title + "小提琴图" + ".png"
+                chart_folder3_err_re = self.upload_folder + title  + "3.png"
+                chart_folder3_err = self.dir_folder + title  + "3.png"
                 plt.savefig(chart_folder3_err)
-                plt.savefig(chart_folder_err_re)
+                plt.savefig(chart_folder3_err_re)
                 plt.cla()
 
                 sse = []  # 手肘法则
@@ -308,8 +308,8 @@ class Process():
 
                 # if error_type == 4:  # 二维的散点图
                 plt.scatter(data[:, 0], data[:, 1], s=20, c=df['categery'])  # c是标签
-                chart_folder4_err = self.dir_folder + title + u"二维散点图" + ".png"
-                chart_folder4_err_re = self.dir_folder + title + u"二维散点图" + ".png"
+                chart_folder4_err = self.dir_folder + title  + "4.png"
+                chart_folder4_err_re = self.dir_folder + title  + "4.png"
                 plt.savefig(chart_folder4_err)
                 plt.savefig(chart_folder4_err_re)
                 plt.cla()
@@ -352,8 +352,8 @@ class Process():
 
                 # if error_type == 4:  # 二维的散点图
                 plt.scatter(data[:, 0], data[:, 1], s=20, c=df['categery'])  # c是标签
-                chart_folder4_err = self.dir_folder + title + u"二维散点图" + ".png"
-                chart_folder4_err_re = self.dir_folder + title + u"二维散点图" + ".png"
+                chart_folder4_err = self.dir_folder + title  + "4.png"
+                chart_folder4_err_re = self.dir_folder + title  + "4.png"
                 plt.savefig(chart_folder4_err)
                 plt.savefig(chart_folder4_err_re)
                 plt.cla()
