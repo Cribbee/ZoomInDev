@@ -48,12 +48,7 @@ class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Ret
 
 class PublishViewset(viewsets.ModelViewSet):
     """
-    list:
-        获取用户收藏列表
-    retrieve:
-        判断某个商品是否已经收藏
-    create:
-        收藏任务
+
     """
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
