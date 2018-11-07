@@ -14,8 +14,8 @@ from rest_framework import status
 from utils.permissions import IsOwnerOrReadOnly
 from users.models import UserProfile
 from tasks.models import TaskInfo, DataSet
-from .models import Regression,Modelclustering
-from .serializers import RegressionSerializer, RegressionDetailSerializer,ClusteringDetailSerializer,ClusteringSerializer
+from .models import Regression, Clustering
+from .serializers import RegressionSerializer, RegressionDetailSerializer, ClusteringDetailSerializer, ClusteringSerializer
 from db_tools import dataProcessing, dataAnalyze, dataMining
 from db_tools import transformer
 
@@ -97,6 +97,7 @@ class RegressionViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
     def get_queryset(self):
         return Regression.objects.filter(user=self.request.user)
 
+
 #聚类模型
 class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
     """
@@ -119,22 +120,54 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
 
         upload_folder = "/home/ZoomInDataSet/DataMining/Clustering/"
 
-        model = Modelclustering.objects.get(id=serializer.data["id"])            #3
+        model = Clustering.objects.get(id=serializer.data["id"])            #3
         #strp3路径，D/task路径             传过去文件路径，文件夹的起始路径
-        data = dataMining.Process(data_set.step3, taskinfo.task_folder,upload_folder).clustering(serializer.data['title'],
-                                                                                   serializer.data['category'],
-                                                                                   serializer.data['random_state'],
-                                                                                   serializer.data['k_clustering'],
-                                                                                   serializer.data['Datacsv_list'],
-                                                                                   serializer.data['error_type'],)
+        data = dataMining.Process(data_set.step3, taskinfo.task_folder,
+                                  upload_folder).clustering(serializer.data['title'], serializer.data['category'],
+                                                                                      serializer.data['k_clustering'],
+                                                                                      serializer.data['Datacsv_list'],
+                                                                                      serializer.data['random_state'],
+                                                                                      serializer.data['max_iter'],
+                                                                                      serializer.data['batch_size'],
+                                                                                      serializer.data['n_init'],
+                                                                                      serializer.data['reassignment_ratio'],)
         #聚类
         if serializer.data['category'] == 13:
-            model.chart_folder1 = data[0]
-            model.chart_folder2 = data[1]
-            model.save()
-            return Response({"message": "本聚类模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1]],
-                             "code": "201"},
-                            status=status.HTTP_201_CREATED, headers=headers)
+            if len(serializer.data['Datacsv_list'].split(',')) == 1:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.chart_folder2 = data[2]
+                model.chart_folder3 = data[3]
+                model.save()
+                return Response({"message": "Kmeans聚类一维模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder4: " + data[3]],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+            else:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.save()
+                return Response({"message": "Kmeans聚类二维模型创建成功",
+                                 "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], ],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+        if serializer.data['category'] == 14:
+            if len(serializer.data['Datacsv_list'].split(',')) == 1:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.chart_folder2 = data[2]
+                model.chart_folder3 = data[3]
+                model.save()
+                return Response({"message": "MiniBatch聚类一维模型创建成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], "chart_folder3: " + data[2], "chart_folder4: " + data[3]],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
+            else:
+                model.chart_folder0 = data[0]
+                model.chart_folder1 = data[1]
+                model.save()
+                return Response({"message": "MiniBatch聚类二维模型创建成功",
+                                 "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1], ],
+                                 "code": "201"},
+                                status=status.HTTP_201_CREATED, headers=headers)
 
         # 生成图表保存文件
         return Response({"message": "本聚类模型创建成功", "data": serializer.data, "code": "201"},
@@ -157,6 +190,6 @@ class ClusteringViewSet(mixins.ListModelMixin, mixins.CreateModelMixin, mixins.U
         return ClusteringDetailSerializer
 
     def get_queryset(self):
-        return Modelclustering.objects.filter(user=self.request.user)
+        return Clustering.objects.filter(user=self.request.user)
 
 

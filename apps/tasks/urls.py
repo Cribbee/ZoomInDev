@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^dataProcessing/missingValue$', views.missing_value),
     url(r'^dataProcessing/filters$', views.filters),
     url(r'^dataProcessing/setIndex$', views.set_index),
-    url(r'^dataProcessing/sum$', views.sum),
+    # url(r'^dataProcessing/sum$', views.sum),
     url(r'^dataProcessing/showDataSet1$', views.show_data_set1),
     url(r'^dataProcessing/showDataSet3$', views.show_data_set3),
     url(r'^dataProcessing/resetColumn$', views.reset_columns),
@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^dataProcessing/average$', views.average),
     url(r'^dataProcessing/standardDeviation$', views.standardDeviation),
     url(r'^dataProcessing/variance$', views.variance),
-    url(r'^dataProcessing/sub$', views.sub),
+    # url(r'^dataProcessing/sub$', views.sub),
     url(r'^dataProcessing/changeType$', views.force_changeType),
     url(r'^dataProcessing/changeDesc$', views.changeDesc),
     url(r'^chart/result$', views.analysis_result),
@@ -30,13 +30,14 @@ urlpatterns = [
     url(r'^dataProcessing/resetColumns_name_type$', views.resetColumns_name_type),
     url(r'^dataProcessing/showDesc$', views.show_desc),
     url(r'^dataProcessing/showOriginColumnsName$', views.show_OriginColumnsName),
-    url(r'^dataProcessing/TscoreRank$', views.TscoreRank),
-    url(r'^dataProcessing/TscoreRankit$', views.TScoreRankit),
-    url(r'^dataProcessing/Score2Layer$', views.Score2Layer),
-    url(r'^dataProcessing/Score2Layer_mean$', views.Score2Layer_mean),
-    url(r'^dataProcessing/Expression$', views.Expression),
+    # url(r'^dataProcessing/TscoreRank$', views.TscoreRank),
+    # url(r'^dataProcessing/TscoreRankit$', views.TScoreRankit),
+    # url(r'^dataProcessing/Score2Layer$', views.Score2Layer),
+    # url(r'^dataProcessing/Score2Layer_mean$', views.Score2Layer_mean),
+    # url(r'^dataProcessing/Expression$', views.Expression),
     url(r'^dataProcessing/dropnan$', views.dropnan),
-    url(r'^dataProcessing/changeTitle$', views.changeTitle)
+    url(r'^dataProcessing/changeTitle$', views.changeTitle),
+    url(r'^dataProcessing/zoomin_eval$', views.zoomin_eval)
 
 
 ]
