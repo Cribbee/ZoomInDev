@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from tasks.models import TaskInfo
+
 __author__ = 'Cribbee'
 __create_at__ = 2018 / 6 / 4
 
@@ -310,7 +312,7 @@ class process():
         rank = df[C_name].rank(method='max')
         rankit = self.BNUZRankitSeries(rank)
         df[self.newColumnName] = rankit
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Rankit('+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -321,7 +323,7 @@ class process():
         rank = df[C_name].rank(method='max')
         # rank = df[C_name].rank(method='max', ascending=False)
         df[self.newColumnName] = rank
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Rank('+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -333,7 +335,7 @@ class process():
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
         df[self.newColumnName] = rank // (countsPerlayer + 1) + 1
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer('+layers+','+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -353,7 +355,7 @@ class process():
         for i in layer:
             temp.append(layer_value[int(i - 1)])
         df[self.newColumnName] = temp
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer_average('+layers+','+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -366,7 +368,7 @@ class process():
         for i in df[layer_name]:
             temp.append(grouped_mean.values[int(i-1)])
         df[self.newColumnName] = temp
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, '', self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer_average1('+layer_name+','+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
