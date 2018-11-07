@@ -581,11 +581,12 @@ def analysis_result(request):
         chart_method=request.data['chart_method'], sort = request.data['sort'], sort_value=request.data['sort_value'],
         filter = request.data['filter'],secondary_axis= request.data["secondary_axis"],
         chart_type_2nd=request.data['chart_type_2nd'],chart_method_2nd=request.data['chart_method_2nd'],
-        filter_past= request.data['filter_past']
+        filter_past= request.data['filter_past'],filter_past_logical_type = request.data['filter_past_logical_type'],
     )
     chart.x_axis = request.data['x_axis']
     chart.y_axis = request.data['y_axis']
     chart.filter_past = request.data['filter_past']
+    chart.filter_past_logical_type = request.data['filter_past_logical_type']
     chart.sort = request.data['sort']
     chart.sort_value = request.data['sort_value']
     chart.chart_type = request.data['chart_type']
