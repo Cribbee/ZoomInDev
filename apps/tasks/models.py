@@ -83,6 +83,7 @@ class Chart(models.Model):
     sort = models.IntegerField(verbose_name="排序方式", help_text="表格排序方式", default=-1)
     sort_value = models.CharField(max_length=20, verbose_name="排序基准", blank=True, null=True, default="",
                                   help_text="图表排序基准")
+    filter_past_logical_type = models.CharField(max_length=20,verbose_name="筛选条件逻辑",default="",blank=True,null=True,help_text="图表筛选逻辑")
     filter = models.CharField(max_length=500,verbose_name="筛选条件",default="",blank = True,null=True,help_text="图表筛选条件")
     filter_past = models.CharField(max_length=500,verbose_name="处理前筛选条件",default="",blank = True,null=True,help_text="图表处理前筛选条件")
 
