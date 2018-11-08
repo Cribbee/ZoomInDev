@@ -125,7 +125,7 @@ class Process():
             t += 1
         return (result)
 
-    def chart_filter(self, df, filter_past_logical_type, filter):
+    def chart_filter(self, df,filter):
         '''
 
         :param df:
@@ -134,59 +134,55 @@ class Process():
         '''
 
         logger = logging.getLogger('django')
-        if filter_past_logical_type == "&":
-            for f in filter:
-                if f['field_type'] == 0:
-                    str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
-                    logger.debug("LogDebug<""str_expression : " + str_expression + ">")
-                    df = df[eval(str_expression)]
+        for f in filter:
+            if f['field_type'] == 0:
+                str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
+                logger.debug("LogDebug<""str_expression : " + str_expression + ">")
+                df = df[eval(str_expression)]
 
-                elif f['field_type'] == 1 and f['filter_method'] == "equal":
-                    df = df[df[f['field_name']].astype(str) == (f['filter_obj'])]
-                elif f['field_type'] == 1 and f['filter_method'] == "notEqual":
-                    df = df[~df[f['field_name']].astype(str) == (f['filter_obj'])]
-                elif f['field_type'] == 1 and f['filter_method'] == "contains":
-                    df = df[df[f['field_name']].str.contains(f['filter_obj'])]
-                elif f['field_type'] == 1 and f['filter_method'] == "notContains":
-                    df = df[~df[f['field_name']].str.contains(f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "equal":
+                df = df[df[f['field_name']].astype(str) == (f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "notEqual":
+                df = df[~df[f['field_name']].astype(str) == (f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "contains":
+                df = df[df[f['field_name']].str.contains(f['filter_obj'])]
+            elif f['field_type'] == 1 and f['filter_method'] == "notContains":
+                df = df[~df[f['field_name']].str.contains(f['filter_obj'])]
 
-                elif f['field_type'] == 1 and f['filter_method'] == "isNull":
-                    df = df[df[f['field_name']].astype(str).isnull()]
-                elif f['field_type'] == 1 and f['filter_method'] == "notNull":
-                    df = df[df[f['field_name']].astype(str).notnull()]
-        elif filter_past_logical_type == "|":
-            df_merger = []
-            count = 0
-            for f in filter:
-                if f['field_type'] == 0:
-                    str_expression = "df['" + f['field_name'] + "']" + f['filter_method'] + f['filter_obj']
-                    df_merger.append(df[eval(str_expression)])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "equal":
-                    df_merger.append(df[df[f['field_name']] == (f['filter_obj'])])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "notEqual":
-                    df_merger.append(df[~df[f['field_name']] == (f['filter_obj'])])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "contains":
-                    df_merger.append(df[df[f['field_name']].str.contains(f['filter_obj'])])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "notContains":
-                    df_merger.append(df[~df[f['field_name']].str.contains(f['filter_obj'])])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "isNull":
-                    df_merger.append(df[df[f['field_name']].notnull])
-                    count += 1
-                elif f['field_type'] == 1 and f['filter_method'] == "notNull":
-                    df_merger.append(df[df[f['field_name']].isnull])
-                    count += 1
-            i = 0
-            df = pd.DataFrame(None)
-            while i < count:
-                df = pd.concat([df, df_merger[i]], join='outer', axis=0, ignore_index=True, )
-                i += 1
+            elif f['field_type'] == 1 and f['filter_method'] == "isNull":
+                df = df[df[f['field_name']].astype(str).isnull()]
+            elif f['field_type'] == 1 and f['filter_method'] == "notNull":
+                df = df[df[f['field_name']].astype(str).notnull()]
+
 
         return df
+    def chart_filter_past(self,df,filter_past):
+        '''
+
+        :param df:
+        :param filter_past:
+        :return:
+        '''
+        df_merger = []
+        count = 0
+        for f in filter_past:
+            obj = f['filter_obj'].split(',')
+            if f['filter_method']=='equal':
+                for t in obj:
+                    df_merger.append(df[df[f['field_name']] == (t)])
+                    count+=1
+            elif f['filter_method'] =='notEqual':
+                for t in obj:
+                    df_merger.append(df[~df[f['field_name']] == (t)])
+                    count += 1
+
+        i = 0
+        df = pd.DataFrame(None)
+        while i < count:
+            df = pd.concat([df, df_merger[i]], join='outer', axis=0, ignore_index=True, )
+            i += 1
+        return df
+
 
     def process(self, x_axis, y_axis, chart_method, chart_type, sort, sort_value, filter, filter_past,
                 secondary_axis, chart_method_2nd, chart_type_2nd, filter_past_logical_type):
@@ -213,7 +209,10 @@ class Process():
         x_axis = x_axis.split(',')
         y_axis = y_axis.split(',')
         if filter_past != [""]:
-            df = self.chart_filter(df, filter_past_logical_type, filter_past)
+            if filter_past_logical_type =="&":
+                df = self.chart_filter(df, filter_past)
+            elif filter_past_logical_type == "|":
+                df = self.chart_filter_past(df,filter_past)
         df2 = df
 
         df = self.process_result(df, x_axis, y_axis, chart_method)
@@ -258,8 +257,6 @@ class Process():
         if filter == "":
             df = df
         else:
-            # 计算后的筛选强制只有&
-            filter_past_logical_type = "&"
-            df = self.chart_filter(df, filter_past_logical_type,filter)
+            df = self.chart_filter(df,filter)
 
         return df
