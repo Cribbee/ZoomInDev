@@ -120,9 +120,9 @@ class TaskViewset(viewsets.ModelViewSet):
         logger.debug("task_id is " + str(serializer.data["id"]))
         taskinfo = TaskInfo.objects.get(id=serializer.data["id"])
         logger.debug("user_id is " + str(taskinfo.user))
-        path = "/home/ZoomInDataSet/"  # 服务器路径
+        # path = "/home/ZoomInDataSet/"  # 服务器路径
         # path = "/Users/sharb/Downloads/" # 本地路径
-        # path = "D:\\Task\\"  # windos 路径
+        path = "D:\\Task\\"  # windos 路径
         taskinfo.task_folder = path + str(serializer.data["id"])
         dataProcessing.process.mkdir(floder=taskinfo.task_folder)
         user = UserProfile.objects.get(id=taskinfo.user_id)

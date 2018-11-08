@@ -41,6 +41,7 @@ router.register(r'dataSet', DataSetViewset, base_name="dataSet")
 router.register(r'chart', ChartViewset, base_name="chart")
 router.register(r'dataMining/regression', RegressionViewSet, base_name="regression")
 router.register(r'dataMining/clustering', ClusteringViewSet, base_name="clustering")
+router.register(r'shared', PublishViewset, base_name="shared")
 
 
 
