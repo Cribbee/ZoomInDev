@@ -48,3 +48,17 @@ class Publish(models.Model):
     def __str__(self):
         return self.task_name
 
+class Summary(models.Model):
+    """
+    用户数据分析、挖掘结论
+    """
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户", related_name="user_S")
+    dataAnalyze_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据分析结论")
+    dataMining_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据挖掘结论")
+    add_time = models.DateTimeField(null=True, blank=True, default=datetime.now, verbose_name="添加时间")
+
+    class Meta:
+        verbose_name = "总结"
+        verbose_name_plural = verbose_name
+
+

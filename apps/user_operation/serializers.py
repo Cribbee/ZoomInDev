@@ -5,7 +5,7 @@ __create_at__ = 2018 / 6 / 5
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
-from user_operation.models import UserTask, Publish
+from user_operation.models import UserTask, Publish, Summary
 
 
 class UserTaskSerializer(serializers.ModelSerializer):
@@ -55,3 +55,12 @@ class PublishDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Publish
         fields = ("user", "id", "shared_user", "source_task", "task_name")
+
+class SummarySerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
+
+    class Meta:
+        model = Summary
+        fields = ("user", "dataAnalyze_Summary", "dataMining_Summary")
