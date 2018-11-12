@@ -12,7 +12,7 @@ from rest_framework import status
 from rest_framework.decorators import action
 
 from utils.permissions import IsOwnerOrReadOnly
-from .models import UserTask, Publish
+from .models import UserTask, Publish, Summary
 from . import tests
 from tasks.models import TaskInfo, DataSet, Chart
 from users.models import UserProfile
@@ -69,7 +69,7 @@ class PublishViewset(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
-        headers = self.get_success_headers(serializer.data)
+        !headers = self.get_success_headers(serializer.data)
 
         # path = "/home/ZoomInDataSet/"  # 服务器路径
         path = "D:\\Task\\"  # windos 路径
@@ -92,7 +92,7 @@ class PublishViewset(viewsets.ModelViewSet):
         shutil.copytree(source_task.task_folder, task.task_folder)
 
         # 遍历source_task 对应的dataset、chart、data_mining各个实体，复制其路径下文件，同时创建记录
-        # dataset表
+        # dataset表 把图片都保存到Publish文件夹
         for i in DataSet.objects.filter(task_id=source_task.id):
             i.id = None
             i.step1 = tests.trans(i.step1, str(task.id))
@@ -182,7 +182,7 @@ class SummaryViewset(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
         if self.action == "list":
-            return UserTaskSerializer
+            return SummarySerializer
         elif self.action == "create":
             return SummarySerializer
 
