@@ -25,7 +25,7 @@ from .serializers import TaskSerializer, TaskDetailSerializer, DataSetSerializer
 
 import codecs
 import json
-import os
+import os,base64
 import logging
 import time
 import pandas as pd
@@ -603,3 +603,23 @@ def analysis_result(request):
     chart.save()
     return Response({"message": "获取图表处理数据", "data": df.to_json(orient='columns', force_ascii=False, ),
                      "code": "200"}, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def save_chart_pic(request):
+    chart = Chart.objects.get(id=request.data['chart_id'])
+    data_set = DataSet.objects.get(id = request.data['data_set'])
+    task = TaskInfo.objects.get(id = data_set.task_id)
+    upload_folder = "/home/ZoomInDataSet/DataAnalyze/"+str(chart.id)
+    # upload_folder = "/Users/sharb/Downloads/"+str(chart.id)
+
+    data = dataAnalyze.chart_pic(task.task_folder,upload_folder).save_pic(chart_id = request.data['chart_id'],base_num= request.data['base_num'])
+    chart.chart_folder1 = data[0]
+    chart.chart_folder2 = data[1]
+    return Response(
+        {"message": "本分析图表保存成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1]], "code": "201"},
+        status=status.HTTP_200_OK)
+
+
+
+

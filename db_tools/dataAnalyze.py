@@ -5,7 +5,7 @@ __create_at__ = 2018 / 9 / 4
 import codecs
 import csv
 import json
-import os
+import os,base64
 import logging
 
 import pandas as pd
@@ -16,6 +16,7 @@ class Process():
 
     def __init__(self, open_path):
         self.open_path = open_path
+
 
     def chart_count(self, df, x_axis, y_axis):
         '''
@@ -260,3 +261,26 @@ class Process():
             df = self.chart_filter(df,filter)
 
         return df
+
+
+class chart_pic():
+
+    def __init__(self,dir_folder,upload_folder):
+        self.dir_folder = dir_folder + "/Publish/"
+        self.upload_folder = upload_folder
+
+    def save_pic(self,chart_id,base_num):
+        img = base64.b64decode(base_num)
+        chart_folder_re = self.upload_folder+".png"
+        chart_folder = self.dir_folder+str(chart_id)+".png"
+        f1 = open(chart_folder,'wb')
+        f1.write(img)
+        f1.close()
+        f2 = open(chart_folder_re,'wb')
+        f2.write(img)
+        f2.close()
+        return chart_folder,chart_folder_re
+
+
+
+
