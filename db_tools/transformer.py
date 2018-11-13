@@ -3,6 +3,7 @@ __author__ = 'Cribbee'
 __create_at__ = 2018 / 6 / 3
 import csv
 import json
+import base64
 import sys
 import codecs
 import os
@@ -45,3 +46,12 @@ class trans():
             ls[i] = dict(zip(ls[0], ls[i]))
         json.dump(ls[1:], fw,  separators=(',', ':'), ensure_ascii=False)
         fw.close()
+
+    def images2base64(self, url):
+        base = []
+        for i in url:
+            img_file = open(i, 'rb')
+            img_b64encode = base64.b64encode(img_file.read())
+            base.append(img_b64encode)
+            img_file.close()
+        return base

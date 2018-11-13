@@ -1,3 +1,4 @@
+import os
 import shutil
 from datetime import datetime
 
@@ -18,6 +19,7 @@ from tasks.models import TaskInfo, DataSet, Chart
 from users.models import UserProfile
 from data_mining.models import Clustering, Regression
 from .serializers import UserTaskSerializer, PublishSerializer, PublishDetailSerializer, SummarySerializer
+from db_tools import transformer
 
 
 class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
@@ -69,7 +71,7 @@ class PublishViewset(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
-        !headers = self.get_success_headers(serializer.data)
+        headers = self.get_success_headers(serializer.data)
 
         # path = "/home/ZoomInDataSet/"  # 服务器路径
         path = "D:\\Task\\"  # windos 路径
@@ -89,10 +91,13 @@ class PublishViewset(viewsets.ModelViewSet):
         task.save()
 
         # 新建文件夹并拷贝文件夹
+        os.mkdir('/home/ZoomInDataSet/Publish/'+task.id)
         shutil.copytree(source_task.task_folder, task.task_folder)
 
         # 遍历source_task 对应的dataset、chart、data_mining各个实体，复制其路径下文件，同时创建记录
-        # dataset表 把图片都保存到Publish文件夹
+        # dataset表
+        #
+        # 到Publish文件夹
         for i in DataSet.objects.filter(task_id=source_task.id):
             i.id = None
             i.step1 = tests.trans(i.step1, str(task.id))
@@ -108,8 +113,10 @@ class PublishViewset(viewsets.ModelViewSet):
             for k in Clustering.objects.filter(data_set=i.id):
                 k.id = None
                 k.data_set = i.id
-                k.chart_folder1 = tests.trans(k.chart_folder1, str(task.id))
-                k.chart_folder2 = tests.trans(k.chart_folder2, str(task.id))
+                if k.chart_folder1 is not None:
+                    k.chart_folder1 = tests.copy_dataMiningImages(k.chart_folder1)
+                if k.chart_folder2 is not None:
+                    k.chart_folder2 = tests.copy_dataMiningImages(k.chart_folder2)
                 k.add_time = datetime.now()
                 k.updated_time = None
                 k.user_id = task.user_id
@@ -119,8 +126,10 @@ class PublishViewset(viewsets.ModelViewSet):
             for s in Regression.objects.filter(data_set=i.id):
                 s.id = None
                 s.data_set = i.id
-                s.chart_folder1 = tests.trans(s.chart_folder1, str(task.id))
-                s.chart_folder2 = tests.trans(s.chart_folder2, str(task.id))
+                if s.chart_folder2 is not None
+                    s.chart_folder1 = tests.copy_dataMiningImages(s.)
+                s.chart_folder1 = tests.trans(s.chart_folder1)
+                s.chart_folder2 = tests.trans(s.chart_folder2)
                 s.add_time = datetime.now()
                 s.updated_time = None
                 s.user_id = task.user_id
@@ -187,3 +196,32 @@ class SummaryViewset(viewsets.ModelViewSet):
             return SummarySerializer
 
         return SummarySerializer
+
+
+@api_view(['POST'])
+def image2base64(request):
+    result = transformer.trans.images2base64(request.data['image_url'])
+    return Response({"message": str(result)})
+
+
+@api_view(['POST'])
+def publish(request):
+    result = {}
+    user = UserProfile.objects.get(id=request.user.id)
+    print(user)
+    result['user_name'] = user.username
+    task = TaskInfo.objects.get(id=request.data['task_id'])
+    result['add_time'] = task.add_time
+    data_set = DataSet.objects.filter(task_id=request.data['task_id'])
+    for i in data_set:
+        result['data_set_name_'+i] = i.title
+        # for k in Clustering.objects.filter(data_set=i.id):
+        #     result['data_mining_clustering1'] = k.chart_folder1
+        #     result['data_mining_clustering2'] = k.chart_folder2
+        # for s in Regression.objects.filter(data_set=i.id):
+        #     result['data_mining_regression1'] = s.chart_folder1
+        #     result['data_mining_regression2'] = s.chart_folder2
+
+    # 再加上 结论表
+
+    return Response(result, status=status.HTTP_200_OK)

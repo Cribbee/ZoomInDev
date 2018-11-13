@@ -18,18 +18,24 @@ def trans():
     # dfw.to_json("D:\\2018文科原始分333.json", force_ascii=False, orient='records')
     # dfw.to_csv("D:\\2018文科原始 分1.csv")
 
-    fr = codecs.open("D:\\Task\\12\\Data\\122213.csvy", 'r', 'utf-8')
-    ls = []
-    for line in fr:
-        line = line.replace("\n", "")
-        ls.append(line.split(','))
-    fr.close()
-
-    fw = codecs.open("D:\\2018文科原始分4444.json", 'w', 'utf-8')
-    for i in range(1,len(ls)):
-        ls[i] = dict(zip(ls[0], ls[i]))
-    json.dump(ls[1:], fw, separators=(',', ':'), ensure_ascii=False)
-    fw.close()
+    # fr = codecs.open("D:\\成绩.xlsx", 'r', 'utf-8')
+    # ls = []
+    # for line in fr:
+    #     line = line.replace("\n", "")
+    #     line = line.replace("\r", "")
+    #     ls.append(line.split(','))
+    # fr.close()
+    #
+    # fw = codecs.open("D:\\成绩.json", 'w', 'utf-8')
+    # for i in range(1,len(ls)):
+    #     ls[i] = dict(zip(ls[0], ls[i]))
+    # json.dump(ls[1:], fw, separators=(',', ':'), ensure_ascii=False)
+    # fw.close()
+    df = pd.read_excel("D:\\成绩.xlsx")
+    js = df.to_json(orient="records", force_ascii=False)
+    data = json.loads(js)
+    fw = codecs.open("D:\\成绩.json", 'w', 'utf-8')
+    json.dump(data, fw, separators=(',', ':'), ensure_ascii=False)
 
 
 def test():
