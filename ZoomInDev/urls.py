@@ -30,7 +30,7 @@ from tasks.views import TaskViewset, DataSetViewset, ChartViewset, DelValue
 from data_mining.views import RegressionViewSet, ClusteringViewSet
 from user_operation.views import UserTaskViewset, PublishViewset
 from tasks import urls as tasks
-
+from user_operation import urls as operations
 router = DefaultRouter()
 
 router.register(r'users', UserViewset, base_name="users")
@@ -49,6 +49,7 @@ urlpatterns = [
 
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^task/', include(tasks)),
+    url(r'^operation/', include(operations)),
 
     url(r'^', include(router.urls)),
 
