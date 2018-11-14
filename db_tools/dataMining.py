@@ -173,15 +173,16 @@ class Process():
         plt.savefig(chart_folder1_err)
         plt.savefig(chart_folder1_err_re)
         plt.cla()
+        plt.clf()
 
         # elif error_type == 2:  # 计数统计图
         sns.countplot(x="categery", data=matrix)  # 计数统计图:每个类别分别有多少人
         chart_folder2_err_re = self.upload_folder + title + "2.png"
         chart_folder2_err = self.dir_folder + title + "2.png"
         plt.savefig(chart_folder2_err)
-        # plt.savefig(chart_folder2_err_re)
+        plt.savefig(chart_folder2_err_re)
         plt.cla()
-
+        plt.clf()
         # elif error_type == 3:  # 小提琴图
         sns.violinplot(x="categery", y=label_, data=matrix, palette="muted")  # 小提琴图
         chart_folder3_err_re = self.upload_folder + title + "3.png"
@@ -189,6 +190,7 @@ class Process():
         plt.savefig(chart_folder3_err)
         plt.savefig(chart_folder3_err_re)
         plt.cla()
+        plt.clf()
         return chart_folder1_err,chart_folder2_err,chart_folder3_err
     #二维散点图
     def DrawScatterPlotSecond(self ,title , matrix , pred_labels):
@@ -198,6 +200,7 @@ class Process():
         plt.savefig(chart_folder4_err)
         plt.savefig(chart_folder4_err_re)
         plt.cla()
+        plt.clf()
         return chart_folder4_err
 
     #手肘法
@@ -227,6 +230,7 @@ class Process():
         plt.savefig(chart_folder)
         plt.savefig(chart_folder_re)
         plt.cla()
+        plt.clf()
         return chart_folder
 
     def clustering(self, title, category,k_clustering,Datacsv_list, random_state, max_iter,batch_size , n_init,reassignment_ratio):
