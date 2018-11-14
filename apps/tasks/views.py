@@ -616,6 +616,7 @@ def save_chart_pic(request):
     data = dataAnalyze.chart_pic(task.task_folder,upload_folder).save_pic(chart_id = request.data['chart_id'],base_num= request.data['base_num'])
     chart.chart_folder1 = data[0]
     chart.chart_folder2 = data[1]
+    chart.save()
     return Response(
         {"message": "本分析图表保存成功", "data": ["chart_folder1: " + data[0], "chart_folder2: " + data[1]], "code": "201"},
         status=status.HTTP_200_OK)
