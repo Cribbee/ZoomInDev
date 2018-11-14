@@ -1,5 +1,7 @@
+import paramiko
 from rest_framework import viewsets
 from rest_framework import mixins
+from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.authentication import SessionAuthentication
@@ -81,6 +83,30 @@ class PublishViewset(viewsets.ModelViewSet):
             return PublishSerializer
 
         return UserTaskSerializer
+
+@api_view(['POST'])
+def GetServerDir(request):
+    host_name = '120.79.146.91'
+    user_name = 'root'
+    password = 'BNU123>0808'
+    port = 22
+
+    #连接远程服务器
+    t = paramiko.Transport((host_name, port))
+    t.connect(username=user_name, password=password)
+    sftp = paramiko.SFTPClient.from_transport(t)
+    data_set = DataSet.objects.filter(task=request.data['task_id'])
+    savePath = request.data['save_path']  # 本地存放的路径
+
+    Record_dir = ""
+    #下载
+    for i in range(len(data_set)):
+        local_dir = savePath + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
+        server_dir = data_set[i].step3
+        sftp.get(server_dir , local_dir)
+        Record_dir = local_dir + " "
+
+    return Response({"message": "下载的文件本地路径成功", "data": Record_dir})
 
 
 
