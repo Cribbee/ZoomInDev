@@ -86,30 +86,30 @@ class PublishViewset(viewsets.ModelViewSet):
 
 @api_view(['POST'])
 def GetServerDir(request):
-    # host_name = '127.0.0.1'
-    # user_name = 'root'
-    # password = 'BNU123>0808'
-    # port = 22
-    #
-    # #连接远程服务器
-    # t = paramiko.Transport((host_name, port))
-    # t.connect(username=user_name, password=password)
-    # sftp = paramiko.SFTPClient.from_transport(t)
-    # data_set = DataSet.objects.filter(task=request.data['task_id'])
-    # #进行判断是否为null
-    # savePath = request.data['save_path']  # 本地存放的路径
-    # if len(data_set) > 0:
-    #     Record_dir = ""
-    #     #下载
-    #     for i in range(len(data_set)):
-    #         local_dir = savePath + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
-    #         server_dir = data_set[i].step3
-    #         sftp.get(server_dir , local_dir)
-    #         Record_dir = local_dir + " "
-    #     sftp.close()
-    #     return Response({"message": "下载的文件本地路径成功", "data": Record_dir})
-    # else:
-    return Response({"message": "服务器没有该文件"})
+    host_name = '127.0.0.1'
+    user_name = 'root'
+    password = 'BNU123>0808'
+    port = 22
+    #应该加上权限认证
+    #连接远程服务器
+    t = paramiko.Transport((host_name, port))
+    t.connect(username=user_name, password=password)
+    sftp = paramiko.SFTPClient.from_transport(t)
+    data_set = DataSet.objects.filter(task=request.data['task_id'])
+    #进行判断是否为null
+    savePath = request.data['save_path']  # 本地存放的路径
+    if len(data_set) > 0:
+        Record_dir = ""
+        #下载
+        for i in range(len(data_set)):
+            local_dir = savePath + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
+            server_dir = data_set[i].step3
+            sftp.get(server_dir , local_dir)
+            Record_dir = local_dir + " "
+        sftp.close()
+        return Response({"message": "下载的文件本地路径成功", "data": Record_dir})
+    else:
+        return Response({"message": "服务器没有该文件"})
 
 
 
