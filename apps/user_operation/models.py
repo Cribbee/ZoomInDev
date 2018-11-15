@@ -57,6 +57,7 @@ class Summary(models.Model):
     user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户", related_name="user_S")
     dataAnalyze_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据分析结论")
     dataMining_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据挖掘结论")
+    total_Summary = models.CharField(max_length=80,null=True, blank=True, verbose_name="任务总结论")
     task = models.ForeignKey(TaskInfo, models.CASCADE, null=True, verbose_name="任务id", related_name="task_S")
     html_folder = models.CharField(max_length=80, null=True, verbose_name="html地址")
     add_time = models.DateTimeField(null=True, blank=True, default=datetime.now, verbose_name="添加时间")

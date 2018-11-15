@@ -63,4 +63,4 @@ class SummarySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Summary
-        fields = ("user", "dataAnalyze_Summary", "dataMining_Summary")
+        fields = ("user", "dataAnalyze_Summary", "dataMining_Summary", "total_Summary")
