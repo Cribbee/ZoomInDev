@@ -1720,527 +1720,251 @@ Traceback (most recent call last):
 django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (api-docs:api-docs) 'docs/'>
 Not Found: /task/dataProcessing/showOriginColumnsName
 "POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 404 11858
-"GET / HTTP/1.1" 200 6566
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 10136
-"GET /publish HTTP/1.1" 301 0
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/shared HTTP/1.1" 301 0
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /shared HTTP/1.1" 301 0
-"GET /shared/ HTTP/1.1" 200 15573
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"PUT /publish/shared/ HTTP/1.1" 404 12953
-"GET /publish/ HTTP/1.1" 200 15582
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-Not Found: /publish/shared/
-"PUT /publish/shared/ HTTP/1.1" 404 12953
-"GET /publish/1/ HTTP/1.1" 200 13054
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-"GET /publish/create HTTP/1.1" 301 0
-Not Found: /publish/create/
-"GET /publish/create/ HTTP/1.1" 404 12953
-"GET /publish/100 HTTP/1.1" 301 0
-Not Found: /publish/100/
-"GET /publish/100/ HTTP/1.1" 404 12923
-"GET /publish/list HTTP/1.1" 301 0
-Not Found: /publish/list/
-"GET /publish/list/ HTTP/1.1" 404 12933
-Internal Server Error: /publish/
+"OPTIONS /login/ HTTP/1.1" 200 0
+"POST /login/ HTTP/1.1" 200 176
+"OPTIONS /taskinfo/ HTTP/1.1" 200 0
+"GET /taskinfo/ HTTP/1.1" 200 1060
+"OPTIONS /task/dataProcessing/showDataSet1 HTTP/1.1" 200 0
+"OPTIONS /chart/ HTTP/1.1" 200 0
+"OPTIONS /dataSet/ HTTP/1.1" 200 0
+Internal Server Error: /task/dataProcessing/showDataSet1
 Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
     response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\viewsets.py", line 103, in view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
     return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
     response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
     self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
     response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 70, in list
-    return Response(queryset.data)
-AttributeError: 'QuerySet' object has no attribute 'data'
-"GET /publish/ HTTP/1.1" 500 95440
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/?format=api HTTP/1.1" 200 15659
-"OPTIONS /publish/?format=api HTTP/1.1" 200 13310
-"GET /publish/?format=json HTTP/1.1" 200 1590
-"GET /publish/ HTTP/1.1" 200 15582
-"OPTIONS /publish/ HTTP/1.1" 200 13233
-"OPTIONS /publish/ HTTP/1.1" 200 13233
-"GET /publish/ HTTP/1.1" 200 15582
-"OPTIONS /publish/ HTTP/1.1" 200 13233
-"OPTIONS /publish/ HTTP/1.1" 200 13233
-"GET /publish/ HTTP/1.1" 200 15582
-"OPTIONS /publish/ HTTP/1.1" 200 13233
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/ HTTP/1.1" 200 16307
-"GET / HTTP/1.1" 200 6566
-"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121200
-"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
-"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
-"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
-"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
-"GET /static/rest_framework/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
-"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1735
-"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37045
-"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
-"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1262
-"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 11028
-"GET /publish/ HTTP/1.1" 200 15582
-"GET /publish/shared HTTP/1.1" 301 0
-Not Found: /publish/shared/
-"GET /publish/shared/ HTTP/1.1" 404 12953
-"OPTIONS /publish/shared/ HTTP/1.1" 200 13273
-"OPTIONS /publish/shared/ HTTP/1.1" 200 13273
-"GET /publish/2/shared/ HTTP/1.1" 405 10511
-"GET /publish/2/shared HTTP/1.1" 301 0
-"GET /publish/2/shared/ HTTP/1.1" 405 10511
-"GET /publish/2/shared/ HTTP/1.1" 405 10511
-"OPTIONS /publish/2/shared/ HTTP/1.1" 200 12155
-"OPTIONS /publish/2/shared/ HTTP/1.1" 200 12155
-"OPTIONS /publish/2/shared/ HTTP/1.1" 200 12155
-"OPTIONS /publish/2/shared/ HTTP/1.1" 200 12155
-"POST /publish/2/shared/ HTTP/1.1" 201 10654
-"GET /publish/shared/ HTTP/1.1" 405 10458
-"GET /publish/shared/ HTTP/1.1" 400 11873
-"GET /publish/shared/ HTTP/1.1" 400 11873
-"POST /publish/shared/ HTTP/1.1" 201 10595
-"POST /publish/shared/ HTTP/1.1" 201 10671
-"POST /publish/shared/ HTTP/1.1" 201 10747
-"GET / HTTP/1.1" 200 6566
-"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 10944
-"GET /publish/ HTTP/1.1" 200 16534
-Internal Server Error: /publish/
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
-    response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\viewsets.py", line 103, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
-    response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 70, in create
-    user = UserProfile.objects.get(id=request.user)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\manager.py", line 82, in manager_method
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
+    return func(*args, **kwargs)
+  File "/home/ZoomInDev/apps/tasks/views.py", line 69, in show_data_set1
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
     return getattr(self.get_queryset(), name)(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 394, in get
-    clone = self.filter(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 836, in filter
-    return self._filter_or_exclude(False, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 854, in _filter_or_exclude
-    clone.query.add_q(Q(*args, **kwargs))
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\query.py", line 1252, in add_q
-    clause, _ = self._add_q(q_object, self.used_aliases)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\query.py", line 1276, in _add_q
-    split_subq=split_subq,
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\query.py", line 1214, in build_filter
-    condition = self.build_lookup(lookups, col, value)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\query.py", line 1084, in build_lookup
-    lookup = lookup_class(lhs, rhs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\lookups.py", line 18, in __init__
-    self.rhs = self.get_prep_lookup()
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\lookups.py", line 68, in get_prep_lookup
-    return self.lhs.output_field.get_prep_value(self.rhs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\fields\__init__.py", line 947, in get_prep_value
-    return int(value)
-TypeError: int() argument must be a string, a bytes-like object or a number, not 'SimpleLazyObject'
-"POST /publish/ HTTP/1.1" 500 146341
-"GET / HTTP/1.1" 200 6437
-"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121200
-"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3385
-"GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
-"GET /static/rest_framework/css/default.css HTTP/1.1" 200 1131
-"GET /static/rest_framework/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
-"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3597
-"GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1735
-"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 37045
-"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
-"GET /static/rest_framework/js/default.js HTTP/1.1" 200 1262
-"GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 9961
-"GET /user_operation/image2base64 HTTP/1.1" 405 5972
-"POST /user_operation/image2base64 HTTP/1.1" 400 5762
-"POST /user_operation/image2base64 HTTP/1.1" 400 5762
-Internal Server Error: /user_operation/image2base64
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+tasks.models.DoesNotExist: DataSet matching query does not exist.
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 500 16983
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /chart/ HTTP/1.1" 201 343
+"GET /dataSet/ HTTP/1.1" 200 499
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 438768
+"POST /chart/ HTTP/1.1" 201 344
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 241
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 197
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 254
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 200 459792
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/save_chart HTTP/1.1" 200 0
+"POST /task/chart/result HTTP/1.1" 200 542
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"POST /task/chart/result HTTP/1.1" 200 542
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /chart/ HTTP/1.1" 201 344
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 200 459792
+"POST /task/chart/result HTTP/1.1" 200 542
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"OPTIONS /task/dataProcessing/showDataSet1 HTTP/1.1" 200 0
+"OPTIONS /chart/ HTTP/1.1" 200 0
+"OPTIONS /dataSet/ HTTP/1.1" 200 0
+Internal Server Error: /task/dataProcessing/showDataSet1
 Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
     response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
     return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
     response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
     self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
     response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\decorators.py", line 53, in handler
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
     return func(*args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 203, in image2base64
-    result = transformer.trans.images2base64(request.data['image_url'])
-TypeError: images2base64() missing 1 required positional argument: 'url'
-Internal Server Error: /user_operation/image2base64
+  File "/home/ZoomInDev/apps/tasks/views.py", line 69, in show_data_set1
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+tasks.models.DoesNotExist: DataSet matching query does not exist.
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 500 16983
+"POST /chart/ HTTP/1.1" 201 343
+Internal Server Error: /task/dataProcessing/showDataSet1
 Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
     response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
     return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
     response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
     self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
     response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\decorators.py", line 53, in handler
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
     return func(*args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 203, in image2base64
-    result = transformer.trans.images2base64(request.data['image_url'])
-TypeError: images2base64() missing 1 required positional argument: 'url'
-"POST /user_operation/image2base64 HTTP/1.1" 500 97038
-"POST /user_operation/image2base64 HTTP/1.1" 500 97038
-"GET /user_operation/image2base64 HTTP/1.1" 405 5972
-"POST /user_operation/image2base64 HTTP/1.1" 400 5762
-Internal Server Error: /user_operation/image2base64
+  File "/home/ZoomInDev/apps/tasks/views.py", line 69, in show_data_set1
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+tasks.models.DoesNotExist: DataSet matching query does not exist.
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 500 16983
+"POST /chart/ HTTP/1.1" 201 343
+"GET /dataSet/ HTTP/1.1" 200 499
+"GET /dataSet/ HTTP/1.1" 200 499
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 438768
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /chart/ HTTP/1.1" 201 343
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 241
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 254
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 197
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 200 459792
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/save_chart HTTP/1.1" 200 0
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"OPTIONS /login/ HTTP/1.1" 200 0
+"POST /login/ HTTP/1.1" 200 176
+"OPTIONS /taskinfo/ HTTP/1.1" 200 0
+"GET /taskinfo/ HTTP/1.1" 200 1060
+"OPTIONS /task/dataProcessing/showDataSet1 HTTP/1.1" 200 0
+"OPTIONS /chart/ HTTP/1.1" 200 0
+"OPTIONS /dataSet/ HTTP/1.1" 200 0
+Internal Server Error: /task/dataProcessing/showDataSet1
 Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/exception.py", line 35, in inner
     response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 128, in _get_response
     response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
     return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/views/generic/base.py", line 69, in view
     return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 483, in dispatch
     response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 443, in handle_exception
     self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/views.py", line 480, in dispatch
     response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\decorators.py", line 53, in handler
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/rest_framework/decorators.py", line 53, in handler
     return func(*args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 203, in image2base64
-    result = transformer.images2base64(request.data['image_url'])
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\db_tools\transformer.py", line 54, in images2base64
-    img_file = open(i, 'rb')
-FileNotFoundError: [Errno 2] No such file or directory: '['
-"POST /user_operation/image2base64 HTTP/1.1" 500 100753
-"POST /user_operation/image2base64 HTTP/1.1" 400 5762
-"POST /user_operation/image2base64 HTTP/1.1" 400 5762
-"POST /user_operation/image2base64 HTTP/1.1" 200 3992214
-"GET /user_operation/image2base64 HTTP/1.1" 405 5972
-"POST /user_operation/image2base64 HTTP/1.1" 200 3992214
-"POST /user_operation/image2base64 HTTP/1.1" 200 3992217
-"GET / HTTP/1.1" 200 6437
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 9961
-"GET /publish HTTP/1.1" 301 0
-"GET /publish/ HTTP/1.1" 405 5852
-"POST /publish/ HTTP/1.1" 200 5875
-Internal Server Error: /publish/
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
-    response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\generic\base.py", line 69, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
-    response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\decorators.py", line 53, in handler
-    return func(*args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\user_operation\views.py", line 217, in publish
-    result['data_set_name_' + i] = i.title
-TypeError: must be str, not DataSet
-"POST /publish/ HTTP/1.1" 500 97995
-"GET /summary HTTP/1.1" 301 0
-Internal Server Error: /summary/
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
-    self.errorhandler(self, exc, value)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
-    raise errorvalue
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
-    res = self._query(query)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
-    rowcount = self._do_query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
-    db.query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 277, in query
-    _mysql.connection.query(self, query)
-_mysql_exceptions.ProgrammingError: (1146, "Table 'test.user_operation_summary' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
-    response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\viewsets.py", line 103, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
-    response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\mixins.py", line 48, in list
-    return Response(serializer.data)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 765, in data
-    ret = super(ListSerializer, self).data
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 262, in data
-    self._data = self.to_representation(self.instance)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 272, in __iter__
-    self._fetch_all()
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 54, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1063, in execute_sql
-    cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
-    return super().execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
-    self.errorhandler(self, exc, value)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
-    raise errorvalue
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
-    res = self._query(query)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
-    rowcount = self._do_query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
-    db.query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 277, in query
-    _mysql.connection.query(self, query)
-django.db.utils.ProgrammingError: (1146, "Table 'test.user_operation_summary' doesn't exist")
-"GET /summary/ HTTP/1.1" 500 222196
-"GET / HTTP/1.1" 200 6566
-Not Found: /favicon.ico
-"GET /favicon.ico HTTP/1.1" 404 10778
-Internal Server Error: /summary/
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
-    self.errorhandler(self, exc, value)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
-    raise errorvalue
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
-    res = self._query(query)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
-    rowcount = self._do_query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
-    db.query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 277, in query
-    _mysql.connection.query(self, query)
-_mysql_exceptions.ProgrammingError: (1146, "Table 'test.user_operation_summary' doesn't exist")
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
-    response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\viewsets.py", line 103, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
-    response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\mixins.py", line 48, in list
-    return Response(serializer.data)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 765, in data
-    ret = super(ListSerializer, self).data
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 262, in data
-    self._data = self.to_representation(self.instance)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\serializers.py", line 683, in to_representation
-    self.child.to_representation(item) for item in iterable
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 272, in __iter__
-    self._fetch_all()
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 1179, in _fetch_all
-    self._result_cache = list(self._iterable_class(self))
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\query.py", line 54, in __iter__
-    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1063, in execute_sql
-    cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 100, in execute
-    return super().execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 68, in execute
-    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
-    return executor(sql, params, many, context)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\utils.py", line 89, in __exit__
-    raise dj_exc_value.with_traceback(traceback) from exc_value
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\utils.py", line 85, in _execute
-    return self.cursor.execute(sql, params)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\db\backends\mysql\base.py", line 71, in execute
-    return self.cursor.execute(query, args)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 250, in execute
-    self.errorhandler(self, exc, value)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 50, in defaulterrorhandler
-    raise errorvalue
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 247, in execute
-    res = self._query(query)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 411, in _query
-    rowcount = self._do_query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\cursors.py", line 374, in _do_query
-    db.query(q)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\MySQLdb\connections.py", line 277, in query
-    _mysql.connection.query(self, query)
-django.db.utils.ProgrammingError: (1146, "Table 'test.user_operation_summary' doesn't exist")
-"GET /summary/ HTTP/1.1" 500 222322
-"GET /summary/ HTTP/1.1" 401 5203
-"GET /api-auth/login/?next=/summary/ HTTP/1.1" 200 2711
-"GET /users/ HTTP/1.1" 405 7634
-"GET /api-auth/login/?next=/users/ HTTP/1.1" 200 2709
-"POST /api-auth/login/ HTTP/1.1" 200 2948
-Not Found: /users]
-"GET /users] HTTP/1.1" 404 10765
-"GET /users HTTP/1.1" 301 0
-"GET /users/ HTTP/1.1" 405 7634
-"POST /users/ HTTP/1.1" 201 7803
-"OPTIONS /users/ HTTP/1.1" 200 10126
-"GET /api-auth/login/?next=/users/ HTTP/1.1" 200 2709
-"POST /api-auth/login/ HTTP/1.1" 302 0
-"GET /users/ HTTP/1.1" 405 7863
-"POST /users/ HTTP/1.1" 201 8016
-"GET /summary HTTP/1.1" 301 0
-"GET /summary/ HTTP/1.1" 200 9086
-"GET /summary/ HTTP/1.1" 200 9086
-"GET /taskinfo/ HTTP/1.1" 200 9262
-Internal Server Error: /taskinfo/
-Traceback (most recent call last):
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\exception.py", line 35, in inner
-    response = get_response(request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 128, in _get_response
-    response = self.process_exception_by_middleware(e, request)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
-    response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
-    return view_func(*args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\viewsets.py", line 103, in view
-    return self.dispatch(request, *args, **kwargs)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 483, in dispatch
-    response = self.handle_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 443, in handle_exception
-    self.raise_uncaught_exception(exc)
-  File "C:\Users\LEONsu\Desktop\ZoomInDev\venv\lib\site-packages\rest_framework\views.py", line 480, in dispatch
-    response = handler(request, *args, **kwargs)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\apps\tasks\views.py", line 127, in create
-    dataProcessing.process.mkdir(floder=taskinfo.task_folder)
-  File "C:\Users\LEONsu\PycharmProjects\untitled\ZoomInDev\db_tools\dataProcessing.py", line 35, in mkdir
-    os.mkdir(floder)
-FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'D:\\Task\\1'
-"POST /taskinfo/ HTTP/1.1" 500 100189
-"POST /taskinfo/ HTTP/1.1" 400 9363
-"POST /taskinfo/ HTTP/1.1" 201 9520
-"GET /summary/ HTTP/1.1" 200 9086
-"GET /summary/ HTTP/1.1" 200 9867
-"POST /summary/ HTTP/1.1" 201 10062
-"GET /summary/ HTTP/1.1" 200 10075
-"GET /publish/ HTTP/1.1" 405 5852
+  File "/home/ZoomInDev/apps/tasks/views.py", line 69, in show_data_set1
+    data_set = DataSet.objects.get(id=request.data['data_set_id'])
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/V-ZoomIn/lib/python3.6/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+tasks.models.DoesNotExist: DataSet matching query does not exist.
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 500 16998
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /chart/ HTTP/1.1" 201 343
+"GET /dataSet/ HTTP/1.1" 200 499
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDataSet3 HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 844
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDtypes HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showDesc HTTP/1.1" 200 0
+"OPTIONS /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 0
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 236
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 192
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 244
+"POST /task/dataProcessing/showDataSet3 HTTP/1.1" 200 438768
+"GET /dataSet/ HTTP/1.1" 200 499
+"POST /chart/ HTTP/1.1" 201 344
+"POST /task/dataProcessing/showDesc HTTP/1.1" 200 197
+"POST /task/dataProcessing/showDtypes HTTP/1.1" 200 241
+"POST /task/dataProcessing/showOriginColumnsName HTTP/1.1" 200 254
+"POST /task/dataProcessing/showDataSet1 HTTP/1.1" 200 459792
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/result HTTP/1.1" 200 0
+"OPTIONS /task/chart/save_chart HTTP/1.1" 200 0
+"POST /task/chart/result HTTP/1.1" 200 542
+"POST /task/chart/result HTTP/1.1" 200 542
+"POST /task/chart/save_chart HTTP/1.1" 200 177
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 1415
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/result HTTP/1.1" 200 2770
+"POST /task/chart/save_chart HTTP/1.1" 200 177
