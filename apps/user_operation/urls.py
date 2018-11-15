@@ -6,7 +6,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^getServerDir', views.GetServerDir),
+
+    url(r'^getServerDir$', views.GetServerDir),
     url(r'^image2base64$', views.image2base64)
 
 ]
