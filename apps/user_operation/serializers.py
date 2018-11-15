@@ -56,6 +56,7 @@ class PublishDetailSerializer(serializers.ModelSerializer):
         model = Publish
         fields = ("user", "id", "shared_user", "source_task", "task_name")
 
+
 class SummarySerializer(serializers.ModelSerializer):
     user = serializers.HiddenField(
         default=serializers.CurrentUserDefault()
@@ -63,4 +64,4 @@ class SummarySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Summary
-        fields = ("user", "dataAnalyze_Summary", "dataMining_Summary")
+        fields = ("user", "task", "dataAnalyze_Summary", "dataMining_Summary", "total_Summary")
