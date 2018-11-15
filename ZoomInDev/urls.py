@@ -28,27 +28,31 @@ from django.views.static import serve
 from users.views import UserViewset
 from tasks.views import TaskViewset, DataSetViewset, ChartViewset, DelValue
 from data_mining.views import RegressionViewSet, ClusteringViewSet
-from user_operation.views import UserTaskViewset, PublishViewset
+from user_operation.views import UserTaskViewset, PublishViewset, publish
 from tasks import urls as tasks
+from user_operation import urls as user_operation
+
 from user_operation import urls as operations
 router = DefaultRouter()
 
 router.register(r'users', UserViewset, base_name="users")
 router.register(r'usertask', UserTaskViewset, base_name="usertask")
 router.register(r'taskinfo', TaskViewset, base_name="task")
-router.register(r'publish', PublishViewset, base_name="publish")
+# router.register(r'publish', publish, base_name="publish")
 router.register(r'dataSet', DataSetViewset, base_name="dataSet")
 router.register(r'chart', ChartViewset, base_name="chart")
 router.register(r'dataMining/regression', RegressionViewSet, base_name="regression")
 router.register(r'dataMining/clustering', ClusteringViewSet, base_name="clustering")
+router.register(r'shared', PublishViewset, base_name="shared")
 
 
 
 urlpatterns = [
     url(r'^home/ZoomInDataSet/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-
+    url(r'^publish/', publish, name="publish"),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^task/', include(tasks)),
+    url(r'^user_operation/', include(user_operation)),
     url(r'^operation/', include(operations)),
 
     url(r'^', include(router.urls)),

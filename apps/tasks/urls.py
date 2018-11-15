@@ -38,7 +38,6 @@ urlpatterns = [
     # url(r'^dataProcessing/Expression$', views.Expression),
     url(r'^dataProcessing/dropnan$', views.dropnan),
     url(r'^dataProcessing/changeTitle$', views.changeTitle),
-    url(r'^dataProcessing/zoomin_eval$', views.zoomin_eval)
-
+    url(r'^dataProcessing/zoomin_eval$', views.zoomin_eval),
 
 ]

@@ -3,7 +3,8 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth import get_user_model
 
-from tasks.models import TaskInfo
+from tasks.models import TaskInfo, DataSet
+
 # Create your models here.
 User = get_user_model()
 
@@ -19,7 +20,7 @@ class UserTask(models.Model):
     class Meta:
         verbose_name = '用户'
         verbose_name_plural = verbose_name
-        #联合字段构成唯一集合，避免重复收藏
+        # 联合字段构成唯一集合，避免重复收藏
         unique_together = ("user", "tasks")
 
     def __str__(self):
@@ -42,9 +43,24 @@ class Publish(models.Model):
     class Meta:
         verbose_name = '发布'
         verbose_name_plural = verbose_name
-        #联合字段构成唯一集合，避免重复收藏
+        # 联合字段构成唯一集合，避免重复收藏
         unique_together = ("user", "task_name")
 
     def __str__(self):
         return self.task_name
 
+
+class Summary(models.Model):
+    """
+    用户数据分析、挖掘结论
+    """
+    user = models.ForeignKey(User, models.CASCADE, null=True, verbose_name="用户", related_name="user_S")
+    dataAnalyze_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据分析结论")
+    dataMining_Summary = models.CharField(max_length=80, null=True, blank=True, verbose_name="数据挖掘结论")
+    task = models.ForeignKey(TaskInfo, models.CASCADE, null=True, verbose_name="任务id", related_name="task_S")
+    html_folder = models.CharField(max_length=80, null=True, verbose_name="html地址")
+    add_time = models.DateTimeField(null=True, blank=True, default=datetime.now, verbose_name="添加时间")
+
+    class Meta:
+        verbose_name = "总结"
+        verbose_name_plural = verbose_name
