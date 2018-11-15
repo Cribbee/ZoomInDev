@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^dataProcessing/changeType$', views.force_changeType),
     url(r'^dataProcessing/changeDesc$', views.changeDesc),
     url(r'^chart/result$', views.analysis_result),
+    url(r'^chart/save_chart',views.save_chart_pic),
     url(r'^dataProcessing/test_changeType$', views.test_changeType),
     url(r'^dataProcessing/resetColumns_name_type_desc$', views.resetColumns_name_type_desc),
     url(r'^dataProcessing/resetColumns_name_type$', views.resetColumns_name_type),

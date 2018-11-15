@@ -93,7 +93,8 @@ class Chart(models.Model):
     secondary_axis = models.CharField(max_length=200, verbose_name="次轴", blank=True, null=True, default="", help_text="图表次轴")
     chart_type_2nd = models.IntegerField(choices = CHART_TYPE,default=1,verbose_name="表格次轴总览",help_text="次轴表格类别")
     chart_method_2nd = models.CharField(max_length=200,verbose_name="次轴数据处理方法总揽",default="",help_text="次轴数据处理方法")
-    chart_folder = models.CharField(max_length=50, verbose_name="图表存放路径", null=True, blank=True, default="")
+    chart_folder1 = models.CharField(max_length=50, verbose_name="图表存放路径1", null=True, blank=True, default="")
+    chart_folder2 = models.CharField(max_length=50, verbose_name="图表存放路径2", null=True, blank=True, default="")
 
     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
     updated_time = models.DateTimeField(default=datetime.now, verbose_name="更新时间")

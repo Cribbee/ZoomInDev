@@ -12,17 +12,20 @@ from django.test import TestCase
 #     print('/'.join(a))
 
 
-def trans(str, id):
-    a = str.split('/')
-    a[2] = id
+# 修改'/home/ZoomInDataSet/2/Data/2213.csv'中的任务文件夹
+def trans_taskid(str1, task_id):
+    a = str1.split('/')
+    a[3] = task_id
     return ('/'.join(a))
 
 
+# 修改'/home/ZoomInDataSet/DataMining/Regression/445671.png'修改成'/home/ZoomInDataSet/Publish/4/445671_s.png'
 def copy_dataMiningImages(path, task_id):
+    task_id = '4'
     str1 = '/home/ZoomInDataSet/DataMining/Regression/445671.png'
     a = str1.split('/')
     print(a[0])
-    a[3] = 'Publish/' + str(task_id)
+    a[3] = 'Publish/' + task_id
     del a[4]
     new_path = '/'.join(a)
     new_path = new_path.replace('.png', '_s.png')
@@ -30,15 +33,16 @@ def copy_dataMiningImages(path, task_id):
     # shutil.copy(path, new_path)
     # return new_path
 
-
+# 修改'/home/ZoomInDataSet/DataAnalyze/954.png'修改成'/home/ZoomInDataSet/Publish/3/954_s.png'
 def copy_dataAnalyzeImages(path, task_id):
-    a = path.split('/')
-    a[3] = 'Publish/' + str(task_id)
-    new_path = '/'.join(a)
-    new_path = new_path.replace('.png', '_s.png')
-    shutil.copy(path, new_path)
-    return new_path
+    # a = path.split('/')
+    # a[3] = 'Publish/' + task_id
+    # new_path = '/'.join(a)
+    # new_path = new_path.replace('.png', '_s.png')
+    shutil.copy("F:\\PHOTO\\五一顺德之旅\\IMG_5524.jpg", "F:\\1.jpg")
+    # print(new_path)
+    # return new_path
 
 
 if __name__ == '__main__':
-    print('D:\Task\1/Data/1212.csv'.split('/'))
+    copy_dataAnalyzeImages('1', '3')
