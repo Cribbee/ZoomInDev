@@ -28,9 +28,8 @@ from django.views.static import serve
 from users.views import UserViewset
 from tasks.views import TaskViewset, DataSetViewset, ChartViewset, DelValue
 from data_mining.views import RegressionViewSet, ClusteringViewSet
-from user_operation.views import UserTaskViewset, PublishViewset, publish
+from user_operation.views import UserTaskViewset, PublishViewset, publish, SummaryViewset
 from tasks import urls as tasks
-from user_operation import urls as user_operation
 
 from user_operation import urls as operations
 router = DefaultRouter()
@@ -44,7 +43,7 @@ router.register(r'chart', ChartViewset, base_name="chart")
 router.register(r'dataMining/regression', RegressionViewSet, base_name="regression")
 router.register(r'dataMining/clustering', ClusteringViewSet, base_name="clustering")
 router.register(r'shared', PublishViewset, base_name="shared")
-
+router.register(r'summary', SummaryViewset, base_name="summary")
 
 
 urlpatterns = [
@@ -52,7 +51,6 @@ urlpatterns = [
     url(r'^publish/', publish, name="publish"),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^task/', include(tasks)),
-    url(r'^user_operation/', include(user_operation)),
     url(r'^operation/', include(operations)),
 
     url(r'^', include(router.urls)),
