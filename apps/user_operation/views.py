@@ -58,7 +58,6 @@ class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.Ret
 
 class PublishViewset(viewsets.ModelViewSet):
     """
-
     """
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
@@ -162,7 +161,6 @@ class PublishViewset(viewsets.ModelViewSet):
 
 class SummaryViewset(viewsets.ModelViewSet):
     """
-
     """
     permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
     authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
