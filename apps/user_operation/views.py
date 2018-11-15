@@ -3,7 +3,7 @@ import shutil
 from datetime import datetime
 
 import paramiko
-from rest_framework import viewsets
+from rest_framewDork import viewsets
 from rest_framework import mixins
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
@@ -188,7 +188,7 @@ class SummaryViewset(viewsets.ModelViewSet):
 @api_view(['POST'])
 def image2base64(request):
     result = transformer.images2base64(request.data['image_url'])
-    return Response({"message": str(result)})
+    return Response({"message": result})
 
 
 @api_view(['POST'])
