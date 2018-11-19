@@ -3,6 +3,8 @@ import shutil
 from datetime import datetime
 
 import paramiko
+import zipstream
+from django.http import StreamingHttpResponse
 from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework.decorators import api_view
@@ -228,29 +230,68 @@ def publish(request):
     return Response(result, status=status.HTTP_200_OK)
 
 
-@api_view(['POST'])
+# @api_view(['GET'])
+# def GetServerDir(request):
+#     #接下来要加上权限认证
+#     def readFile(filename, chunk_size=512):
+#         with open(filename, 'rb') as f:
+#             while True:
+#                 c = f.read(chunk_size)
+#                 if c:
+#                     yield c
+#                 else:
+#                     break
+#
+#     data_set = DataSet.objects.filter(task=request.GET.get('task_id'))
+#     # print("--------------------")
+#     # print(len(data_set))
+#     if len(data_set) > 0:
+#         # 下载
+#         for i in range(len(data_set)):
+#             the_file_name = data_set[i].step3.split('/')[-1]  # 弹出对话框中默认下载的文件名  2113
+#             # local_dir = savePath + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
+#             server_dir = data_set[i].step3  # 服务器路径
+#             response = StreamingHttpResponse(readFile(server_dir))
+#             response['Content-Type'] = 'application/octet-stream'
+#             response['Content-Disposition'] = 'attachment;filename="{0}"'.format(the_file_name)
+#     return response
+#
+class ZipUtilities:
+    zip_file = None
+
+    def __init__(self):
+        self.zip_file = zipstream.ZipFile(mode='w', compression=zipstream.ZIP_DEFLATED)
+
+    def toZip(self, file, name):
+        if os.path.isfile(file):
+            self.zip_file.write(file, arcname=os.path.basename(file))
+        else:
+            self.addFolderToZip(file, name)
+
+    def addFolderToZip(self, folder, name):
+        for file in os.listdir(folder):
+            full_path = os.path.join(folder, file)
+            if os.path.isfile(full_path):
+                self.zip_file.write(full_path, arcname=os.path.join(name, os.path.basename(full_path)))
+            elif os.path.isdir(full_path):
+                self.addFolderToZip(full_path, os.path.join(name, os.path.basename(full_path)))
+
+    def close(self):
+        if self.zip_file:
+            self.zip_file.close()
+
+@api_view(['GET'])
 def GetServerDir(request):
-    host_name = '127.0.0.1'
-    user_name = 'root'
-    password = 'BNU123>0808'
-    port = 22
-    # 应该加上权限认证
-    # 连接远程服务器
-    t = paramiko.Transport((host_name, port))
-    t.connect(username=user_name, password=password)
-    sftp = paramiko.SFTPClient.from_transport(t)
-    data_set = DataSet.objects.filter(task=request.data['task_id'])
-    # 进行判断是否为null
-    savePath = request.data['save_path']  # 本地存放的路径
-    if len(data_set) > 0:
-        Record_dir = ""
-        # 下载
-        for i in range(len(data_set)):
-            local_dir = savePath + "/" + data_set[i].step3.split('/')[-1]  # 完整本地路径
-            server_dir = data_set[i].step3
-            sftp.get(server_dir, local_dir)
-            Record_dir = local_dir + " "
-        sftp.close()
-        return Response({"message": "下载的文件本地路径成功", "data": Record_dir})
-    else:
-        return Response({"message": "服务器没有该文件"})
+    utilities = ZipUtilities()
+    data_set = DataSet.objects.filter(task=request.GET.get('task_id'))
+    for i in range(len(data_set)):
+        the_file_name = data_set[i].step3.split('/')[-1]  # 弹出对话框中默认下载的文件名  2113
+        local_dir = "D:" + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
+        server_dir = data_set[i].step3  # 服务器路径
+        tmp_dl_path = os.path.join(local_dir, server_dir)
+        utilities.toZip(tmp_dl_path, the_file_name)
+    # utilities.close()
+    response = StreamingHttpResponse(utilities.zip_file, content_type='application/zip')
+    response['Content-Disposition'] = 'attachment;filename="{0}"'.format("下载.zip")
+    return response
+
