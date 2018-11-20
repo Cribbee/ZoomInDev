@@ -225,14 +225,18 @@ def publish(request):
         dict1['data_mining_regression'] = regression
         list1.append(dict1)
     result['data_set'] = list1
-    summary = Summary.objects.get(task_id=request.data['task_id'])
-    if summary.dataAnalyze_Summary != "":
-        result['dataAnalye_Summary'] = summary.dataAnalyze_Summary
-    if summary.dataMining_Summary != "":
-        result['dataMinging_Summary'] = summary.dataMining_Summary
-    if summary.total_Summary != "":
-        result['total_Summary'] = summary.total_Summary
-    return Response(result, status=status.HTTP_200_OK)
+    try:
+        summary = Summary.objects.get(task_id=request.data['task_id'])
+    except:
+        return Response(result, status=status.HTTP_200_OK)
+    else:
+        if summary.dataAnalyze_Summary != "":
+            result['dataAnalye_Summary'] = summary.dataAnalyze_Summary
+        if summary.dataMining_Summary != "":
+            result['dataMinging_Summary'] = summary.dataMining_Summary
+        if summary.total_Summary != "":
+            result['total_Summary'] = summary.total_Summary
+        return Response(result, status=status.HTTP_200_OK)
 
 
 # @api_view(['GET'])
@@ -285,13 +289,14 @@ class ZipUtilities:
         if self.zip_file:
             self.zip_file.close()
 
+
 @api_view(['GET'])
 def GetServerDir(request):
     utilities = ZipUtilities()
     data_set = DataSet.objects.filter(task=request.GET.get('task_id'))
     for i in range(len(data_set)):
         the_file_name = data_set[i].step3.split('/')[-1]  # 弹出对话框中默认下载的文件名  2113
-        local_dir = "D:" + "/" + data_set[i].step3.split('/')[-1]      #完整本地路径
+        local_dir = "D:" + "/" + data_set[i].step3.split('/')[-1]  # 完整本地路径
         server_dir = data_set[i].step3  # 服务器路径
         tmp_dl_path = os.path.join(local_dir, server_dir)
         utilities.toZip(tmp_dl_path, the_file_name)
@@ -299,4 +304,3 @@ def GetServerDir(request):
     response = StreamingHttpResponse(utilities.zip_file, content_type='application/zip')
     response['Content-Disposition'] = 'attachment;filename="{0}"'.format("下载.zip")
     return response
-
