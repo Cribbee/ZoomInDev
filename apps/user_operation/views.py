@@ -92,7 +92,7 @@ class PublishViewset(viewsets.ModelViewSet):
         task.save()
 
         # 新建文件夹并拷贝文件夹
-        os.mkdir('/home/ZoomInDataSet/Publish/' + task.id)
+        os.mkdir('/home/ZoomInDataSet/Publish/' + str(task.id))
         shutil.copytree(source_task.task_folder, task.task_folder)
 
         # 遍历source_task 对应的dataset、chart、data_mining各个实体，复制其路径下文件，同时创建记录
@@ -209,7 +209,7 @@ def publish(request):
         clustering_num = 1
         regression_num = 1
         for c in Chart.objects.filter(data_set=i.id, chart_folder1__isnull=False):
-            dict1['data_analyze_' + chart_num] = c.chart_folder2
+            dict1['data_analyze_' + str(chart_num)] = c.chart_folder2
             chart_num = chart_num + 1
         for k in Clustering.objects.filter(data_set=i.id):
             if k.chart_folder1 is not None:
