@@ -7,7 +7,7 @@ import zipstream
 from django.http import StreamingHttpResponse
 from rest_framework import viewsets
 from rest_framework import mixins
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.authentication import SessionAuthentication
@@ -174,7 +174,15 @@ class SummaryViewset(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
+        try:
+            summary = Summary.objects.get(task_id=serializer.data["task_id"])
+        except:
+            self.perform_create(serializer)
+        else:
+            summary.dataAnalyze_Summary = serializer.data["dataAnalyze_Summary"]
+            summary.dataMining_Summary = serializer.data["dataMining_Summary"]
+            summary.total_Summary = serializer.data["total_Summary"]
+            summary.save()
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
@@ -194,6 +202,8 @@ def image2base64(request):
 
 
 @api_view(['POST'])
+@permission_classes((IsAuthenticated, IsOwnerOrReadOnly))
+@authentication_classes((JSONWebTokenAuthentication, SessionAuthentication))
 def publish(request):
     result = {}
     user = UserProfile.objects.get(id=request.user.id)
@@ -209,7 +219,8 @@ def publish(request):
         clustering = []
         regression = []
         for c in Chart.objects.filter(data_set=i.id, chart_folder1__isnull=False):
-            chart.append(c.chart_folder1)
+            if c.chart_folder1 != "":
+                chart.append(c.chart_folder1)
         dict1['data_analyze'] = chart
         for k in Clustering.objects.filter(data_set=i.id):
             if k.chart_folder1 != "":
