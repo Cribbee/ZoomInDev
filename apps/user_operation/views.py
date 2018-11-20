@@ -205,28 +205,33 @@ def publish(request):
     for i in data_set:
         dict1 = {}
         dict1['data_set_name'] = i.title
-        chart_num = 1
-        clustering_num = 1
-        regression_num = 1
+        chart = []
+        clustering = []
+        regression = []
         for c in Chart.objects.filter(data_set=i.id, chart_folder1__isnull=False):
-            dict1['data_analyze_' + str(chart_num)] = c.chart_folder2
-            chart_num = chart_num + 1
+            chart.append(c.chart_folder1)
+        dict1['data_analyze'] = chart
         for k in Clustering.objects.filter(data_set=i.id):
-            if k.chart_folder1 is not None:
-                dict1['data_mining_clustering1_' + str(clustering_num)] = k.chart_folder1
-            if k.chart_folder2 is not None:
-                dict1['data_mining_clustering2_' + str(clustering_num)] = k.chart_folder2
-            if k.chart_folder1 or k.chart_folder2:
-                clustering_num = clustering_num + 1
+            if k.chart_folder1 != "":
+                clustering.append(k.chart_folder1)
+            if k.chart_folder2 != "":
+                clustering.append(k.chart_folder2)
+        dict1['data_mining_clustering'] = clustering
         for s in Regression.objects.filter(data_set=i.id):
-            if s.chart_folder1 is not None:
-                dict1['data_mining_regression1_' + str(regression_num)] = s.chart_folder1
-            if s.chart_folder2 is not None:
-                dict1['data_mining_regression2_' + str(regression_num)] = s.chart_folder2
-            if s.chart_folder1 or s.chart_folder2:
-                regression_num = regression_num + 1
+            if s.chart_folder1 != "":
+                regression.append(s.chart_folder1)
+            if s.chart_folder2 != "":
+                regression.append(s.chart_folder2)
+        dict1['data_mining_regression'] = regression
         list1.append(dict1)
     result['data_set'] = list1
+    summary = Summary.objects.get(task_id=request.data['task_id'])
+    if summary.dataAnalyze_Summary != "":
+        result['dataAnalye_Summary'] = summary.dataAnalyze_Summary
+    if summary.dataMining_Summary != "":
+        result['dataMinging_Summary'] = summary.dataMining_Summary
+    if summary.total_Summary != "":
+        result['total_Summary'] = summary.total_Summary
     return Response(result, status=status.HTTP_200_OK)
 
 
