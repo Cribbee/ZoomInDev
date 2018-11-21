@@ -175,7 +175,7 @@ class SummaryViewset(viewsets.ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         try:
-            summary = Summary.objects.get(task_id=serializer.data["task_id"])
+            summary = Summary.objects.get(task_id=request.data["task"])
         except:
             self.perform_create(serializer)
         else:
