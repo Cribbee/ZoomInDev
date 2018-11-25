@@ -335,7 +335,7 @@ class process():
         countsPerlayer = count // layers
         rank = df[C_name].rank(method='max')
         df[self.newColumnName] = rank // (countsPerlayer + 1) + 1
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer('+layers+','+C_name+')'), self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer('+str(layers)+','+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -355,7 +355,7 @@ class process():
         for i in layer:
             temp.append(layer_value[int(i - 1)])
         df[self.newColumnName] = temp
-        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer_average('+layers+','+C_name+')'), self.newColumnName, '', '', '']
+        df_X[self.newColumnName] = [df[self.newColumnName].dtype, str('Layer_average('+str(layers)+','+C_name+')'), self.newColumnName, '', '', '']
         df.to_csv(self.open_path, index_label=False, index=0)
         df_X.to_csv(self.stepX_path, index_label=False)
 
@@ -388,9 +388,9 @@ class process():
             return("新增列添加成功")
 
     def zoomin_eval(self, function):
-        str = "self."+function
+        s = "self."+function
         try:
-            eval(str)
+            eval(s)
         except:
             return("表达式错误")
         else:
