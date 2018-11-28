@@ -19,7 +19,8 @@ from tasks.models import TaskInfo, DataSet, Chart
 from users.models import UserProfile
 from data_mining.models import Clustering, Regression
 from .serializers import UserTaskSerializer, PublishSerializer, PublishDetailSerializer, SummarySerializer
-from db_tools import transformer
+from db_tools import transformer,dataAnalyze
+
 
 
 class UserTaskViewset(mixins.CreateModelMixin, mixins.ListModelMixin, mixins.RetrieveModelMixin,
@@ -254,3 +255,42 @@ def GetServerDir(request):
         return Response({"message": "下载的文件本地路径成功", "data": Record_dir})
     else:
         return Response({"message": "服务器没有该文件"})
+
+
+@api_view(['POST'])
+def show_chart(request):
+    info = {}
+    summary = Summary.objects.get(id=request.data['summary'])
+
+    data_sets = DataSet.objects.filter(task=summary.task.id)
+
+    chart_sort = summary.task_chart
+    if len(chart_sort) == 0:
+        chart_sort = {}
+    for data_set in data_sets:
+        charts = Chart.objects.filter(data_set=data_set.id).order_by('-updated_time')
+        Clustering_charts = Clustering.objects.filter(data_set=data_set.id).order_by('-updated_time')
+        Regression_charts = Regression.objects.filter(data_set=data_set.id).order_by('-updated_time')
+        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_chart(charts, info, chart_sort)
+        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_Clustering_charts(Clustering_charts, info, chart_sort)
+        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_Regression_charts(Regression_charts, info,chart_sort)
+
+        print(chart_sort)
+        summary.task_chart = chart_sort
+        summary.save()
+
+    return Response(
+        {"message": "该任务下的图表信息", "data": chart_sort, "code": "201"},
+        status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def change_sort(request):
+    summary = Summary.objects.get(id = request.data['summary'])
+    summary.task_chart = request.data['task_chart']
+    summary.save()
+    return Response(
+        {"message": "该任务下的图表信息", "data":summary.id, "code": "201"},
+        status=status.HTTP_200_OK)
+
+
