@@ -61,6 +61,7 @@ class Summary(models.Model):
     task = models.ForeignKey(TaskInfo, models.CASCADE, null=True, verbose_name="任务id", related_name="task_S")
     html_folder = models.CharField(max_length=80, null=True, verbose_name="html地址")
     add_time = models.DateTimeField(null=True, blank=True, default=datetime.now, verbose_name="添加时间")
+    task_chart = models.TextField(verbose_name="任务下图表详情",default="")
 
     class Meta:
         verbose_name = "总结"
