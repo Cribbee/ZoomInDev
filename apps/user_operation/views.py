@@ -322,33 +322,30 @@ def GetServerDir(request):
 @api_view(['POST'])
 def show_chart(request):
     info = {}
-    summary = Summary.objects.get(id=request.data['summary'])
-
+    summary = Summary.objects.get(task=request.data['task'])
     data_sets = DataSet.objects.filter(task=summary.task.id)
 
     chart_sort = summary.task_chart
     if len(chart_sort) == 0:
-        chart_sort = {}
+        info = {}
     for data_set in data_sets:
         charts = Chart.objects.filter(data_set=data_set.id).order_by('-updated_time')
         Clustering_charts = Clustering.objects.filter(data_set=data_set.id).order_by('-updated_time')
         Regression_charts = Regression.objects.filter(data_set=data_set.id).order_by('-updated_time')
-        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_chart(charts, info, chart_sort)
-        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_Clustering_charts(Clustering_charts, info, chart_sort)
-        info, chart_sort = dataAnalyze.chart_sort(chart_sort).show_Regression_charts(Regression_charts, info, chart_sort)
-
-        print(chart_sort)
-        summary.task_chart = chart_sort
+        info = dataAnalyze.chart_sort(chart_sort).show_chart(charts, info)
+        info = dataAnalyze.chart_sort(chart_sort).show_Clustering_charts(Clustering_charts, info)
+        info = dataAnalyze.chart_sort(chart_sort).show_Regression_charts(Regression_charts, info)
+        summary.task_chart = info
         summary.save()
 
     return Response(
-        {"message": "该任务下的图表信息", "data": chart_sort, "code": "201"},
+        {"message": "该任务下的图表信息", "data": info, "code": "201"},
         status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
 def change_sort(request):
-    summary = Summary.objects.get(id = request.data['summary'])
+    summary = Summary.objects.get(task = request.data['task'])
     summary.task_chart = request.data['task_chart']
     summary.save()
     return Response(

@@ -219,7 +219,18 @@ class Process():
         df2 = df
 
         df = self.process_result(df, x_axis, y_axis, chart_method)
-
+        # 排序
+        if sort == 1:
+            if sort_value != "":
+                df = df.sort_values(by=sort_value, ascending=1)
+        elif sort == 0:
+            if sort_value != "":
+                df = df.sort_values(by=sort_value, ascending=0)
+        if filter == "":
+            df = df
+        else:
+            df = self.chart_filter(df, filter)
+        print(df)
         # 如果绘图类型是饼图，则需要假如各数值占比
         if chart_type == 3:
             if x_axis == ['']:
@@ -248,7 +259,7 @@ class Process():
 
                     b = df.index[t].split(",") + a
                     df3[df.index[t]] = b
-                    df = df3
+            df = df3
         #         次轴拼接，并且次轴数值名后加_2nd以便区分
         if secondary_axis == [""]:
             df = df
@@ -280,7 +291,7 @@ class Process():
 
                         b = df.index[t].split(",") + a
                         df3[df.index[t]] = b
-                        df_2nd = df3
+                df_2nd = df3
             secondary_axis_name = []
             for i in secondary_axis:
                 i = i + "_2nd"
@@ -289,17 +300,7 @@ class Process():
 
             df = pd.concat([df, df_2nd], join='outer', axis=1, ignore_index=True, sort=False)
             df.columns = name
-        # 排序
-        if sort == 1:
-            if sort_value != "":
-                df = df.sort_values(by=sort_value, ascending=1)
-        elif sort == 0:
-            if sort_value != "":
-                df = df.sort_values(by=sort_value, ascending=0)
-        if filter == "":
-            df = df
-        else:
-            df = self.chart_filter(df,filter)
+
 
         return df
 
@@ -330,77 +331,74 @@ class chart_sort():
 
 
 
-    def show_chart(self,charts,info,chart_sort):
+    def show_chart(self,charts,info):
         for chart in charts:
             if chart.chart_folder2 !="":
-                info[chart.chart_folder2] = {}
-                info[chart.chart_folder2]["title"] = chart.title
-                info[chart.chart_folder2]['desc'] = chart.desc
-                info[chart.chart_folder2]['chart_folder'] = chart.chart_folder2
-                info[chart.chart_folder2]['data_set'] = chart.data_set
-                info[chart.chart_folder2]['updated_time'] = chart.updated_time
-                if chart.chart_folder2 not in chart_sort:
-                    chart_sort[chart.chart_folder2] = info[chart.chart_folder2]
-        return info,chart_sort
+                if chart.chart_folder2 not in info:
+                    info[chart.chart_folder2] = {}
+                    info[chart.chart_folder2]["title"] = chart.title
+                    info[chart.chart_folder2]['desc'] = chart.desc
+                    info[chart.chart_folder2]['chart_folder'] = chart.chart_folder2
+                    info[chart.chart_folder2]['data_set'] = chart.data_set
+                    info[chart.chart_folder2]['updated_time'] = chart.updated_time
+        return info
 
-    def show_Clustering_charts(self,Clustering_charts,info,chart_sort):
+    def show_Clustering_charts(self,Clustering_charts,info):
         for Cluster_chart in Clustering_charts:
             if Cluster_chart.chart_folder2!="":
-                info[Cluster_chart.chart_folder2] = {}
-                info[Cluster_chart.chart_folder2]["title"] = Cluster_chart.title
-                info[Cluster_chart.chart_folder2]['desc'] = Cluster_chart.desc
-                info[Cluster_chart.chart_folder2]['chart_folder'] = Cluster_chart.chart_folder2
-                info[Cluster_chart.chart_folder2]['data_set'] = Cluster_chart.data_set
-                info[Cluster_chart.chart_folder2]['updated_time'] = Cluster_chart.updated_time
-                if Cluster_chart.chart_folder2 not in chart_sort:
-                    chart_sort[Cluster_chart.chart_folder2] = info[Cluster_chart.chart_folder2]
+                if Cluster_chart.chart_folder2 not in info:
+                    info[Cluster_chart.chart_folder2] = {}
+                    info[Cluster_chart.chart_folder2]["title"] = Cluster_chart.title
+                    info[Cluster_chart.chart_folder2]['desc'] = Cluster_chart.desc
+                    info[Cluster_chart.chart_folder2]['chart_folder'] = Cluster_chart.chart_folder2
+                    info[Cluster_chart.chart_folder2]['data_set'] = Cluster_chart.data_set
+                    info[Cluster_chart.chart_folder2]['updated_time'] = Cluster_chart.updated_time
 
             if Cluster_chart.chart_folder1!="":
-                info[Cluster_chart.chart_folder1] = {}
-                info[Cluster_chart.chart_folder1]["title"] = Cluster_chart.title
-                info[Cluster_chart.chart_folder1]['desc'] = Cluster_chart.desc
-                info[Cluster_chart.chart_folder1]['chart_folder'] = Cluster_chart.chart_folder1
-                info[Cluster_chart.chart_folder1]['data_set'] = Cluster_chart.data_set
-                info[Cluster_chart.chart_folder1]['updated_time'] = Cluster_chart.updated_time
-                if Cluster_chart.chart_folder1 not in chart_sort:
-                    chart_sort[Cluster_chart.chart_folder1] = info[Cluster_chart.chart_folder1]
-        return info ,chart_sort
+                if Cluster_chart.chart_folder1 not in info:
 
-    def show_Regression_charts(self,Regression_charts,info,chart_sort):
+                    info[Cluster_chart.chart_folder1] = {}
+                    info[Cluster_chart.chart_folder1]["title"] = Cluster_chart.title
+                    info[Cluster_chart.chart_folder1]['desc'] = Cluster_chart.desc
+                    info[Cluster_chart.chart_folder1]['chart_folder'] = Cluster_chart.chart_folder1
+                    info[Cluster_chart.chart_folder1]['data_set'] = Cluster_chart.data_set
+                    info[Cluster_chart.chart_folder1]['updated_time'] = Cluster_chart.updated_time
+        return info
+
+    def show_Regression_charts(self,Regression_charts,info):
         for Regress_chart in Regression_charts:
             if Regress_chart.chart_folder3!="":
-                info[Regress_chart.chart_folder3] = {}
-                info[Regress_chart.chart_folder3]["title"] = Regress_chart.title
-                info[Regress_chart.chart_folder3]['desc'] = Regress_chart.desc
-                info[Regress_chart.chart_folder3]['chart_folder'] = Regress_chart.chart_folder3
-                info[Regress_chart.chart_folder3]['data_set'] = Regress_chart.data_set
-                info[Regress_chart.chart_folder3]['updated_time'] = Regress_chart.updated_time
-                if Regress_chart.chart_folder3 not in chart_sort:
-                    chart_sort[Regress_chart.chart_folder3] = info[Regress_chart.chart_folder3]
+                if Regress_chart.chart_folder3 not in info:
 
+                    info[Regress_chart.chart_folder3] = {}
+                    info[Regress_chart.chart_folder3]["title"] = Regress_chart.title
+                    info[Regress_chart.chart_folder3]['desc'] = Regress_chart.desc
+                    info[Regress_chart.chart_folder3]['chart_folder'] = Regress_chart.chart_folder3
+                    info[Regress_chart.chart_folder3]['data_set'] = Regress_chart.data_set
+                    info[Regress_chart.chart_folder3]['updated_time'] = Regress_chart.updated_time
 
             if Regress_chart.chart_folder2!="":
-                info[Regress_chart.chart_folder2] = {}
-                info[Regress_chart.chart_folder2]["title"] = Regress_chart.title
-                info[Regress_chart.chart_folder2]['desc'] = Regress_chart.desc
-                info[Regress_chart.chart_folder2]['chart_folder'] = Regress_chart.chart_folder2
-                info[Regress_chart.chart_folder2]['data_set'] = Regress_chart.data_set
-                info[Regress_chart.chart_folder2]['updated_time'] = Regress_chart.updated_time
-                if Regress_chart.chart_folder2 not in chart_sort:
-                    chart_sort[Regress_chart.chart_folder2] = info[Regress_chart.chart_folder2]
+                if Regress_chart.chart_folder2 not in info:
+
+                    info[Regress_chart.chart_folder2] = {}
+                    info[Regress_chart.chart_folder2]["title"] = Regress_chart.title
+                    info[Regress_chart.chart_folder2]['desc'] = Regress_chart.desc
+                    info[Regress_chart.chart_folder2]['chart_folder'] = Regress_chart.chart_folder2
+                    info[Regress_chart.chart_folder2]['data_set'] = Regress_chart.data_set
+                    info[Regress_chart.chart_folder2]['updated_time'] = Regress_chart.updated_time
 
 
             if Regress_chart.chart_folder1!="":
-                info[Regress_chart.chart_folder1] = {}
-                info[Regress_chart.chart_folder1]["title"] = Regress_chart.title
-                info[Regress_chart.chart_folder1]['desc'] = Regress_chart.desc
-                info[Regress_chart.chart_folder1]['chart_folder'] = Regress_chart.chart_folder1
-                info[Regress_chart.chart_folder1]['data_set'] = Regress_chart.data_set
-                info[Regress_chart.chart_folder1]['updated_time'] = Regress_chart.updated_time
-                if Regress_chart.chart_folder1 not in chart_sort:
-                    chart_sort[Regress_chart.chart_folder1] = info[Regress_chart.chart_folder1]
+                if Regress_chart.chart_folder1 not in info:
 
-            return info, chart_sort
+                    info[Regress_chart.chart_folder1] = {}
+                    info[Regress_chart.chart_folder1]["title"] = Regress_chart.title
+                    info[Regress_chart.chart_folder1]['desc'] = Regress_chart.desc
+                    info[Regress_chart.chart_folder1]['chart_folder'] = Regress_chart.chart_folder1
+                    info[Regress_chart.chart_folder1]['data_set'] = Regress_chart.data_set
+                    info[Regress_chart.chart_folder1]['updated_time'] = Regress_chart.updated_time
+
+        return info
 
 
 
