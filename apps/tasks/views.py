@@ -601,7 +601,11 @@ def analysis_result(request):
     chart.chart_type_2nd = request.data['chart_type_2nd']
     chart.updated_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
     chart.save()
-    return Response({"message": "获取图表处理数据", "data": df.to_json(orient='columns', force_ascii=False, ),
+    if chart.chart_type ==4:
+        return Response({"message": "获取图表处理数据", "data": df,
+                         "code": "200"}, status=status.HTTP_200_OK)
+    else:
+        return Response({"message": "获取图表处理数据", "data": df.to_json(orient='columns', force_ascii=False, ),
                      "code": "200"}, status=status.HTTP_200_OK)
 
 
