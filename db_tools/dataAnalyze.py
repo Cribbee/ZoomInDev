@@ -230,7 +230,6 @@ class Process():
             df = df
         else:
             df = self.chart_filter(df, filter)
-        print(df)
         # 如果绘图类型是饼图，则需要假如各数值占比
         if chart_type == 3:
             if x_axis == ['']:
